@@ -8,3 +8,6 @@
 
 
 #define SERVER_URL @"http://198.1.74.28/~spaniac1/casual/"
+
+#define ALERT_TITLE @"Casual"
+#define ALERT_OK @"OK"

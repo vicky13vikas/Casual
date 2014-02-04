@@ -9,18 +9,27 @@
 #import "SignUpViewController.h"
 #import "AFHTTPClient.h"
 #import "UIViewControllerCategories.h"
+#import <FacebookSDK/FacebookSDK.h>
+
 
 
 @interface SignUpViewController () <UITextFieldDelegate>
+{
+    BOOL isFacebookLoggedin;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *tfFirstName;
 @property (weak, nonatomic) IBOutlet UITextField *tfLastName;
 @property (weak, nonatomic) IBOutlet UITextField *tfEmail;
 @property (weak, nonatomic) IBOutlet UITextField *tfCreatePassword;
 @property (weak, nonatomic) IBOutlet UITextField *tfConfirmPassord;
+@property (weak, nonatomic) IBOutlet UIButton *btnFaceBook;
+@property (weak, nonatomic) IBOutlet UIButton *btnTwitter;
 
 - (IBAction)btnSignupClicked:(id)sender;
 - (IBAction)singleTap:(id)sender;
+- (IBAction)btnfaceBookTapped:(id)sender;
+- (IBAction)btnTwitterTapped:(id)sender;
 
 
 @end
@@ -206,6 +215,17 @@
     [_tfEmail resignFirstResponder];
 }
 
+- (IBAction)btnfaceBookTapped:(id)sender
+{
+    [self CreateNewSession];
+    [self OpenSession];
+}
+
+- (IBAction)btnTwitterTapped:(id)sender
+{
+    
+}
+
 #pragma -mark UItextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -230,5 +250,70 @@
 
     return NO;
 }
+
+
+#pragma -mark FaceBook
+
+-(void)CreateNewSession
+{
+    FBSession *activeSession = [[FBSession alloc] init];
+    [FBSession setActiveSession: activeSession];
+}
+
+-(void)OpenSession
+{
+    NSArray *permissions = [[NSArray alloc] initWithObjects:
+                            @"email",
+                            nil];
+    // Attempt to open the session. If the session is not open, show the user the Facebook login UX
+    [FBSession openActiveSessionWithReadPermissions:permissions allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+        
+        // Did something go wrong during login? I.e. did the user cancel?
+        if(!error)
+        {
+            if (status == FBSessionStateClosedLoginFailed || status == FBSessionStateClosed || status == FBSessionStateCreatedOpening) {
+                isFacebookLoggedin = false;
+            }
+            else {
+                isFacebookLoggedin = true;
+                [self fetchUserDetails];
+            }
+        }
+        else
+        {
+            [self faceBookErrorMessage];
+        }
+        
+        
+    }];
+}
+
+-(void)fetchUserDetails
+{
+    [[FBRequest requestForMe]
+     startWithCompletionHandler:
+     ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *result, NSError *error)
+     {
+         // Did everything come back okay with no errors?
+         if (!error && result) {
+             _tfFirstName.text = result.first_name;
+             _tfLastName.text = result.last_name;
+             _tfEmail.text = [result objectForKey:@"email"];
+             _btnFaceBook.enabled = NO;
+         }
+         else {
+             [self faceBookErrorMessage];
+         }
+     }];
+    
+}
+
+-(void)faceBookErrorMessage
+{
+    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:ALERT_TITLE message:@"Error Connecting To Facebook" delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
+    [errorAlert show];
+    
+}
+
 
 @end

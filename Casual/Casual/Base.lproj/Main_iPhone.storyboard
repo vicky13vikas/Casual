@@ -187,6 +187,9 @@
                                 <state key="normal" image="BtnFacebook.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnfaceBookTapped:" destination="h6v-Vv-3mx" eventType="touchUpInside" id="TEF-VY-oa4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TK-sM-w6k">
                                 <rect key="frame" x="204" y="381" width="50" height="50"/>
@@ -194,6 +197,9 @@
                                 <state key="normal" image="BtnTwitter.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnTwitterTapped:" destination="h6v-Vv-3mx" eventType="touchUpInside" id="JZn-LL-Zwi"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4PC-Km-g7V">
                                 <rect key="frame" x="134" y="468" width="53" height="30"/>
@@ -212,6 +218,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sign up" id="cHY-6w-fiq"/>
                     <connections>
+                        <outlet property="btnFaceBook" destination="3N2-RM-lIX" id="FG6-Mc-27V"/>
+                        <outlet property="btnTwitter" destination="9TK-sM-w6k" id="yGK-Uk-e4J"/>
                         <outlet property="tfConfirmPassord" destination="Lp0-zR-XFM" id="JAq-Xk-E0K"/>
                         <outlet property="tfCreatePassword" destination="S77-jU-3Tw" id="BI4-wh-XX1"/>
                         <outlet property="tfEmail" destination="vDn-20-gGe" id="2ZB-40-M1j"/>

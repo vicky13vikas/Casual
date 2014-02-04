@@ -25,6 +25,7 @@
 		4E9D206A18A1678A0019E86B /* StringCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D206518A1678A0019E86B /* StringCategories.m */; };
 		4E9D206B18A1678A0019E86B /* UIImageCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D206718A1678A0019E86B /* UIImageCategories.m */; };
 		4E9D206C18A1678A0019E86B /* UIViewControllerCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D206918A1678A0019E86B /* UIViewControllerCategories.m */; };
+		4E9D206E18A16F200019E86B /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9D206D18A16F200019E86B /* FacebookSDK.framework */; };
 		4EC2B25718A1439A0045291A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC2B25618A1439A0045291A /* Foundation.framework */; };
 		4EC2B25918A1439A0045291A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC2B25818A1439A0045291A /* CoreGraphics.framework */; };
 		4EC2B25B18A1439A0045291A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC2B25A18A1439A0045291A /* UIKit.framework */; };
@@ -84,6 +85,7 @@
 		4E9D206718A1678A0019E86B /* UIImageCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageCategories.m; sourceTree = "<group>"; };
 		4E9D206818A1678A0019E86B /* UIViewControllerCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerCategories.h; sourceTree = "<group>"; };
 		4E9D206918A1678A0019E86B /* UIViewControllerCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerCategories.m; sourceTree = "<group>"; };
+		4E9D206D18A16F200019E86B /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Casual/FrameWorks/FacebookSDK.framework; sourceTree = "<group>"; };
 		4EC2B25318A1439A0045291A /* Casual.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Casual.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EC2B25618A1439A0045291A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4EC2B25818A1439A0045291A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -132,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EC2B25918A1439A0045291A /* CoreGraphics.framework in Frameworks */,
+				4E9D206E18A16F200019E86B /* FacebookSDK.framework in Frameworks */,
 				4EC2B25B18A1439A0045291A /* UIKit.framework in Frameworks */,
 				4EC2B25718A1439A0045291A /* Foundation.framework in Frameworks */,
 			);
@@ -218,6 +221,7 @@
 		4EC2B25518A1439A0045291A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E9D206D18A16F200019E86B /* FacebookSDK.framework */,
 				4EC2B25618A1439A0045291A /* Foundation.framework */,
 				4EC2B25818A1439A0045291A /* CoreGraphics.framework */,
 				4EC2B25A18A1439A0045291A /* UIKit.framework */,
@@ -572,6 +576,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/Development/Development/FreelancerDropBox/Harshad/Github/Casual/Casual/Casual/FrameWorks,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Casual/Casual-Prefix.pch";
 				INFOPLIST_FILE = "Casual/Casual-Info.plist";
@@ -589,6 +597,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/Development/Development/FreelancerDropBox/Harshad/Github/Casual/Casual/Casual/FrameWorks,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Casual/Casual-Prefix.pch";
 				INFOPLIST_FILE = "Casual/Casual-Info.plist";
