@@ -41,7 +41,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)btnLoginTapped:(id)sender {
+- (IBAction)btnLoginTapped:(id)sender
+{
+    [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:IS_LOGGED_IN];
+    [self loginDoneSuccessfully];
 }
 
 #pragma -mark Server Requests

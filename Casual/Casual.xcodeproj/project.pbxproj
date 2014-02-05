@@ -39,6 +39,19 @@
 		4E9D206A18A1678A0019E86B /* StringCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D206518A1678A0019E86B /* StringCategories.m */; };
 		4E9D206B18A1678A0019E86B /* UIImageCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D206718A1678A0019E86B /* UIImageCategories.m */; };
 		4E9D206C18A1678A0019E86B /* UIViewControllerCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D206918A1678A0019E86B /* UIViewControllerCategories.m */; };
+		4E9FBA3418A28B0C00395558 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FBA3318A28B0C00395558 /* RootViewController.m */; };
+		4E9FBA3A18A2AF2B00395558 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9FBA3918A2AF2B00395558 /* HomeViewController.m */; };
+		4E9FBA4018A2B31100395558 /* BtnActivites.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9FBA3C18A2B31100395558 /* BtnActivites.png */; };
+		4E9FBA4118A2B31100395558 /* BtnHistory.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9FBA3D18A2B31100395558 /* BtnHistory.png */; };
+		4E9FBA4218A2B31100395558 /* BtnHome.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9FBA3E18A2B31100395558 /* BtnHome.png */; };
+		4E9FBA4318A2B31100395558 /* BtnScan.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9FBA3F18A2B31100395558 /* BtnScan.png */; };
+		4E9FBA4518A2B80400395558 /* BtnHome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9FBA4418A2B80400395558 /* BtnHome@2x.png */; };
+		4E9FBA4918A2B8A200395558 /* BtnActivites@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9FBA4618A2B8A200395558 /* BtnActivites@2x.png */; };
+		4E9FBA4A18A2B8A200395558 /* BtnHistory@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9FBA4718A2B8A200395558 /* BtnHistory@2x.png */; };
+		4E9FBA4B18A2B8A200395558 /* BtnScan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9FBA4818A2B8A200395558 /* BtnScan@2x.png */; };
+		4E9FBA4D18A2B99700395558 /* TabBarBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9FBA4C18A2B99700395558 /* TabBarBG@2x.png */; };
+		4E9FBA5018A2BD0B00395558 /* CenterImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9FBA4E18A2BD0B00395558 /* CenterImage.png */; };
+		4E9FBA5118A2BD0B00395558 /* TreeImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9FBA4F18A2BD0B00395558 /* TreeImage.png */; };
 		4EC2B25718A1439A0045291A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC2B25618A1439A0045291A /* Foundation.framework */; };
 		4EC2B25918A1439A0045291A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC2B25818A1439A0045291A /* CoreGraphics.framework */; };
 		4EC2B25B18A1439A0045291A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC2B25A18A1439A0045291A /* UIKit.framework */; };
@@ -126,6 +139,21 @@
 		4E9D206718A1678A0019E86B /* UIImageCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageCategories.m; sourceTree = "<group>"; };
 		4E9D206818A1678A0019E86B /* UIViewControllerCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerCategories.h; sourceTree = "<group>"; };
 		4E9D206918A1678A0019E86B /* UIViewControllerCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerCategories.m; sourceTree = "<group>"; };
+		4E9FBA3218A28B0C00395558 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = Classes/RootViewController.h; sourceTree = "<group>"; };
+		4E9FBA3318A28B0C00395558 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = Classes/RootViewController.m; sourceTree = "<group>"; };
+		4E9FBA3818A2AF2B00395558 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Classes/HomeViewController.h; sourceTree = "<group>"; };
+		4E9FBA3918A2AF2B00395558 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Classes/HomeViewController.m; sourceTree = "<group>"; };
+		4E9FBA3C18A2B31100395558 /* BtnActivites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BtnActivites.png; sourceTree = "<group>"; };
+		4E9FBA3D18A2B31100395558 /* BtnHistory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BtnHistory.png; sourceTree = "<group>"; };
+		4E9FBA3E18A2B31100395558 /* BtnHome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BtnHome.png; sourceTree = "<group>"; };
+		4E9FBA3F18A2B31100395558 /* BtnScan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BtnScan.png; sourceTree = "<group>"; };
+		4E9FBA4418A2B80400395558 /* BtnHome@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BtnHome@2x.png"; sourceTree = "<group>"; };
+		4E9FBA4618A2B8A200395558 /* BtnActivites@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BtnActivites@2x.png"; sourceTree = "<group>"; };
+		4E9FBA4718A2B8A200395558 /* BtnHistory@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BtnHistory@2x.png"; sourceTree = "<group>"; };
+		4E9FBA4818A2B8A200395558 /* BtnScan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BtnScan@2x.png"; sourceTree = "<group>"; };
+		4E9FBA4C18A2B99700395558 /* TabBarBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarBG@2x.png"; sourceTree = "<group>"; };
+		4E9FBA4E18A2BD0B00395558 /* CenterImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CenterImage.png; sourceTree = "<group>"; };
+		4E9FBA4F18A2BD0B00395558 /* TreeImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TreeImage.png; sourceTree = "<group>"; };
 		4EC2B25318A1439A0045291A /* Casual.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Casual.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EC2B25618A1439A0045291A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4EC2B25818A1439A0045291A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -236,6 +264,7 @@
 		4E9D204218A154020019E86B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4E9FBA3B18A2B31100395558 /* HomeScreen */,
 				4E9D204918A15B1C0019E86B /* BG_small.png */,
 				4E9D204A18A15B1C0019E86B /* BtnFacebook.png */,
 				4E9D204B18A15B1C0019E86B /* BtnTwitter.png */,
@@ -275,6 +304,24 @@
 				4E9D206918A1678A0019E86B /* UIViewControllerCategories.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		4E9FBA3B18A2B31100395558 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4E9FBA4E18A2BD0B00395558 /* CenterImage.png */,
+				4E9FBA4F18A2BD0B00395558 /* TreeImage.png */,
+				4E9FBA4C18A2B99700395558 /* TabBarBG@2x.png */,
+				4E9FBA4618A2B8A200395558 /* BtnActivites@2x.png */,
+				4E9FBA4718A2B8A200395558 /* BtnHistory@2x.png */,
+				4E9FBA4818A2B8A200395558 /* BtnScan@2x.png */,
+				4E9FBA4418A2B80400395558 /* BtnHome@2x.png */,
+				4E9FBA3C18A2B31100395558 /* BtnActivites.png */,
+				4E9FBA3D18A2B31100395558 /* BtnHistory.png */,
+				4E9FBA3E18A2B31100395558 /* BtnHome.png */,
+				4E9FBA3F18A2B31100395558 /* BtnScan.png */,
+			);
+			path = HomeScreen;
 			sourceTree = "<group>";
 		};
 		4EC2B24A18A1439A0045291A = {
@@ -322,6 +369,10 @@
 				4EC2B28F18A145510045291A /* SignUpViewController.m */,
 				09FA8A3718A23A2E00C05CAA /* LoginViewController.h */,
 				09FA8A3818A23A2E00C05CAA /* LoginViewController.m */,
+				4E9FBA3218A28B0C00395558 /* RootViewController.h */,
+				4E9FBA3318A28B0C00395558 /* RootViewController.m */,
+				4E9FBA3818A2AF2B00395558 /* HomeViewController.h */,
+				4E9FBA3918A2AF2B00395558 /* HomeViewController.m */,
 				4EC2B29118A145B40045291A /* Constants.h */,
 				4EC2B27118A1439A0045291A /* Images.xcassets */,
 				4EC2B25D18A1439A0045291A /* Supporting Files */,
@@ -477,19 +528,30 @@
 				4EC2B26D18A1439A0045291A /* Main_iPad.storyboard in Resources */,
 				4E9D205118A15B1C0019E86B /* OR.png in Resources */,
 				4EC2B27218A1439A0045291A /* Images.xcassets in Resources */,
+				4E9FBA4318A2B31100395558 /* BtnScan.png in Resources */,
 				4EC2B26A18A1439A0045291A /* Main_iPhone.storyboard in Resources */,
 				4E9D204818A159930019E86B /* Background.png in Resources */,
 				4E9D205418A15C330019E86B /* TopBar.png in Resources */,
 				4E9D205618A15DC90019E86B /* BtnSignUp.png in Resources */,
+				4E9FBA5118A2BD0B00395558 /* TreeImage.png in Resources */,
+				4E9FBA4D18A2B99700395558 /* TabBarBG@2x.png in Resources */,
 				4E9D204618A158350019E86B /* Seperator.png in Resources */,
+				4E9FBA4018A2B31100395558 /* BtnActivites.png in Resources */,
+				4E9FBA4518A2B80400395558 /* BtnHome@2x.png in Resources */,
 				4E9D205C18A15F7D0019E86B /* Logo.png in Resources */,
 				4E9D205E18A15FEA0019E86B /* leaf.png in Resources */,
 				4E9D205818A15E730019E86B /* Bg_mainScreen.png in Resources */,
+				4E9FBA4918A2B8A200395558 /* BtnActivites@2x.png in Resources */,
 				4E9D205218A15B1C0019E86B /* txt_OR_Join_Casual.png in Resources */,
 				4E9D205A18A15EE40019E86B /* BtnLogin.png in Resources */,
+				4E9FBA4A18A2B8A200395558 /* BtnHistory@2x.png in Resources */,
 				4EC2B26118A1439A0045291A /* InfoPlist.strings in Resources */,
 				4E9D204F18A15B1C0019E86B /* BtnFacebook.png in Resources */,
 				4E9D204418A154020019E86B /* TextFieldsBG.png in Resources */,
+				4E9FBA4118A2B31100395558 /* BtnHistory.png in Resources */,
+				4E9FBA4B18A2B8A200395558 /* BtnScan@2x.png in Resources */,
+				4E9FBA5018A2BD0B00395558 /* CenterImage.png in Resources */,
+				4E9FBA4218A2B31100395558 /* BtnHome.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,7 +591,9 @@
 				09FA89E318A2157C00C05CAA /* STTwitterAPI.m in Sources */,
 				4EC2B2E518A147030045291A /* AFNetworkActivityIndicatorManager.m in Sources */,
 				4E9D206218A167350019E86B /* MBProgressHUD.m in Sources */,
+				4E9FBA3418A28B0C00395558 /* RootViewController.m in Sources */,
 				09FA89E518A2157C00C05CAA /* STTwitterHTML.m in Sources */,
+				4E9FBA3A18A2AF2B00395558 /* HomeViewController.m in Sources */,
 				4EC2B2E218A147030045291A /* AFHTTPRequestOperation.m in Sources */,
 				09FA89E618A2157C00C05CAA /* STTwitterOAuth.m in Sources */,
 				4EC2B26318A1439A0045291A /* main.m in Sources */,

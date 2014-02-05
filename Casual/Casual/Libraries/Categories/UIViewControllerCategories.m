@@ -47,4 +47,58 @@
     }
 }
 
+- (void)hideTabBar:(UITabBarController *) tabbarcontroller
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.1];
+    
+    for(UIView *view in tabbarcontroller.view.subviews)
+    {
+        if([view isKindOfClass:[UITabBar class]])
+        {
+            [view setFrame:CGRectMake(view.frame.origin.x, 568, view.frame.size.width, view.frame.size.height)];
+        }
+        else
+        {
+            [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, 568)];
+        }
+    }
+    
+    [UIView commitAnimations];
+}
+
+- (void)showTabBar:(UITabBarController *) tabbarcontroller
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.5];
+    for(UIView *view in tabbarcontroller.view.subviews)
+    {
+        NSLog(@"%@", view);
+        
+        if([view isKindOfClass:[UITabBar class]])
+        {
+            [view setFrame:CGRectMake(view.frame.origin.x, 431, view.frame.size.width, view.frame.size.height)];
+            
+        }
+        else
+        {
+            [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, 431)];
+        }
+    }
+    
+    [UIView commitAnimations];
+}
+
+- (void)logout
+{
+    UINavigationController* nc = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
+    [self.view.window setRootViewController:nc];
+}
+
+-(void)loginDoneSuccessfully
+{
+    UITabBarController *tabBarCont = [self.storyboard instantiateViewControllerWithIdentifier:@"MainTabbarController"];
+    [self.view.window setRootViewController:tabBarCont];
+}
+
 @end

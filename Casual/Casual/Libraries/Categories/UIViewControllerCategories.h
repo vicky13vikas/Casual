@@ -15,4 +15,12 @@
 -(void)hideLoadingScreen;
 
 -(void)showAlertWithMessage: (NSString* )message andTitle : (NSString*)alertTitle;
+
+- (void)hideTabBar:(UITabBarController *) tabbarcontroller;
+- (void)showTabBar:(UITabBarController *) tabbarcontroller;
+
+
+-(void)logout;
+-(void)loginDoneSuccessfully;
+
 @end

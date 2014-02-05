@@ -14,3 +14,5 @@
 
 #define TWITTER_CONSUMER_KEY @"PdLBPYUXlhQpt4AguShUIw"
 #define TWITTER_SECRET_KEY @"drdhGuKSingTbsDLtYpob4m5b5dn1abf9XXYyZKQzk"
+
+#define IS_LOGGED_IN @"isLoggedIn"
