@@ -20,6 +20,7 @@
 		09FA89E918A2157C00C05CAA /* JSONSyntaxHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FA89DD18A2157C00C05CAA /* JSONSyntaxHighlight.m */; };
 		09FA89EA18A2157C00C05CAA /* STHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FA89DF18A2157C00C05CAA /* STHTTPRequest.m */; };
 		09FA89EC18A215FF00C05CAA /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FA89EB18A215FF00C05CAA /* FacebookSDK.framework */; };
+		09FA8A3918A23A2E00C05CAA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FA8A3818A23A2E00C05CAA /* LoginViewController.m */; };
 		4E9D204418A154020019E86B /* TextFieldsBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204318A154020019E86B /* TextFieldsBG.png */; };
 		4E9D204618A158350019E86B /* Seperator.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204518A158350019E86B /* Seperator.png */; };
 		4E9D204818A159930019E86B /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204718A159930019E86B /* Background.png */; };
@@ -101,6 +102,8 @@
 		09FA89DE18A2157C00C05CAA /* STHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STHTTPRequest.h; sourceTree = "<group>"; };
 		09FA89DF18A2157C00C05CAA /* STHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STHTTPRequest.m; sourceTree = "<group>"; };
 		09FA89EB18A215FF00C05CAA /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Casual/FrameWorks/FacebookSDK.framework; sourceTree = "<group>"; };
+		09FA8A3718A23A2E00C05CAA /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Classes/LoginViewController.h; sourceTree = "<group>"; };
+		09FA8A3818A23A2E00C05CAA /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Classes/LoginViewController.m; sourceTree = "<group>"; };
 		4E9D204318A154020019E86B /* TextFieldsBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextFieldsBG.png; sourceTree = "<group>"; };
 		4E9D204518A158350019E86B /* Seperator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Seperator.png; sourceTree = "<group>"; };
 		4E9D204718A159930019E86B /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
@@ -317,6 +320,8 @@
 				4EC2B26B18A1439A0045291A /* Main_iPad.storyboard */,
 				4EC2B28E18A145510045291A /* SignUpViewController.h */,
 				4EC2B28F18A145510045291A /* SignUpViewController.m */,
+				09FA8A3718A23A2E00C05CAA /* LoginViewController.h */,
+				09FA8A3818A23A2E00C05CAA /* LoginViewController.m */,
 				4EC2B29118A145B40045291A /* Constants.h */,
 				4EC2B27118A1439A0045291A /* Images.xcassets */,
 				4EC2B25D18A1439A0045291A /* Supporting Files */,
@@ -507,6 +512,7 @@
 				09FA89E818A2157C00C05CAA /* BAVPlistNode.m in Sources */,
 				4EC2B2E318A147030045291A /* AFImageRequestOperation.m in Sources */,
 				4EC2B26718A1439A0045291A /* AppDelegate.m in Sources */,
+				09FA8A3918A23A2E00C05CAA /* LoginViewController.m in Sources */,
 				4EC2B2E618A147030045291A /* AFPropertyListRequestOperation.m in Sources */,
 				09FA89E418A2157C00C05CAA /* STTwitterAppOnly.m in Sources */,
 				4EC2B29018A145510045291A /* SignUpViewController.m in Sources */,
@@ -664,6 +670,7 @@
 		4EC2B28918A1439A0045291A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -674,11 +681,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Casual/Casual-Prefix.pch";
 				INFOPLIST_FILE = "Casual/Casual-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Volumes/Development/Development/FreelancerDropBox/Harshad/Casual/Casual/Libraries/TestFlightSDK2,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -686,6 +695,7 @@
 		4EC2B28A18A1439A0045291A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -696,11 +706,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Casual/Casual-Prefix.pch";
 				INFOPLIST_FILE = "Casual/Casual-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Volumes/Development/Development/FreelancerDropBox/Harshad/Casual/Casual/Libraries/TestFlightSDK2,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
