@@ -10,4 +10,6 @@
 
 @interface SignUpViewController : UIViewController
 
+- (void)setOAuthToken:(NSString *)token oauthVerifier:(NSString *)verfier;
+
 @end

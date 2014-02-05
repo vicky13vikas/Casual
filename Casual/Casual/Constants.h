@@ -11,3 +11,6 @@
 
 #define ALERT_TITLE @"Casual"
 #define ALERT_OK @"OK"
+
+#define TWITTER_CONSUMER_KEY @"PdLBPYUXlhQpt4AguShUIw"
+#define TWITTER_SECRET_KEY @"drdhGuKSingTbsDLtYpob4m5b5dn1abf9XXYyZKQzk"

@@ -10,6 +10,8 @@
 #import "AFHTTPClient.h"
 #import "UIViewControllerCategories.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <Twitter/Twitter.h>
+#import "STTwitter.h"
 
 
 
@@ -17,6 +19,8 @@
 {
     BOOL isFacebookLoggedin;
 }
+
+@property (nonatomic, strong) STTwitterAPI *twitter;
 
 @property (weak, nonatomic) IBOutlet UITextField *tfFirstName;
 @property (weak, nonatomic) IBOutlet UITextField *tfLastName;
@@ -223,7 +227,18 @@
 
 - (IBAction)btnTwitterTapped:(id)sender
 {
+  self.twitter = [STTwitterAPI twitterAPIOSWithFirstAccount];
+  
+  [self loginInSafariAction];
+  
+/*  [_twitter verifyCredentialsWithSuccessBlock:^(NSString *username) {
+    NSLog(@"%@", username);
     
+  } errorBlock:^(NSError *error) {
+    NSLog(@"%@", error);
+
+  }];
+ */
 }
 
 #pragma -mark UItextFieldDelegate
@@ -314,6 +329,38 @@
     [errorAlert show];
     
 }
+
+#pragma mark - Twitter
+
+- (void)setOAuthToken:(NSString *)token oauthVerifier:(NSString *)verifier {
+  
+  [_twitter postAccessTokenRequestWithPIN:verifier successBlock:^(NSString *oauthToken, NSString *oauthTokenSecret, NSString *userID, NSString *screenName) {
+    NSLog(@"-- screenName: %@", screenName);
+    
+    
+  } errorBlock:^(NSError *error) {
+    
+    NSLog(@"-- %@", [error localizedDescription]);
+  }];
+}
+
+- (void)loginInSafariAction
+{
+  self.twitter = [STTwitterAPI twitterAPIWithOAuthConsumerKey:TWITTER_CONSUMER_KEY
+                                               consumerSecret:TWITTER_SECRET_KEY];
+  
+  [_twitter postTokenRequest:^(NSURL *url, NSString *oauthToken) {
+    NSLog(@"-- url: %@", url);
+    NSLog(@"-- oauthToken: %@", oauthToken);
+    
+    [[UIApplication sharedApplication] openURL:url];
+    
+  } oauthCallback:@"myapp://twitter_access_tokens/"
+                  errorBlock:^(NSError *error) {
+                    NSLog(@"-- error: %@", error);
+                  }];
+}
+
 
 
 @end
