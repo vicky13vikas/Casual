@@ -47,6 +47,16 @@
     }
 }
 
+-(void)showAlertWithMessage: (NSString* )message andTitle : (NSString*)alertTitle
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertTitle
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
 - (void)hideTabBar:(UITabBarController *) tabbarcontroller
 {
     [UIView beginAnimations:nil context:NULL];

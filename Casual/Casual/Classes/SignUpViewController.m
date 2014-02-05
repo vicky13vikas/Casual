@@ -12,15 +12,18 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <Twitter/Twitter.h>
 #import "STTwitter.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
 
 
-@interface SignUpViewController () <UITextFieldDelegate>
+@interface SignUpViewController () <UITextFieldDelegate, ZXCaptureDelegate>
 {
     BOOL isFacebookLoggedin;
 }
 
 @property (nonatomic, strong) STTwitterAPI *twitter;
+@property (nonatomic, strong) ZXCapture* capture;
 
 @property (weak, nonatomic) IBOutlet UITextField *tfFirstName;
 @property (weak, nonatomic) IBOutlet UITextField *tfLastName;
@@ -34,6 +37,7 @@
 - (IBAction)singleTap:(id)sender;
 - (IBAction)btnfaceBookTapped:(id)sender;
 - (IBAction)btnTwitterTapped:(id)sender;
+- (IBAction)scanQRCode:(id)sender;
 
 
 @end
@@ -241,6 +245,11 @@
  */
 }
 
+- (IBAction)scanQRCode:(id)sender
+{
+    [self scanQRCode];
+}
+
 #pragma -mark UItextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -362,5 +371,113 @@
 }
 
 
+
+#pragma -mark QR Code Scan
+
+-(void)scanQRCode
+{
+    self.capture = [[ZXCapture alloc] init];
+    self.capture.rotation = 90.0f;
+    
+    // Use the back camera
+    self.capture.camera = self.capture.back;
+    
+    self.capture.layer.frame = self.view.bounds;
+    [self.view.layer addSublayer:self.capture.layer];
+    self.capture.delegate = self;
+}
+
+#pragma mark - ZXCaptureDelegate Methods
+
+#pragma mark - Private Methods
+
+- (NSString*)displayForResult:(ZXResult*)result {
+    NSString *formatString;
+    switch (result.barcodeFormat) {
+        case kBarcodeFormatAztec:
+            formatString = @"Aztec";
+            break;
+            
+        case kBarcodeFormatCodabar:
+            formatString = @"CODABAR";
+            break;
+            
+        case kBarcodeFormatCode39:
+            formatString = @"Code 39";
+            break;
+            
+        case kBarcodeFormatCode93:
+            formatString = @"Code 93";
+            break;
+            
+        case kBarcodeFormatCode128:
+            formatString = @"Code 128";
+            break;
+            
+        case kBarcodeFormatDataMatrix:
+            formatString = @"Data Matrix";
+            break;
+            
+        case kBarcodeFormatEan8:
+            formatString = @"EAN-8";
+            break;
+            
+        case kBarcodeFormatEan13:
+            formatString = @"EAN-13";
+            break;
+            
+        case kBarcodeFormatITF:
+            formatString = @"ITF";
+            break;
+            
+        case kBarcodeFormatPDF417:
+            formatString = @"PDF417";
+            break;
+            
+        case kBarcodeFormatQRCode:
+            formatString = @"QR Code";
+            break;
+            
+        case kBarcodeFormatRSS14:
+            formatString = @"RSS 14";
+            break;
+            
+        case kBarcodeFormatRSSExpanded:
+            formatString = @"RSS Expanded";
+            break;
+            
+        case kBarcodeFormatUPCA:
+            formatString = @"UPCA";
+            break;
+            
+        case kBarcodeFormatUPCE:
+            formatString = @"UPCE";
+            break;
+            
+        case kBarcodeFormatUPCEANExtension:
+            formatString = @"UPC/EAN extension";
+            break;
+            
+        default:
+            formatString = @"Unknown";
+            break;
+    }
+    
+    return [NSString stringWithFormat:@"Scanned!\n\nFormat: %@\n\nContents:\n%@", formatString, result.text];
+}
+
+- (void)captureResult:(ZXCapture*)capture result:(ZXResult*)result {
+    if (result) {
+        // We got a result. Display information about the result onscreen.
+//        [self.decodedLabel performSelectorOnMainThread:@selector(setText:) withObject:[self displayForResult:result] waitUntilDone:YES];
+        
+        // Vibrate
+        NSLog(@"Scanned QR Code : %@",[self displayForResult:result]);
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    }
+}
+
+- (void)captureSize:(ZXCapture*)capture width:(NSNumber*)width height:(NSNumber*)height {
+}
 
 @end

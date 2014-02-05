@@ -43,8 +43,13 @@
 
 - (IBAction)btnLoginTapped:(id)sender
 {
-    [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:IS_LOGGED_IN];
-    [self loginDoneSuccessfully];
+    if([_tfPassword.text isEqualToString:@""] || [_tfUsername.text isEqualToString:@""])
+    {
+        [self showAlertWithMessage:@"Username or password not entered" andTitle:@"Error!"];
+    }
+    else
+        [self sendRegisterRequest];
+    
 }
 
 #pragma -mark Server Requests
@@ -52,8 +57,8 @@
 -(NSDictionary*)getParameters
 {
   NSDictionary * parameters = [NSDictionary dictionaryWithObjectsAndKeys:
-                               _tfUsername.text, @"username",
-                               _tfPassword.text, @"passwprd",
+                               _tfUsername.text, @"email",
+                               _tfPassword.text, @"password",
                                nil];
   
   return parameters;
@@ -61,7 +66,7 @@
 
 -(void)sendRegisterRequest
 {
-  NSString *url = [NSString stringWithFormat:@"%@register.php",SERVER_URL];
+  NSString *url = [NSString stringWithFormat:@"%@login.php",SERVER_URL];
   
   AFHTTPClient * Client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
   
@@ -83,18 +88,13 @@
     }
     else if ([[response objectForKey:@"status"] integerValue] == 1)
     {
-      title = @"Casual";
-      mesage = @"Successfully Registered";
-    }
-    else if ([[response objectForKey:@"status"] isEqualToString:@"busy"])
-    {
-      title = @"Error";
-      mesage = @"Email already registerd";
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_LOGGED_IN];
+        [self loginDoneSuccessfully];
     }
     else
     {
       title = @"Error";
-      mesage = @"Some error occured";
+      mesage = @"Invalid username or password.";
     }
     
     if(mesage != nil)

@@ -52,6 +52,16 @@
 		4E9FBA4D18A2B99700395558 /* TabBarBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9FBA4C18A2B99700395558 /* TabBarBG@2x.png */; };
 		4E9FBA5018A2BD0B00395558 /* CenterImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9FBA4E18A2BD0B00395558 /* CenterImage.png */; };
 		4E9FBA5118A2BD0B00395558 /* TreeImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9FBA4F18A2BD0B00395558 /* TreeImage.png */; };
+		4E9FBA8518A2C89300395558 /* libZXingObjC-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9FBA7818A2C71000395558 /* libZXingObjC-iOS.a */; };
+		4E9FBA8718A2C98300395558 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9FBA8618A2C98300395558 /* AVFoundation.framework */; };
+		4E9FBA8A18A2C9D700395558 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9FBA8918A2C9D700395558 /* CoreMedia.framework */; };
+		4E9FBA8C18A2C9E400395558 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9FBA8B18A2C9E400395558 /* CoreVideo.framework */; };
+		4E9FBA8E18A2C9F000395558 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9FBA8D18A2C9F000395558 /* ImageIO.framework */; };
+		4E9FBA9018A2CA0000395558 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9FBA8F18A2CA0000395558 /* QuartzCore.framework */; };
+		4E9FBA9218A2CA1500395558 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9FBA9118A2CA1500395558 /* Social.framework */; };
+		4E9FBA9418A2CA2700395558 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9FBA9318A2CA2700395558 /* Accounts.framework */; };
+		4E9FBA9618A2CA2D00395558 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9FBA9518A2CA2D00395558 /* Security.framework */; };
+		4E9FBA9818A2CA4700395558 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9FBA9718A2CA4700395558 /* AudioToolbox.framework */; };
 		4EC2B25718A1439A0045291A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC2B25618A1439A0045291A /* Foundation.framework */; };
 		4EC2B25918A1439A0045291A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC2B25818A1439A0045291A /* CoreGraphics.framework */; };
 		4EC2B25B18A1439A0045291A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC2B25A18A1439A0045291A /* UIKit.framework */; };
@@ -79,6 +89,55 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4E9FBA7718A2C71000395558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E9FBA6D18A2C70E00395558 /* ZXingObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25403CB3166A96FA00E13304;
+			remoteInfo = "ZXingObjC-iOS";
+		};
+		4E9FBA7918A2C71000395558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E9FBA6D18A2C70E00395558 /* ZXingObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25403CC4166A96FA00E13304;
+			remoteInfo = "Unit Tests iOS";
+		};
+		4E9FBA7B18A2C71000395558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E9FBA6D18A2C70E00395558 /* ZXingObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 024958781898641B003D4E6A;
+			remoteInfo = "Blackbox Tests iOS";
+		};
+		4E9FBA7D18A2C71000395558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E9FBA6D18A2C70E00395558 /* ZXingObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25404166166AADAC00E13304;
+			remoteInfo = "ZXingObjC-osx";
+		};
+		4E9FBA7F18A2C71000395558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E9FBA6D18A2C70E00395558 /* ZXingObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25404178166AADAC00E13304;
+			remoteInfo = "Unit Tests OS X";
+		};
+		4E9FBA8118A2C71000395558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E9FBA6D18A2C70E00395558 /* ZXingObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 02D813F6189864C70081721D;
+			remoteInfo = "Blackbox Tests OS X";
+		};
+		4E9FBA8318A2C71000395558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E9FBA6D18A2C70E00395558 /* ZXingObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2540439E166ABA0A00E13304;
+			remoteInfo = "OS X Framework";
+		};
 		4EC2B27C18A1439A0045291A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4EC2B24B18A1439A0045291A /* Project object */;
@@ -154,6 +213,16 @@
 		4E9FBA4C18A2B99700395558 /* TabBarBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarBG@2x.png"; sourceTree = "<group>"; };
 		4E9FBA4E18A2BD0B00395558 /* CenterImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CenterImage.png; sourceTree = "<group>"; };
 		4E9FBA4F18A2BD0B00395558 /* TreeImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TreeImage.png; sourceTree = "<group>"; };
+		4E9FBA6D18A2C70E00395558 /* ZXingObjC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZXingObjC.xcodeproj; path = "Casual/FrameWorks/ZXingObjC-master/ZXingObjC.xcodeproj"; sourceTree = "<group>"; };
+		4E9FBA8618A2C98300395558 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		4E9FBA8918A2C9D700395558 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		4E9FBA8B18A2C9E400395558 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		4E9FBA8D18A2C9F000395558 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		4E9FBA8F18A2CA0000395558 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4E9FBA9118A2CA1500395558 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		4E9FBA9318A2CA2700395558 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		4E9FBA9518A2CA2D00395558 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4E9FBA9718A2CA4700395558 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4EC2B25318A1439A0045291A /* Casual.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Casual.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EC2B25618A1439A0045291A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4EC2B25818A1439A0045291A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -201,6 +270,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E9FBA9818A2CA4700395558 /* AudioToolbox.framework in Frameworks */,
+				4E9FBA9618A2CA2D00395558 /* Security.framework in Frameworks */,
+				4E9FBA9418A2CA2700395558 /* Accounts.framework in Frameworks */,
+				4E9FBA9218A2CA1500395558 /* Social.framework in Frameworks */,
+				4E9FBA9018A2CA0000395558 /* QuartzCore.framework in Frameworks */,
+				4E9FBA8E18A2C9F000395558 /* ImageIO.framework in Frameworks */,
+				4E9FBA8C18A2C9E400395558 /* CoreVideo.framework in Frameworks */,
+				4E9FBA8A18A2C9D700395558 /* CoreMedia.framework in Frameworks */,
+				4E9FBA8718A2C98300395558 /* AVFoundation.framework in Frameworks */,
+				4E9FBA8518A2C89300395558 /* libZXingObjC-iOS.a in Frameworks */,
 				09C932D618A1F59800BF2DD9 /* Twitter.framework in Frameworks */,
 				09FA89EC18A215FF00C05CAA /* FacebookSDK.framework in Frameworks */,
 				4EC2B25918A1439A0045291A /* CoreGraphics.framework in Frameworks */,
@@ -324,6 +403,20 @@
 			path = HomeScreen;
 			sourceTree = "<group>";
 		};
+		4E9FBA6E18A2C70E00395558 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4E9FBA7818A2C71000395558 /* libZXingObjC-iOS.a */,
+				4E9FBA7A18A2C71000395558 /* Unit Tests iOS.octest */,
+				4E9FBA7C18A2C71000395558 /* ZXingObjCTests-iOS copy.octest */,
+				4E9FBA7E18A2C71000395558 /* libZXingObjC-osx.a */,
+				4E9FBA8018A2C71000395558 /* Unit Tests OS X.octest */,
+				4E9FBA8218A2C71000395558 /* ZXingObjCTests-osx copy.octest */,
+				4E9FBA8418A2C71000395558 /* ZXingObjC.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		4EC2B24A18A1439A0045291A = {
 			isa = PBXGroup;
 			children = (
@@ -348,6 +441,16 @@
 		4EC2B25518A1439A0045291A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E9FBA6D18A2C70E00395558 /* ZXingObjC.xcodeproj */,
+				4E9FBA9718A2CA4700395558 /* AudioToolbox.framework */,
+				4E9FBA9518A2CA2D00395558 /* Security.framework */,
+				4E9FBA9318A2CA2700395558 /* Accounts.framework */,
+				4E9FBA9118A2CA1500395558 /* Social.framework */,
+				4E9FBA8F18A2CA0000395558 /* QuartzCore.framework */,
+				4E9FBA8D18A2C9F000395558 /* ImageIO.framework */,
+				4E9FBA8B18A2C9E400395558 /* CoreVideo.framework */,
+				4E9FBA8918A2C9D700395558 /* CoreMedia.framework */,
+				4E9FBA8618A2C98300395558 /* AVFoundation.framework */,
 				09FA89EB18A215FF00C05CAA /* FacebookSDK.framework */,
 				09C932D518A1F59800BF2DD9 /* Twitter.framework */,
 				4EC2B25618A1439A0045291A /* Foundation.framework */,
@@ -510,6 +613,12 @@
 			mainGroup = 4EC2B24A18A1439A0045291A;
 			productRefGroup = 4EC2B25418A1439A0045291A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4E9FBA6E18A2C70E00395558 /* Products */;
+					ProjectRef = 4E9FBA6D18A2C70E00395558 /* ZXingObjC.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				4EC2B25218A1439A0045291A /* Casual */,
@@ -517,6 +626,58 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4E9FBA7818A2C71000395558 /* libZXingObjC-iOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libZXingObjC-iOS.a";
+			remoteRef = 4E9FBA7718A2C71000395558 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4E9FBA7A18A2C71000395558 /* Unit Tests iOS.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Unit Tests iOS.octest";
+			remoteRef = 4E9FBA7918A2C71000395558 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4E9FBA7C18A2C71000395558 /* ZXingObjCTests-iOS copy.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ZXingObjCTests-iOS copy.octest";
+			remoteRef = 4E9FBA7B18A2C71000395558 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4E9FBA7E18A2C71000395558 /* libZXingObjC-osx.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libZXingObjC-osx.a";
+			remoteRef = 4E9FBA7D18A2C71000395558 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4E9FBA8018A2C71000395558 /* Unit Tests OS X.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Unit Tests OS X.octest";
+			remoteRef = 4E9FBA7F18A2C71000395558 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4E9FBA8218A2C71000395558 /* ZXingObjCTests-osx copy.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ZXingObjCTests-osx copy.octest";
+			remoteRef = 4E9FBA8118A2C71000395558 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4E9FBA8418A2C71000395558 /* ZXingObjC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ZXingObjC.framework;
+			remoteRef = 4E9FBA8318A2C71000395558 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4EC2B25118A1439A0045291A /* Resources */ = {
@@ -737,6 +898,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alex Ham (Y83239S4MU)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Volumes/Development/Development/FreelancerDropBox/Harshad/Github/Casual/Casual/Casual/FrameWorks,
@@ -744,6 +906,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Casual/Casual-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Volumes/Vikas\\ 2/Softwares/Apps1/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"$(SRCROOT)/../../**",
+				);
 				INFOPLIST_FILE = "Casual/Casual-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -751,6 +918,7 @@
 					/Volumes/Development/Development/FreelancerDropBox/Harshad/Casual/Casual/Libraries/TestFlightSDK2,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "113DA635-938D-4DAA-8365-4F31596B3A47";
 				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -762,6 +930,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alex Ham (Y83239S4MU)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Volumes/Development/Development/FreelancerDropBox/Harshad/Github/Casual/Casual/Casual/FrameWorks,
@@ -769,6 +938,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Casual/Casual-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Volumes/Vikas\\ 2/Softwares/Apps1/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"$(SRCROOT)/../../**",
+				);
 				INFOPLIST_FILE = "Casual/Casual-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -776,6 +950,7 @@
 					/Volumes/Development/Development/FreelancerDropBox/Harshad/Casual/Casual/Libraries/TestFlightSDK2,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "113DA635-938D-4DAA-8365-4F31596B3A47";
 				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
