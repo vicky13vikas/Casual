@@ -103,12 +103,16 @@
 {
     UINavigationController* nc = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
     [self.view.window setRootViewController:nc];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:IS_LOGGED_IN];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)loginDoneSuccessfully
 {
     UITabBarController *tabBarCont = [self.storyboard instantiateViewControllerWithIdentifier:@"MainTabbarController"];
     [self.view.window setRootViewController:tabBarCont];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_LOGGED_IN];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

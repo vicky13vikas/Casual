@@ -24,6 +24,7 @@
 
 @property (nonatomic, strong) STTwitterAPI *twitter;
 @property (nonatomic, strong) ZXCapture* capture;
+@property (nonatomic, retain) NSString* unique_ID;
 
 @property (weak, nonatomic) IBOutlet UITextField *tfFirstName;
 @property (weak, nonatomic) IBOutlet UITextField *tfLastName;
@@ -472,7 +473,12 @@
 //        [self.decodedLabel performSelectorOnMainThread:@selector(setText:) withObject:[self displayForResult:result] waitUntilDone:YES];
         
         // Vibrate
-        NSLog(@"Scanned QR Code : %@",[self displayForResult:result]);
+//        NSLog(@"Scanned QR Code : %@",[self displayForResult:result]);
+        
+        if(result.barcodeFormat == kBarcodeFormatQRCode)
+            self.unique_ID = result.text;
+        else
+            [self showAlertWithMessage:@"Invalid QR Code" andTitle:@"Error"];
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     }
 }

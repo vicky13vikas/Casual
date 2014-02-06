@@ -83,4 +83,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)logoutTapped:(id)sender
+{
+    [self logout];
+}
 @end

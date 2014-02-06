@@ -88,7 +88,6 @@
     }
     else if ([[response objectForKey:@"status"] integerValue] == 1)
     {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_LOGGED_IN];
         [self loginDoneSuccessfully];
     }
     else

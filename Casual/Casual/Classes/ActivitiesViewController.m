@@ -1,18 +1,18 @@
 //
-//  RootViewController.m
+//  ActivitiesViewController.m
 //  Casual
 //
-//  Created by Vikas kumar on 05/02/14.
+//  Created by Vikas kumar on 07/02/14.
 //  Copyright (c) 2014 Vikas kumar. All rights reserved.
 //
 
-#import "RootViewController.h"
+#import "ActivitiesViewController.h"
 
-@interface RootViewController ()
+@interface ActivitiesViewController ()
 
 @end
 
-@implementation RootViewController
+@implementation ActivitiesViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,16 +29,15 @@
 	// Do any additional setup after loading the view.
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-//    [self hideTabBar:self.tabBarController];
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)logoutTapped:(id)sender
+{
+    [self logout];
 }
 
 -(IBAction)unwindSegue:(UIStoryboardSegue*)segue

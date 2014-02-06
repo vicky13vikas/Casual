@@ -1,18 +1,18 @@
 //
-//  RootViewController.m
+//  HistoryViewController.m
 //  Casual
 //
-//  Created by Vikas kumar on 05/02/14.
+//  Created by Vikas kumar on 07/02/14.
 //  Copyright (c) 2014 Vikas kumar. All rights reserved.
 //
 
-#import "RootViewController.h"
+#import "HistoryViewController.h"
 
-@interface RootViewController ()
+@interface HistoryViewController ()
 
 @end
 
-@implementation RootViewController
+@implementation HistoryViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,21 +29,14 @@
 	// Do any additional setup after loading the view.
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-//    [self hideTabBar:self.tabBarController];
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)unwindSegue:(UIStoryboardSegue*)segue
+- (IBAction)logoutTapped:(id)sender
 {
-    
+    [self logout];
 }
-
 @end

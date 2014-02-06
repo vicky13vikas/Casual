@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Casual/Classes/SignUpViewController.m"
-            timestampString = "413232195.349037"
+            timestampString = "413408898.172653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "-sendRegisterRequest"
             landmarkType = "5">
          </BreakpointContent>
@@ -36,12 +36,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Casual/Classes/SignUpViewController.m"
-            timestampString = "413231450.944167"
+            timestampString = "413408898.172653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "-sendRegisterRequest"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "@implementation SignUpViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Casual/Classes/SignUpViewController.m"
+            timestampString = "413408898.172653"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "-viewDidAppear:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -52,12 +68,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Casual/Classes/SignUpViewController.m"
-            timestampString = "413231621.584241"
+            timestampString = "413408898.172653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "-getParameters"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "-btnSignupClicked:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -67,13 +83,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Casual/Classes/SignUpViewController.m"
-            timestampString = "413232307.332027"
+            filePath = "Casual/Classes/ActivitiesViewController.m"
+            timestampString = "413409946.905259"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
-            landmarkName = "-textFieldShouldReturn:"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "-unwindSegue:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
