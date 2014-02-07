@@ -9,6 +9,8 @@
 #import "HomeViewController.h"
 
 @interface HomeViewController ()
+@property (strong, nonatomic) IBOutlet UILabel *lblTotalScans;
+@property (strong, nonatomic) IBOutlet UILabel *lblMutualScans;
 
 @end
 
@@ -72,12 +74,43 @@
   }
 }
 
+-(void)getLoginDetails
+{
+    NSDictionary *currentUser = [[NSUserDefaults standardUserDefaults] valueForKey:LOGGEDIN_USER_DETAILS];
+    
+    NSString *totalScans = [currentUser objectForKey:@"scan_count"];
+    NSString *mutualScans = [currentUser objectForKey:@"mutualScans"];
+    
+    if(totalScans && ![totalScans isEqualToString:@""])
+    {
+        _lblTotalScans.text = totalScans;
+    }
+    else
+    {
+        _lblTotalScans.text = @"0";
+    }
+    
+    if(mutualScans && ![mutualScans isEqualToString:@""])
+    {
+        _lblMutualScans.text = mutualScans;
+    }
+    else
+    {
+        _lblMutualScans.text = @"0";
+    }
+    
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if(![[NSUserDefaults standardUserDefaults] valueForKey:IS_LOGGED_IN])
+    if(![[NSUserDefaults standardUserDefaults] valueForKey:IS_LOGGED_IN] || ![[NSUserDefaults standardUserDefaults] valueForKey:LOGGEDIN_USER_DETAILS])
     {
         [self logout];
+    }
+    else
+    {
+        [self getLoginDetails];
     }
 }
 

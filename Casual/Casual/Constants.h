@@ -18,3 +18,4 @@
 #define IS_LOGGED_IN @"isLoggedIn"
 
 #define FACEBOOK_DETAILS @"FacebookUserDetails"
+#define LOGGEDIN_USER_DETAILS @"LoggedInUserDetails"

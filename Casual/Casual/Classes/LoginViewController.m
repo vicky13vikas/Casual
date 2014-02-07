@@ -89,6 +89,8 @@
     }
     else if ([[response objectForKey:@"status"] integerValue] == 1)
     {
+        [[NSUserDefaults standardUserDefaults] setObject:response forKey:LOGGEDIN_USER_DETAILS];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         [self loginDoneSuccessfully];
     }
     else
