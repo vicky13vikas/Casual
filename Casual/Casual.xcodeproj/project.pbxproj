@@ -25,6 +25,7 @@
 		09FA89EA18A2157C00C05CAA /* STHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FA89DF18A2157C00C05CAA /* STHTTPRequest.m */; };
 		09FA89EC18A215FF00C05CAA /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FA89EB18A215FF00C05CAA /* FacebookSDK.framework */; };
 		09FA8A3918A23A2E00C05CAA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FA8A3818A23A2E00C05CAA /* LoginViewController.m */; };
+		4E135A8618A54744002DC459 /* sampleQRCode.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E135A8518A54744002DC459 /* sampleQRCode.png */; };
 		4E9D204418A154020019E86B /* TextFieldsBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204318A154020019E86B /* TextFieldsBG.png */; };
 		4E9D204618A158350019E86B /* Seperator.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204518A158350019E86B /* Seperator.png */; };
 		4E9D204818A159930019E86B /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204718A159930019E86B /* Background.png */; };
@@ -196,6 +197,7 @@
 		09FA89EB18A215FF00C05CAA /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Casual/FrameWorks/FacebookSDK.framework; sourceTree = "<group>"; };
 		09FA8A3718A23A2E00C05CAA /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Classes/LoginViewController.h; sourceTree = "<group>"; };
 		09FA8A3818A23A2E00C05CAA /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Classes/LoginViewController.m; sourceTree = "<group>"; };
+		4E135A8518A54744002DC459 /* sampleQRCode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sampleQRCode.png; sourceTree = "<group>"; };
 		4E9D204318A154020019E86B /* TextFieldsBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextFieldsBG.png; sourceTree = "<group>"; };
 		4E9D204518A158350019E86B /* Seperator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Seperator.png; sourceTree = "<group>"; };
 		4E9D204718A159930019E86B /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 				4E9FBA3B18A2B31100395558 /* HomeScreen */,
 				4E9D204918A15B1C0019E86B /* BG_small.png */,
 				4E9D204A18A15B1C0019E86B /* BtnFacebook.png */,
+				4E135A8518A54744002DC459 /* sampleQRCode.png */,
 				4E9DBD4718A41BD500CD1AD4 /* btnLoginAll.png */,
 				4E9D204B18A15B1C0019E86B /* BtnTwitter.png */,
 				4E9D204C18A15B1C0019E86B /* OR.png */,
@@ -781,6 +784,7 @@
 				4E9FBA4518A2B80400395558 /* BtnHome@2x.png in Resources */,
 				4E9D205C18A15F7D0019E86B /* Logo.png in Resources */,
 				4E9DBD3B18A41B9B00CD1AD4 /* postTF_BG.png in Resources */,
+				4E135A8618A54744002DC459 /* sampleQRCode.png in Resources */,
 				4E9D205E18A15FEA0019E86B /* leaf.png in Resources */,
 				4E9D205818A15E730019E86B /* Bg_mainScreen.png in Resources */,
 				4E9FBA4918A2B8A200395558 /* BtnActivites@2x.png in Resources */,
