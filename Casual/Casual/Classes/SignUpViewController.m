@@ -58,6 +58,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [self scanQRCode];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -248,7 +250,7 @@
 
 - (IBAction)scanQRCode:(id)sender
 {
-    [self scanQRCode];
+    [self.view.layer addSublayer:self.capture.layer];
 }
 
 #pragma -mark UItextFieldDelegate
@@ -387,8 +389,7 @@
     // Use the back camera
     self.capture.camera = self.capture.back;
     
-    self.capture.layer.frame = self.view.bounds;
-    [self.view.layer addSublayer:self.capture.layer];
+    self.capture.layer.frame = CGRectMake(5, 70, 310, self.view.frame.size.height - 80);
     self.capture.delegate = self;
 }
 

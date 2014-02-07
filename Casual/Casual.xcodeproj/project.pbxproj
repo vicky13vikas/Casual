@@ -26,6 +26,10 @@
 		09FA89EC18A215FF00C05CAA /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FA89EB18A215FF00C05CAA /* FacebookSDK.framework */; };
 		09FA8A3918A23A2E00C05CAA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FA8A3818A23A2E00C05CAA /* LoginViewController.m */; };
 		4E135A8618A54744002DC459 /* sampleQRCode.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E135A8518A54744002DC459 /* sampleQRCode.png */; };
+		4E135A8918A55BEF002DC459 /* treeBranch1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E135A8818A55BEF002DC459 /* treeBranch1.png */; };
+		4E135A8C18A56137002DC459 /* treeLeftBranch.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E135A8A18A56137002DC459 /* treeLeftBranch.png */; };
+		4E135A8D18A56137002DC459 /* treeRightBranch.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E135A8B18A56137002DC459 /* treeRightBranch.png */; };
+		4E135A9218A562D3002DC459 /* HistoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E135A9118A562D3002DC459 /* HistoryViewCell.m */; };
 		4E9D204418A154020019E86B /* TextFieldsBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204318A154020019E86B /* TextFieldsBG.png */; };
 		4E9D204618A158350019E86B /* Seperator.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204518A158350019E86B /* Seperator.png */; };
 		4E9D204818A159930019E86B /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204718A159930019E86B /* Background.png */; };
@@ -198,6 +202,11 @@
 		09FA8A3718A23A2E00C05CAA /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Classes/LoginViewController.h; sourceTree = "<group>"; };
 		09FA8A3818A23A2E00C05CAA /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Classes/LoginViewController.m; sourceTree = "<group>"; };
 		4E135A8518A54744002DC459 /* sampleQRCode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sampleQRCode.png; sourceTree = "<group>"; };
+		4E135A8818A55BEF002DC459 /* treeBranch1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treeBranch1.png; sourceTree = "<group>"; };
+		4E135A8A18A56137002DC459 /* treeLeftBranch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treeLeftBranch.png; sourceTree = "<group>"; };
+		4E135A8B18A56137002DC459 /* treeRightBranch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treeRightBranch.png; sourceTree = "<group>"; };
+		4E135A9018A562D3002DC459 /* HistoryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryViewCell.h; path = Classes/CustomCells/HistoryViewCell.h; sourceTree = "<group>"; };
+		4E135A9118A562D3002DC459 /* HistoryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryViewCell.m; path = Classes/CustomCells/HistoryViewCell.m; sourceTree = "<group>"; };
 		4E9D204318A154020019E86B /* TextFieldsBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextFieldsBG.png; sourceTree = "<group>"; };
 		4E9D204518A158350019E86B /* Seperator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Seperator.png; sourceTree = "<group>"; };
 		4E9D204718A159930019E86B /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
@@ -383,9 +392,29 @@
 			path = Vendor;
 			sourceTree = "<group>";
 		};
+		4E135A8718A55BEF002DC459 /* HistoryScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4E135A8A18A56137002DC459 /* treeLeftBranch.png */,
+				4E135A8B18A56137002DC459 /* treeRightBranch.png */,
+				4E135A8818A55BEF002DC459 /* treeBranch1.png */,
+			);
+			path = HistoryScreen;
+			sourceTree = "<group>";
+		};
+		4E135A8F18A5629D002DC459 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				4E135A9018A562D3002DC459 /* HistoryViewCell.h */,
+				4E135A9118A562D3002DC459 /* HistoryViewCell.m */,
+			);
+			name = CustomCells;
+			sourceTree = "<group>";
+		};
 		4E9D204218A154020019E86B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4E135A8718A55BEF002DC459 /* HistoryScreen */,
 				4E9DBD3E18A41BBA00CD1AD4 /* ActivitiesScreen */,
 				4E9DBD3918A41B9B00CD1AD4 /* PostScreen */,
 				4E9FBA3B18A2B31100395558 /* HomeScreen */,
@@ -487,9 +516,9 @@
 		4EC2B24A18A1439A0045291A = {
 			isa = PBXGroup;
 			children = (
+				4EC2B25C18A1439A0045291A /* Casual */,
 				4E9D204218A154020019E86B /* Images */,
 				4EC2B29218A146B30045291A /* Libraries */,
-				4EC2B25C18A1439A0045291A /* Casual */,
 				4EC2B27E18A1439A0045291A /* CasualTests */,
 				4EC2B25518A1439A0045291A /* Frameworks */,
 				4EC2B25418A1439A0045291A /* Products */,
@@ -531,6 +560,7 @@
 		4EC2B25C18A1439A0045291A /* Casual */ = {
 			isa = PBXGroup;
 			children = (
+				4E135A8F18A5629D002DC459 /* CustomCells */,
 				4EC2B26518A1439A0045291A /* AppDelegate.h */,
 				4EC2B26618A1439A0045291A /* AppDelegate.m */,
 				4EC2B26818A1439A0045291A /* Main_iPhone.storyboard */,
@@ -780,7 +810,9 @@
 				4E9DBD4518A41BCB00CD1AD4 /* backButton.png in Resources */,
 				4E9DBD4818A41BD500CD1AD4 /* btnLoginAll.png in Resources */,
 				4E9D204618A158350019E86B /* Seperator.png in Resources */,
+				4E135A8C18A56137002DC459 /* treeLeftBranch.png in Resources */,
 				4E9FBA4018A2B31100395558 /* BtnActivites.png in Resources */,
+				4E135A8918A55BEF002DC459 /* treeBranch1.png in Resources */,
 				4E9FBA4518A2B80400395558 /* BtnHome@2x.png in Resources */,
 				4E9D205C18A15F7D0019E86B /* Logo.png in Resources */,
 				4E9DBD3B18A41B9B00CD1AD4 /* postTF_BG.png in Resources */,
@@ -794,6 +826,7 @@
 				4EC2B26118A1439A0045291A /* InfoPlist.strings in Resources */,
 				4E9D204F18A15B1C0019E86B /* BtnFacebook.png in Resources */,
 				4E9D204418A154020019E86B /* TextFieldsBG.png in Resources */,
+				4E135A8D18A56137002DC459 /* treeRightBranch.png in Resources */,
 				4E9FBA4118A2B31100395558 /* BtnHistory.png in Resources */,
 				4E9DBD3D18A41BAD00CD1AD4 /* TopBar.png in Resources */,
 				4E9FBA4B18A2B8A200395558 /* BtnScan@2x.png in Resources */,
@@ -825,6 +858,7 @@
 				09FA8A3918A23A2E00C05CAA /* LoginViewController.m in Sources */,
 				4EC2B2E618A147030045291A /* AFPropertyListRequestOperation.m in Sources */,
 				09FA89E418A2157C00C05CAA /* STTwitterAppOnly.m in Sources */,
+				4E135A9218A562D3002DC459 /* HistoryViewCell.m in Sources */,
 				4E9DBD3818A41B3800CD1AD4 /* ActivitiesViewController.m in Sources */,
 				4EC2B29018A145510045291A /* SignUpViewController.m in Sources */,
 				4EC2B2E718A147030045291A /* AFURLConnectionOperation.m in Sources */,
