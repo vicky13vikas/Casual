@@ -16,3 +16,5 @@
 #define TWITTER_SECRET_KEY @"drdhGuKSingTbsDLtYpob4m5b5dn1abf9XXYyZKQzk"
 
 #define IS_LOGGED_IN @"isLoggedIn"
+
+#define FACEBOOK_DETAILS @"FacebookUserDetails"

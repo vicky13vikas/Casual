@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		09C932D618A1F59800BF2DD9 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C932D518A1F59800BF2DD9 /* Twitter.framework */; };
+		09CACFCE18A4A01800B9A91D /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CACFCD18A4A01800B9A91D /* PostViewController.m */; };
+		09CACFD818A4A02B00B9A91D /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CACFD718A4A02B00B9A91D /* CheckInViewController.m */; };
+		09CACFDA18A4A1C200B9A91D /* userPlaceHolder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09CACFD918A4A1C200B9A91D /* userPlaceHolder.jpg */; };
+		09CACFDE18A4B50200B9A91D /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CACFDD18A4B50200B9A91D /* AsyncImageView.m */; };
 		09FA89E018A2157C00C05CAA /* NSDateFormatter+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FA89C818A2157C00C05CAA /* NSDateFormatter+STTwitter.m */; };
 		09FA89E118A2157C00C05CAA /* NSString+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FA89CA18A2157C00C05CAA /* NSString+STTwitter.m */; };
 		09FA89E218A2157C00C05CAA /* STHTTPRequest+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FA89CC18A2157C00C05CAA /* STHTTPRequest+STTwitter.m */; };
@@ -158,6 +162,13 @@
 
 /* Begin PBXFileReference section */
 		09C932D518A1F59800BF2DD9 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		09CACFCC18A4A01800B9A91D /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostViewController.h; path = Classes/PostViewController.h; sourceTree = "<group>"; };
+		09CACFCD18A4A01800B9A91D /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostViewController.m; path = Classes/PostViewController.m; sourceTree = "<group>"; };
+		09CACFD618A4A02B00B9A91D /* CheckInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckInViewController.h; path = Classes/CheckInViewController.h; sourceTree = "<group>"; };
+		09CACFD718A4A02B00B9A91D /* CheckInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CheckInViewController.m; path = Classes/CheckInViewController.m; sourceTree = "<group>"; };
+		09CACFD918A4A1C200B9A91D /* userPlaceHolder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userPlaceHolder.jpg; sourceTree = "<group>"; };
+		09CACFDC18A4B50200B9A91D /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		09CACFDD18A4B50200B9A91D /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		09FA89C718A2157C00C05CAA /* NSDateFormatter+STTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+STTwitter.h"; sourceTree = "<group>"; };
 		09FA89C818A2157C00C05CAA /* NSDateFormatter+STTwitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+STTwitter.m"; sourceTree = "<group>"; };
 		09FA89C918A2157C00C05CAA /* NSString+STTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+STTwitter.h"; sourceTree = "<group>"; };
@@ -322,6 +333,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09CACFDB18A4B50200B9A91D /* AsyncImageView */ = {
+			isa = PBXGroup;
+			children = (
+				09CACFDC18A4B50200B9A91D /* AsyncImageView.h */,
+				09CACFDD18A4B50200B9A91D /* AsyncImageView.m */,
+			);
+			path = AsyncImageView;
+			sourceTree = "<group>";
+		};
 		09FA89C618A2157C00C05CAA /* STTwitter */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +439,7 @@
 		4E9DBD3E18A41BBA00CD1AD4 /* ActivitiesScreen */ = {
 			isa = PBXGroup;
 			children = (
+				09CACFD918A4A1C200B9A91D /* userPlaceHolder.jpg */,
 				4E9DBD3F18A41BBA00CD1AD4 /* FB_TW_Bar.png */,
 				4E9DBD4018A41BBA00CD1AD4 /* Status_CheckIn_BG.png */,
 			);
@@ -525,6 +546,10 @@
 				4E9DBD3418A41B2800CD1AD4 /* HistoryViewController.m */,
 				4E9DBD3618A41B3800CD1AD4 /* ActivitiesViewController.h */,
 				4E9DBD3718A41B3800CD1AD4 /* ActivitiesViewController.m */,
+				09CACFCC18A4A01800B9A91D /* PostViewController.h */,
+				09CACFCD18A4A01800B9A91D /* PostViewController.m */,
+				09CACFD618A4A02B00B9A91D /* CheckInViewController.h */,
+				09CACFD718A4A02B00B9A91D /* CheckInViewController.m */,
 				4EC2B29118A145B40045291A /* Constants.h */,
 				4EC2B27118A1439A0045291A /* Images.xcassets */,
 				4EC2B25D18A1439A0045291A /* Supporting Files */,
@@ -564,6 +589,7 @@
 		4EC2B29218A146B30045291A /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				09CACFDB18A4B50200B9A91D /* AsyncImageView */,
 				09FA89C618A2157C00C05CAA /* STTwitter */,
 				4E9D206318A1678A0019E86B /* Categories */,
 				4E9D205F18A167350019E86B /* ProgressSpinner */,
@@ -741,6 +767,7 @@
 				4E9FBA4318A2B31100395558 /* BtnScan.png in Resources */,
 				4E9DBD4118A41BBA00CD1AD4 /* FB_TW_Bar.png in Resources */,
 				4E9DBD4218A41BBA00CD1AD4 /* Status_CheckIn_BG.png in Resources */,
+				09CACFDA18A4A1C200B9A91D /* userPlaceHolder.jpg in Resources */,
 				4EC2B26A18A1439A0045291A /* Main_iPhone.storyboard in Resources */,
 				4E9D204818A159930019E86B /* Background.png in Resources */,
 				4E9DBD4618A41BCB00CD1AD4 /* SettingsBtn.png in Resources */,
@@ -802,7 +829,10 @@
 				4E9D206A18A1678A0019E86B /* StringCategories.m in Sources */,
 				4EC2B2E418A147030045291A /* AFJSONRequestOperation.m in Sources */,
 				09FA89EA18A2157C00C05CAA /* STHTTPRequest.m in Sources */,
+				09CACFD818A4A02B00B9A91D /* CheckInViewController.m in Sources */,
+				09CACFCE18A4A01800B9A91D /* PostViewController.m in Sources */,
 				4EC2B2E918A147030045291A /* UIImageView+AFNetworking.m in Sources */,
+				09CACFDE18A4B50200B9A91D /* AsyncImageView.m in Sources */,
 				09FA89E718A2157C00C05CAA /* STTwitterOS.m in Sources */,
 				09FA89E218A2157C00C05CAA /* STHTTPRequest+STTwitter.m in Sources */,
 				4E9D206C18A1678A0019E86B /* UIViewControllerCategories.m in Sources */,

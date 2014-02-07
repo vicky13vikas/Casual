@@ -48,8 +48,9 @@
         [self showAlertWithMessage:@"Username or password not entered" andTitle:@"Error!"];
     }
     else
-        [self sendRegisterRequest];
-    
+        [self sendRLoginRequest];
+  
+//  [self loginDoneSuccessfully];
 }
 
 #pragma -mark Server Requests
@@ -64,7 +65,7 @@
   return parameters;
 }
 
--(void)sendRegisterRequest
+-(void)sendRLoginRequest
 {
   NSString *url = [NSString stringWithFormat:@"%@login.php",SERVER_URL];
   
@@ -120,6 +121,23 @@
   
   [self showLoadingScreenWithMessage:@"Loading"];
   
+}
+
+
+#pragma -mark UItextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+  if(textField == _tfUsername)
+  {
+    [_tfPassword becomeFirstResponder];
+  }
+  if(textField == _tfPassword)
+  {
+    [_tfPassword resignFirstResponder];
+    [self btnLoginTapped:nil];
+  }
+  return YES;
 }
 
 @end

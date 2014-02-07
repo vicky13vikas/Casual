@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Voy-eV-7Ve">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Voy-eV-7Ve">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -69,7 +69,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="logoutTapped:" destination="Uhg-9K-b4o" eventType="touchUpInside" id="ecx-JC-dP6"/>
+                                    <action selector="logoutTapped:" destination="Uhg-9K-b4o" eventType="touchUpInside" id="sP3-g2-8sM"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CenterImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="GsP-oR-2VI">
@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="908" y="54"/>
         </scene>
-        <!--View Controller-->
+        <!--Scan View Controller-->
         <scene sceneID="qvz-el-A9w">
             <objects>
-                <viewController id="uBn-YU-cxJ" sceneMemberID="viewController">
+                <viewController id="uBn-YU-cxJ" customClass="ScanViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="t6m-4n-b8a"/>
                         <viewControllerLayoutGuide type="bottom" id="IKd-3v-37Z"/>
@@ -144,7 +144,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="logoutTapped:" destination="Uhg-9K-b4o" eventType="touchUpInside" id="Inh-gu-aiU"/>
+                                    <action selector="logoutTapped:" destination="uBn-YU-cxJ" eventType="touchUpInside" id="M3H-sE-aJd"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scan" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVa-Sa-379">
@@ -162,10 +162,10 @@
             </objects>
             <point key="canvasLocation" x="908" y="779"/>
         </scene>
-        <!--View Controller-->
+        <!--Activities View Controller-->
         <scene sceneID="KG2-az-iP0">
             <objects>
-                <viewController id="aE9-co-c1o" sceneMemberID="viewController">
+                <viewController id="aE9-co-c1o" customClass="ActivitiesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7kX-sh-ClL"/>
                         <viewControllerLayoutGuide type="bottom" id="t3b-MK-baY"/>
@@ -203,7 +203,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="logoutTapped:" destination="Uhg-9K-b4o" eventType="touchUpInside" id="7Ns-li-5D0"/>
+                                    <action selector="logoutTapped:" destination="aE9-co-c1o" eventType="touchUpInside" id="zJh-Bf-wGF"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FB_TW_Bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="abD-eA-iCK">
@@ -273,10 +273,10 @@
             </objects>
             <point key="canvasLocation" x="1434" y="2211"/>
         </scene>
-        <!--View Controller-->
+        <!--Check In View Controller-->
         <scene sceneID="tUO-Lk-nfQ">
             <objects>
-                <viewController id="9WE-wh-PXJ" sceneMemberID="viewController">
+                <viewController id="9WE-wh-PXJ" customClass="CheckInViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HxG-G2-BR9"/>
                         <viewControllerLayoutGuide type="bottom" id="5aG-kH-fst"/>
@@ -306,8 +306,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="logoutTapped:" destination="Uhg-9K-b4o" eventType="touchUpInside" id="2bQ-vO-fdf"/>
-                                    <segue destination="Wm3-4b-wIo" kind="unwind" unwindAction="unwindSegue:" id="z8N-gQ-7lN"/>
+                                    <segue destination="Wm3-4b-wIo" kind="unwind" unwindAction="unwindActivitiesSegue:" id="gSX-s6-PNC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -320,10 +319,10 @@
             </objects>
             <point key="canvasLocation" x="2056" y="2682"/>
         </scene>
-        <!--View Controller-->
+        <!--Post View Controller-->
         <scene sceneID="tgp-Wk-cAl">
             <objects>
-                <viewController id="dCy-6J-ocL" sceneMemberID="viewController">
+                <viewController id="dCy-6J-ocL" customClass="PostViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Csj-dM-iWk"/>
                         <viewControllerLayoutGuide type="bottom" id="Shp-Ac-AHn"/>
@@ -348,6 +347,9 @@
                                 <state key="normal" title="Post" backgroundImage="SettingsBtn.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="postToFacebook:" destination="dCy-6J-ocL" eventType="touchUpInside" id="wKS-eh-Jqf"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="XaC-Oc-foi">
                                 <rect key="frame" x="107" y="20" width="107" height="38"/>
@@ -361,24 +363,42 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="logoutTapped:" destination="Uhg-9K-b4o" eventType="touchUpInside" id="qv8-oG-p2H"/>
-                                    <segue destination="JHM-bp-DSh" kind="unwind" unwindAction="unwindSegue:" id="y3L-b2-wmm"/>
+                                    <segue destination="JHM-bp-DSh" kind="unwind" unwindAction="unwindActivitiesSegue:" id="9Ci-hq-ojt"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="postTF_BG.png" translatesAutoresizingMaskIntoConstraints="NO" id="rwv-t0-Rls">
+                                <rect key="frame" x="63" y="100" width="249" height="216"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userPlaceHolder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="FfC-L7-Hkd">
+                                <rect key="frame" x="10" y="100" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8h0-2L-7lC">
+                                <rect key="frame" x="76" y="106" width="229" height="203"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="dUX-VS-HQe"/>
+                    <connections>
+                        <outlet property="tfPostStatus" destination="8h0-2L-7lC" id="GaT-no-cuc"/>
+                        <outlet property="userImageView" destination="FfC-L7-Hkd" id="Tt8-dG-UKj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQV-5s-v0n" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JHM-bp-DSh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2056" y="1930"/>
         </scene>
-        <!--View Controller-->
+        <!--History View Controller-->
         <scene sceneID="nDz-Ov-obY">
             <objects>
-                <viewController id="bOO-YS-g71" sceneMemberID="viewController">
+                <viewController id="bOO-YS-g71" customClass="HistoryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YzT-ch-G52"/>
                         <viewControllerLayoutGuide type="bottom" id="M1z-os-X9u"/>
@@ -416,7 +436,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="logoutTapped:" destination="Uhg-9K-b4o" eventType="touchUpInside" id="9Xz-Fv-1ZX"/>
+                                    <action selector="logoutTapped:" destination="bOO-YS-g71" eventType="touchUpInside" id="gUO-P5-u1z"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -426,7 +446,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rB1-6J-vF4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="908" y="1507"/>
+            <point key="canvasLocation" x="884" y="1523"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="knc-Xs-9g8">
@@ -501,11 +521,11 @@
                                 <gestureRecognizers/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BG_small.png" translatesAutoresizingMaskIntoConstraints="NO" id="nFp-O2-Cta">
-                                <rect key="frame" x="14" y="102" width="293" height="141"/>
+                                <rect key="frame" x="14" y="102" width="293" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RtR-VE-Ygo">
-                                <rect key="frame" x="23" y="149" width="274" height="30"/>
+                                <rect key="frame" x="23" y="140" width="274" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90980392160000001" green="0.98823529409999999" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -515,12 +535,19 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g8H-8E-vVe">
-                                <rect key="frame" x="23" y="187" width="274" height="30"/>
+                                <rect key="frame" x="23" y="187" width="274" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90980392160000001" green="0.98823529409999999" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="send" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="5Xa-K6-wGy" id="W5O-sF-iS4"/>
+                                </connections>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Seperator.png" translatesAutoresizingMaskIntoConstraints="NO" id="pJr-Jo-cQv">
+                                <rect key="frame" x="14" y="180" width="293" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9n-2s-HPo">
                                 <rect key="frame" x="23" y="111" width="101" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -844,7 +871,9 @@
         <image name="backButton.png" width="108" height="61"/>
         <image name="btnLoginAll.png" width="243" height="90"/>
         <image name="leaf.png" width="99" height="98"/>
+        <image name="postTF_BG.png" width="536" height="337"/>
         <image name="txt_OR_Join_Casual.png" width="369" height="37"/>
+        <image name="userPlaceHolder.jpg" width="104" height="104"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

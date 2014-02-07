@@ -16,4 +16,5 @@
     #import "Constants.h"
     #import "UIViewControllerCategories.h"
     #import <ZXingObjC/ZXingObjC.h>
+    #import <FacebookSDK/FacebookSDK.h>
 #endif

@@ -1,18 +1,18 @@
 //
-//  ActivitiesViewController.m
+//  CheckInViewController.m
 //  Casual
 //
-//  Created by Vikas kumar on 07/02/14.
+//  Created by Vikas Kumar on 07/02/14.
 //  Copyright (c) 2014 Vikas kumar. All rights reserved.
 //
 
-#import "ActivitiesViewController.h"
+#import "CheckInViewController.h"
 
-@interface ActivitiesViewController ()
+@interface CheckInViewController ()
 
 @end
 
-@implementation ActivitiesViewController
+@implementation CheckInViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,16 +33,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)logoutTapped:(id)sender
-{
-    [self logout];
-}
-
--(IBAction)unwindActivitiesSegue:(UIStoryboardSegue*)segue
-{
-  
 }
 
 @end

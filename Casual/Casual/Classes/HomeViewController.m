@@ -25,47 +25,51 @@
 
 - (void)viewDidLoad
 {
-    
-    UIImage *selectedImage0 = [UIImage imageNamed:@"BtnHome.png"];
-    UIImage *unselectedImage0 = [UIImage imageNamed:@"BtnHome.png"];
-    
-    UIImage *selectedImage1 = [UIImage imageNamed:@"BtnScan.png"];
-    UIImage *unselectedImage1 = [UIImage imageNamed:@"BtnScan.png"];
-    
-    UIImage *selectedImage2 = [UIImage imageNamed:@"BtnHistory.png"];
-    UIImage *unselectedImage2 = [UIImage imageNamed:@"BtnHistory.png"];
-    
-    UIImage *selectedImage3 = [UIImage imageNamed:@"BtnActivites.png"];
-    UIImage *unselectedImage3 = [UIImage imageNamed:@"BtnActivites.png"];
-    
-    UITabBar *tabBar = self.tabBarController.tabBar;
-    
-    UITabBarItem *item0 = [tabBar.items objectAtIndex:0];
-    UITabBarItem *item1 = [tabBar.items objectAtIndex:1];
-    UITabBarItem *item2 = [tabBar.items objectAtIndex:2];
-    UITabBarItem *item3 = [tabBar.items objectAtIndex:3];
-    
-    [item0 setFinishedSelectedImage:selectedImage0 withFinishedUnselectedImage:unselectedImage0];
-    [item1 setFinishedSelectedImage:selectedImage1 withFinishedUnselectedImage:unselectedImage1];
-    [item2 setFinishedSelectedImage:selectedImage2 withFinishedUnselectedImage:unselectedImage2];
-    [item3 setFinishedSelectedImage:selectedImage3 withFinishedUnselectedImage:unselectedImage3];
-    
-    item0.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
-    item1.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
-    item2.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
-    item3.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
-    
-    if ([tabBar respondsToSelector:@selector(setBackgroundImage:)])
-    {
-        // set it just for this instance
-        [tabBar setBackgroundImage:[UIImage imageNamed:@"TabBarBG.png"]];
-        
-        // set for all
-        // [[UITabBar appearance] setBackgroundImage: ...
-    }
-    
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [self initFAcebook];
+    [self initBottombarUI];
+}
+
+-(void) initBottombarUI
+{
+  
+  UIImage *selectedImage0 = [UIImage imageNamed:@"BtnHome.png"];
+  UIImage *unselectedImage0 = [UIImage imageNamed:@"BtnHome.png"];
+  
+  UIImage *selectedImage1 = [UIImage imageNamed:@"BtnScan.png"];
+  UIImage *unselectedImage1 = [UIImage imageNamed:@"BtnScan.png"];
+  
+  UIImage *selectedImage2 = [UIImage imageNamed:@"BtnHistory.png"];
+  UIImage *unselectedImage2 = [UIImage imageNamed:@"BtnHistory.png"];
+  
+  UIImage *selectedImage3 = [UIImage imageNamed:@"BtnActivites.png"];
+  UIImage *unselectedImage3 = [UIImage imageNamed:@"BtnActivites.png"];
+  
+  UITabBar *tabBar = self.tabBarController.tabBar;
+  
+  UITabBarItem *item0 = [tabBar.items objectAtIndex:0];
+  UITabBarItem *item1 = [tabBar.items objectAtIndex:1];
+  UITabBarItem *item2 = [tabBar.items objectAtIndex:2];
+  UITabBarItem *item3 = [tabBar.items objectAtIndex:3];
+  
+  [item0 setFinishedSelectedImage:selectedImage0 withFinishedUnselectedImage:unselectedImage0];
+  [item1 setFinishedSelectedImage:selectedImage1 withFinishedUnselectedImage:unselectedImage1];
+  [item2 setFinishedSelectedImage:selectedImage2 withFinishedUnselectedImage:unselectedImage2];
+  [item3 setFinishedSelectedImage:selectedImage3 withFinishedUnselectedImage:unselectedImage3];
+  
+  item0.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+  item1.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+  item2.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+  item3.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+  
+  if ([tabBar respondsToSelector:@selector(setBackgroundImage:)])
+  {
+    // set it just for this instance
+    [tabBar setBackgroundImage:[UIImage imageNamed:@"TabBarBG.png"]];
+    
+    // set for all
+    // [[UITabBar appearance] setBackgroundImage: ...
+  }
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -87,4 +91,41 @@
 {
     [self logout];
 }
+
+#pragma - INIT Facebook
+
+-(void)fetchUserDetails
+{
+    [[FBRequest requestForMe]
+     startWithCompletionHandler:
+     ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *result, NSError *error)
+     {
+         // Did everything come back okay with no errors?
+         if (!error && result) {
+             [[NSUserDefaults standardUserDefaults] setObject:result forKey:FACEBOOK_DETAILS];
+             [[NSUserDefaults standardUserDefaults] synchronize];
+         }
+         else {
+             
+         }
+     }];
+    
+}
+
+-(void) initFAcebook
+{
+    if([[FBSession activeSession] state] == FBSessionStateCreatedTokenLoaded)
+    {
+        [[FBSession activeSession] openWithCompletionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+            
+            if(status == FBSessionStateOpen)
+            {
+                if(![[NSUserDefaults standardUserDefaults] objectForKey:FACEBOOK_DETAILS])
+                    [self fetchUserDetails];
+            }
+        }];
+    }
+}
+
+
 @end
