@@ -296,9 +296,10 @@
 {
     NSArray *permissions = [[NSArray alloc] initWithObjects:
                             @"email",
+                            @"user_status",
                             nil];
     // Attempt to open the session. If the session is not open, show the user the Facebook login UX
-    [FBSession openActiveSessionWithReadPermissions:nil allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+    [FBSession openActiveSessionWithReadPermissions:permissions allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
         
         // Did something go wrong during login? I.e. did the user cancel?
         if(!error)
