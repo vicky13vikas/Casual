@@ -271,6 +271,10 @@
     }
     if(textField == _tfCreatePassword)
     {
+        [_tfConfirmPassord becomeFirstResponder];
+    }
+    if(textField == _tfConfirmPassord)
+    {
         [_tfConfirmPassord resignFirstResponder];
         [self btnSignupClicked:nil];
     }
