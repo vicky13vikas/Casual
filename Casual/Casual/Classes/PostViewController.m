@@ -51,29 +51,38 @@
 
 - (IBAction)postToFacebook:(id)sender
 {
-    if([[FBSession activeSession] isOpen])
+    [_tfPostStatus resignFirstResponder];
+    if([_tfPostStatus.text isEqualToString:@""])
     {
-      if (([[[FBSession activeSession]permissions]indexOfObject:@"publish_actions"] == NSNotFound))
-      {
-        [self RequestWritePermissions];
-      }
-      else
-        [self post];
-    }
-    else if([[FBSession activeSession] state] == FBSessionStateCreatedTokenLoaded)
-    {
-      [[FBSession activeSession] openWithCompletionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
-        if (([[[FBSession activeSession]permissions]indexOfObject:@"publish_actions"] == NSNotFound))
-        {
-          [self RequestWritePermissions];
-        }
-        else
-          [self post];
-      }];
+        [self showAlertWithMessage:@"Please write your status before posting." andTitle:@"Empty status"];
     }
     else
     {
-      [self showAlertWithMessage:@"Please allow Facebook in settings page" andTitle:@"Facebook not signed In"];
+        if([[FBSession activeSession] isOpen])
+        {
+            if (([[[FBSession activeSession]permissions]indexOfObject:@"publish_actions"] == NSNotFound))
+            {
+                [self RequestWritePermissions];
+            }
+            else
+                [self post];
+        }
+        else if([[FBSession activeSession] state] == FBSessionStateCreatedTokenLoaded)
+        {
+            [[FBSession activeSession] openWithCompletionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+                if (([[[FBSession activeSession]permissions]indexOfObject:@"publish_actions"] == NSNotFound))
+                {
+                    [self RequestWritePermissions];
+                }
+                else
+                    [self post];
+            }];
+        }
+        else
+        {
+            [self showAlertWithMessage:@"Please allow Facebook in settings page" andTitle:@"Facebook not signed In"];
+        }
+   
     }
 }
 

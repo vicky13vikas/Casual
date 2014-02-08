@@ -353,9 +353,13 @@
 #pragma mark - Twitter
 
 - (void)setOAuthToken:(NSString *)token oauthVerifier:(NSString *)verifier {
-  
+    [self hideLoadingScreen];
+    
+    
   [_twitter postAccessTokenRequestWithPIN:verifier successBlock:^(NSString *oauthToken, NSString *oauthTokenSecret, NSString *userID, NSString *screenName) {
     NSLog(@"-- screenName: %@", screenName);
+      _btnTwitter.enabled = NO;
+      [self showAlertWithMessage:@"Please fill the form and create a password." andTitle:@"Connected to Twitter."];
     
     
   } errorBlock:^(NSError *error) {
@@ -366,6 +370,8 @@
 
 - (void)loginInSafariAction
 {
+    
+    [self showLoadingScreenWithMessage:@"Loading..."];
   self.twitter = [STTwitterAPI twitterAPIWithOAuthConsumerKey:TWITTER_CONSUMER_KEY
                                                consumerSecret:TWITTER_SECRET_KEY];
   
