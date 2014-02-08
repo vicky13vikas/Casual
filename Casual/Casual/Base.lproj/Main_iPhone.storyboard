@@ -671,6 +671,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="BtnHistory.png" id="95Y-fI-gRy"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="iE0-oT-pOk" id="iek-AJ-Zei"/>
                     </connections>
@@ -884,7 +885,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rlg-Ji-BTq">
-                                        <rect key="frame" x="20" y="11" width="293" height="232"/>
+                                        <rect key="frame" x="14" y="11" width="293" height="232"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TextFieldsBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Sj-MX-erx">
@@ -1110,7 +1111,7 @@
         <image name="BtnActivites.png" width="98" height="98"/>
         <image name="BtnFacebook.png" width="90" height="90"/>
         <image name="BtnHistory.png" width="98" height="99"/>
-        <image name="BtnHome.png" width="98" height="98"/>
+        <image name="BtnHome.png" width="64" height="64"/>
         <image name="BtnLogin.png" width="243" height="90"/>
         <image name="BtnScan.png" width="96" height="95"/>
         <image name="BtnSignUp.png" width="423" height="109"/>

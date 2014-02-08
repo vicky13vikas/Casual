@@ -35,16 +35,16 @@
 -(void) initBottombarUI
 {
   
-  UIImage *selectedImage0 = [UIImage imageNamed:@"BtnHome.png"];
+  UIImage *selectedImage0 = [UIImage imageNamed:@"BtnHome_Sel.png"];
   UIImage *unselectedImage0 = [UIImage imageNamed:@"BtnHome.png"];
   
-  UIImage *selectedImage1 = [UIImage imageNamed:@"BtnScan.png"];
+  UIImage *selectedImage1 = [UIImage imageNamed:@"BtnScan_Sel.png"];
   UIImage *unselectedImage1 = [UIImage imageNamed:@"BtnScan.png"];
   
-  UIImage *selectedImage2 = [UIImage imageNamed:@"BtnHistory.png"];
+  UIImage *selectedImage2 = [UIImage imageNamed:@"BtnHistory_Sel.png"];
   UIImage *unselectedImage2 = [UIImage imageNamed:@"BtnHistory.png"];
   
-  UIImage *selectedImage3 = [UIImage imageNamed:@"BtnActivites.png"];
+  UIImage *selectedImage3 = [UIImage imageNamed:@"BtnActivites_Sel.png"];
   UIImage *unselectedImage3 = [UIImage imageNamed:@"BtnActivites.png"];
   
   UITabBar *tabBar = self.tabBarController.tabBar;
@@ -58,6 +58,18 @@
   [item1 setFinishedSelectedImage:selectedImage1 withFinishedUnselectedImage:unselectedImage1];
   [item2 setFinishedSelectedImage:selectedImage2 withFinishedUnselectedImage:unselectedImage2];
   [item3 setFinishedSelectedImage:selectedImage3 withFinishedUnselectedImage:unselectedImage3];
+    
+    item0.image = unselectedImage0;
+    item0.selectedImage = selectedImage0;
+    
+    item1.image = unselectedImage1;
+    item1.selectedImage = selectedImage1;
+    
+    item2.image = unselectedImage2;
+    item2.selectedImage = selectedImage2;
+    
+    item3.image = unselectedImage3;
+    item3.selectedImage = selectedImage3;
   
   item0.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
   item1.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
