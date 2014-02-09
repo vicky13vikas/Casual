@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AsyncImageView.h"
 
 @interface ActivityTableRightCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet AsyncImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UILabel *lblUserName;
+@property (nonatomic, retain)FBProfilePictureView *FBProfilePicView;
 
 @end

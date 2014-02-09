@@ -14,6 +14,7 @@
 #import "STTwitter.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
+#import "TwitterServices.h"
 
 
 
@@ -235,18 +236,14 @@
 
 - (IBAction)btnTwitterTapped:(id)sender
 {
-  self.twitter = [STTwitterAPI twitterAPIOSWithFirstAccount];
+  self.twitter = [TwitterServices sharedTwitter];
   
-  [self loginInSafariAction];
-  
-/*  [_twitter verifyCredentialsWithSuccessBlock:^(NSString *username) {
+  [_twitter verifyCredentialsWithSuccessBlock:^(NSString *username) {
     NSLog(@"%@", username);
     
   } errorBlock:^(NSError *error) {
-    NSLog(@"%@", error);
-
+      [self showAlertWithMessage:@"Make sure you have allowed Casulas in the twitter settings." andTitle:@"Error"];
   }];
- */
 }
 
 - (IBAction)scanQRCode:(id)sender

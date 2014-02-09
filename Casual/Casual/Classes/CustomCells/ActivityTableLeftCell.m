@@ -29,6 +29,14 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    if(!self.FBProfilePicView)
+    {
+        self.FBProfilePicView = [[FBProfilePictureView alloc] init];
+        self.FBProfilePicView.frame = self.profileImageView.frame;
+        self.FBProfilePicView.pictureCropping  = FBProfilePictureCroppingSquare;
+        [self addSubview:self.FBProfilePicView];
+    }
 }
 
 @end

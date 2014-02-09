@@ -29,6 +29,7 @@
 		4E135A8918A55BEF002DC459 /* treeBranch1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E135A8818A55BEF002DC459 /* treeBranch1.png */; };
 		4E135A8C18A56137002DC459 /* treeLeftBranch.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E135A8A18A56137002DC459 /* treeLeftBranch.png */; };
 		4E135A8D18A56137002DC459 /* treeRightBranch.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E135A8B18A56137002DC459 /* treeRightBranch.png */; };
+		4E37B30818A76EBC005FF445 /* TwitterServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E37B30718A76EBC005FF445 /* TwitterServices.m */; };
 		4E952FE418A669D400075CCB /* ActivityTableDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E952FE318A669D400075CCB /* ActivityTableDatasource.m */; };
 		4E9D204418A154020019E86B /* TextFieldsBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204318A154020019E86B /* TextFieldsBG.png */; };
 		4E9D204618A158350019E86B /* Seperator.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204518A158350019E86B /* Seperator.png */; };
@@ -217,6 +218,8 @@
 		4E135A8818A55BEF002DC459 /* treeBranch1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treeBranch1.png; sourceTree = "<group>"; };
 		4E135A8A18A56137002DC459 /* treeLeftBranch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treeLeftBranch.png; sourceTree = "<group>"; };
 		4E135A8B18A56137002DC459 /* treeRightBranch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treeRightBranch.png; sourceTree = "<group>"; };
+		4E37B30618A76EBC005FF445 /* TwitterServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterServices.h; sourceTree = "<group>"; };
+		4E37B30718A76EBC005FF445 /* TwitterServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterServices.m; sourceTree = "<group>"; };
 		4E952FE218A669D400075CCB /* ActivityTableDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableDatasource.h; sourceTree = "<group>"; };
 		4E952FE318A669D400075CCB /* ActivityTableDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableDatasource.m; sourceTree = "<group>"; };
 		4E9D204318A154020019E86B /* TextFieldsBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextFieldsBG.png; sourceTree = "<group>"; };
@@ -429,6 +432,16 @@
 			path = HistoryScreen;
 			sourceTree = "<group>";
 		};
+		4E37B2FE18A76E98005FF445 /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
+				4E37B30618A76EBC005FF445 /* TwitterServices.h */,
+				4E37B30718A76EBC005FF445 /* TwitterServices.m */,
+			);
+			name = Twitter;
+			path = Classes/Twitter;
+			sourceTree = "<group>";
+		};
 		4E952FE118A669D400075CCB /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -611,6 +624,7 @@
 		4EC2B25C18A1439A0045291A /* Casual */ = {
 			isa = PBXGroup;
 			children = (
+				4E37B2FE18A76E98005FF445 /* Twitter */,
 				4EC1785C18A6A82800B72C92 /* CustomCells */,
 				4E952FE118A669D400075CCB /* DataSource */,
 				4EC2B26518A1439A0045291A /* AppDelegate.h */,
@@ -927,6 +941,7 @@
 				4E9D206A18A1678A0019E86B /* StringCategories.m in Sources */,
 				4EC1786C18A6A8CF00B72C92 /* ActivityTableRightCell.m in Sources */,
 				4EC2B2E418A147030045291A /* AFJSONRequestOperation.m in Sources */,
+				4E37B30818A76EBC005FF445 /* TwitterServices.m in Sources */,
 				4E952FE418A669D400075CCB /* ActivityTableDatasource.m in Sources */,
 				09FA89EA18A2157C00C05CAA /* STHTTPRequest.m in Sources */,
 				09CACFD818A4A02B00B9A91D /* CheckInViewController.m in Sources */,

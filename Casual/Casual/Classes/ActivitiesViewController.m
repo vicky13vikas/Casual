@@ -8,6 +8,7 @@
 
 #import "ActivitiesViewController.h"
 #import "ActivityTableDatasource.h"
+#import "TwitterServices.h"
 
 @interface ActivitiesViewController ()
 {
@@ -57,7 +58,7 @@
     }
     else
     {
-        [self loadStatusFromFacebook];
+        [self faceBookTapped:nil];
     }
 }
 
@@ -80,20 +81,24 @@
 
 - (IBAction)faceBookTapped:(id)sender
 {
+    [self showLoadingScreenWithMessage:@"Loading..."];
+    _tableDataSource.datasource = kStatustypeFacebook;
     [self loadStatusFromFacebook];
 }
 
 - (IBAction)twitterTapped:(id)sender
 {
-    [_tableView reloadData];
+    [self showLoadingScreenWithMessage:@"Loading..."];
+    _tableDataSource.datasource = kStatustypeTwitter;
+    [self loadStatusFromTwitter];
 }
 
 #pragma -mark FaceBook
 
 - (void) loadStatusFromFacebook
 {
-    [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"me/statuses?fields=message"] parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        
+    [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"me/statuses?fields=message,from,comments"] parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        [self hideLoadingScreen];
         if(!error)
         {
             [self parseFacebookStatusMessage:result];
@@ -110,11 +115,86 @@
     NSArray *dataList = [result objectForKey:@"data"];
     for(int i = 0; i< dataList.count ; i++)
     {
-        NSString *message = [dataList[i] objectForKey:@"message"];
-        if(message)
-            [messageList addObject:message];
+        NSMutableDictionary *facebookDetail = [[NSMutableDictionary alloc] init];
+        
+        NSString *status = [dataList[i] valueForKey:@"message"];
+        if(status)
+        {
+            [facebookDetail setObject:status forKey:@"status"];
+            [facebookDetail setObject:[dataList[i] valueForKeyPath:@"from.name"] forKey:@"screenName"];
+            [facebookDetail setObject:[dataList[i] valueForKeyPath:@"from.id"] forKey:@"imageURL_OR_ID"];
+            [facebookDetail setObject:[dataList[i] valueForKey:@"updated_time"] forKey:@"date"];
+            
+            [messageList addObject:facebookDetail];
+        }
     }
-    _tableDataSource.messageList = messageList;
+    _tableDataSource.messageList = [messageList copy];
     [_tableView reloadData];
 }
+
+#pragma -mark Twitter
+
+- (void) loadStatusFromTwitter
+{
+    STTwitterAPI *twitter = [TwitterServices sharedTwitter];
+    [twitter verifyCredentialsWithSuccessBlock:^(NSString *username) {
+        
+        [self getTwitterTimeline];
+        
+    } errorBlock:^(NSError *error) {
+        [self hideLoadingScreen];
+
+        [self showAlertWithMessage:@"Make sure you have allowed Casulas in the twitter settings." andTitle:@"Error"];
+    }];
+
+    
+   
+}
+
+-(void)getTwitterTimeline
+{
+    STTwitterAPI *twitter = [TwitterServices sharedTwitter];
+
+    [twitter getHomeTimelineSinceID:nil
+                              count:100
+                       successBlock:^(NSArray *statuses) {
+                           [self hideLoadingScreen];
+
+                           [self parseTwitterStatusMessage:statuses];
+                           
+                       } errorBlock:^(NSError *error) {
+                           [self hideLoadingScreen];
+
+                           [self showAlertWithMessage:@"Error Fetching twiter data" andTitle:@"Error"];
+                       }];
+}
+
+-(void)parseTwitterStatusMessage:(NSArray*)result
+{
+    NSArray *text = [result valueForKey:@"text"];
+    NSArray *screenName = [result valueForKeyPath:@"user.screen_name"];
+    NSArray *profileImageUrl = [result valueForKeyPath:@"user.profile_image_url"];
+    NSArray *dateString = [result valueForKey:@"created_at"];
+    
+    [messageList removeAllObjects];
+    
+    for (int i = 0; i<result.count; i++)
+    {
+        NSMutableDictionary *twitterDetail = [[NSMutableDictionary alloc] init];
+        
+        if(text[i])
+        {
+            [twitterDetail setObject:text[i] forKey:@"status"];
+            [twitterDetail setObject:screenName[i] forKey:@"screenName"];
+            [twitterDetail setObject:profileImageUrl[i] forKey:@"imageURL_OR_ID"];
+            [twitterDetail setObject:dateString[i] forKey:@"date"];
+            
+            [messageList addObject:twitterDetail];
+        }
+    }
+    
+    _tableDataSource.messageList = [messageList copy];
+    [_tableView reloadData];
+}
+
 @end

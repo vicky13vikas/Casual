@@ -8,9 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum
+{
+    kStatustypeFacebook,
+    kStatustypeTwitter
+}SelectedSource;
 
 @interface ActivityTableDatasource : NSObject <UITableViewDataSource>
 
 @property (nonatomic, retain)NSArray *messageList;
+
+@property (nonatomic) SelectedSource datasource;
 
 @end
