@@ -9,6 +9,7 @@
 #import "ActivityTableDatasource.h"
 #import "ActivityTableLeftCell.h"
 #import "ActivityTableRightCell.h"
+#import "NSDate+NVTimeAgo.h"
 
 @implementation ActivityTableDatasource
 
@@ -41,6 +42,8 @@
             cell.FBProfilePicView.hidden = YES;
             cell.profileImageView.imageURL = [NSURL URLWithString:[cellData objectForKey:@"imageURL_OR_ID"]];
         }
+        
+        cell.lblDate.text = [self getParsedDateFromString:[cellData objectForKey:@"date"]];
         return cell;
     }
     else
@@ -60,8 +63,31 @@
             cell.FBProfilePicView.hidden = YES;
             cell.profileImageView.imageURL = [NSURL URLWithString:[cellData objectForKey:@"imageURL_OR_ID"]];
         }
+        
+        cell.lblDate.text = [self getParsedDateFromString:[cellData objectForKey:@"date"]];
         return cell;
     }
+}
+
+
+-(NSString*)getParsedDateFromString:(NSString*)dateString;
+{
+    NSDateFormatter *df = [[[NSDateFormatter alloc] init] autorelease];
+    //Wed Dec 01 17:08:03 +0000 2010
+    if(_datasource == kStatustypeFacebook)
+    {
+        [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZ"];
+    }
+    else
+    {
+        [df setDateFormat:@"eee MMM dd HH:mm:ss ZZZZ yyyy"];
+    }
+    NSDate *date = [df dateFromString:dateString];
+    [df setDateFormat:@"MMM dd yyyy"];
+    NSString *dateStr = [df stringFromDate:date];
+    
+    NSString *timeAgo = [date formattedAsTimeAgo];
+    return timeAgo;
 }
 
 @end
