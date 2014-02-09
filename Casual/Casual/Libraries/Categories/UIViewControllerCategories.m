@@ -98,6 +98,22 @@
     
     [UIView commitAnimations];
 }
+    
+-(void)removeFacebook
+{
+    [[FBSession activeSession] closeAndClearTokenInformation];
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:FACEBOOK_DETAILS];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:IS_FACEBOOK_ON];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(void)removeTwitter
+{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:IS_TWITTER_ON];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 
 - (void)logout
 {

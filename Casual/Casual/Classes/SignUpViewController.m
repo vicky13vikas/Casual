@@ -242,7 +242,7 @@
     NSLog(@"%@", username);
     
   } errorBlock:^(NSError *error) {
-      [self showAlertWithMessage:@"Make sure you have allowed Casulas in the twitter settings." andTitle:@"Error"];
+      [self showAlertWithMessage:@"Make sure you have allowed Casuals in the twitter settings." andTitle:@"Error"];
   }];
 }
 

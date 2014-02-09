@@ -51,14 +51,32 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+
+    [messageList removeAllObjects];
+    _tableDataSource.messageList = messageList;
+    [_tableView reloadData];
     
-    if([[FBSession activeSession] state] != FBSessionStateOpen)
+    if (![[NSUserDefaults standardUserDefaults] valueForKey:IS_FACEBOOK_ON])
     {
         _btnFacebook.enabled = NO;
+        if ([[NSUserDefaults standardUserDefaults] valueForKey:IS_TWITTER_ON])
+        {
+            [self twitterTapped:nil];
+        }
     }
     else
     {
+        _btnFacebook.enabled = YES;
         [self faceBookTapped:nil];
+    }
+    
+    if (![[NSUserDefaults standardUserDefaults] valueForKey:IS_TWITTER_ON])
+    {
+        _btnTwitter.enabled = NO;
+    }
+    else
+    {
+        _btnTwitter.enabled = YES;
     }
 }
 
@@ -97,16 +115,23 @@
 
 - (void) loadStatusFromFacebook
 {
-    [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"me/statuses?fields=message,from,comments"] parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        [self hideLoadingScreen];
-        if(!error)
-        {
-            [self parseFacebookStatusMessage:result];
-        }
-        else{
-            [self showAlertWithMessage:@"Error loading staus" andTitle:@"Error"];
-        }
-    }];
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:IS_FACEBOOK_ON])
+    {
+        [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"me/statuses?fields=message,from,comments"] parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+            [self hideLoadingScreen];
+            if(!error)
+            {
+                [self parseFacebookStatusMessage:result];
+            }
+            else{
+                [self showAlertWithMessage:@"Error loading staus" andTitle:@"Error"];
+            }
+        }];
+    }
+    else
+    {
+        [self showAlertWithMessage:@"Please switch on Facebook in the settings page." andTitle:@"Error"];
+    }
 }
 
 -(void)parseFacebookStatusMessage :(NSDictionary*)result
@@ -136,19 +161,23 @@
 
 - (void) loadStatusFromTwitter
 {
-    STTwitterAPI *twitter = [TwitterServices sharedTwitter];
-    [twitter verifyCredentialsWithSuccessBlock:^(NSString *username) {
-        
-        [self getTwitterTimeline];
-        
-    } errorBlock:^(NSError *error) {
-        [self hideLoadingScreen];
-
-        [self showAlertWithMessage:@"Make sure you have allowed Casulas in the twitter settings." andTitle:@"Error"];
-    }];
-
-    
-   
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:IS_TWITTER_ON])
+    {
+        STTwitterAPI *twitter = [TwitterServices sharedTwitter];
+        [twitter verifyCredentialsWithSuccessBlock:^(NSString *username) {
+            
+            [self getTwitterTimeline];
+            
+        } errorBlock:^(NSError *error) {
+            [self hideLoadingScreen];
+            
+            [self showAlertWithMessage:@"Make sure you have allowed Casuals in the twitter settings." andTitle:@"Error"];
+        }];
+    }
+    else
+    {
+        [self showAlertWithMessage:@"Please switch on Twitter in the settings page." andTitle:@"Error"];
+    }
 }
 
 -(void)getTwitterTimeline

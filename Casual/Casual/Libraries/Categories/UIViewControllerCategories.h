@@ -23,4 +23,7 @@
 -(void)logout;
 -(void)loginDoneSuccessfully;
 
+-(void)removeFacebook;
+-(void)removeTwitter;
+
 @end

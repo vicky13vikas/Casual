@@ -19,3 +19,6 @@
 
 #define FACEBOOK_DETAILS @"FacebookUserDetails"
 #define LOGGEDIN_USER_DETAILS @"LoggedInUserDetails"
+
+#define IS_FACEBOOK_ON @"isFacebookOn"
+#define IS_TWITTER_ON @"isTwitterOn"

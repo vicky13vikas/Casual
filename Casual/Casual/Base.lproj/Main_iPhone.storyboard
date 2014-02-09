@@ -22,6 +22,7 @@
                         <segue destination="RVp-JM-gSj" kind="relationship" relationship="viewControllers" id="c42-WO-PSr"/>
                         <segue destination="1vn-tQ-UFp" kind="relationship" relationship="viewControllers" id="iY3-ST-vn6"/>
                         <segue destination="wpk-3i-gPo" kind="relationship" relationship="viewControllers" id="dTt-50-ha8"/>
+                        <segue destination="MJb-5u-4de" kind="relationship" relationship="viewControllers" id="UNc-ox-CCk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wgT-M9-O6V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -265,7 +266,7 @@
                         <viewControllerLayoutGuide type="bottom" id="sTj-dJ-HFr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9zS-pK-FE8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="PoL-vd-FxS">
@@ -311,6 +312,9 @@
                                         <state key="normal" image="btnON.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnFacebookToggle:" destination="zkV-gO-etY" eventType="touchUpInside" id="VkP-CS-8Ya"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPf-Qt-l0X">
                                         <rect key="frame" x="231" y="12" width="69" height="32"/>
@@ -319,6 +323,9 @@
                                         <state key="normal" image="btnON.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnTwitter:" destination="zkV-gO-etY" eventType="touchUpInside" id="oxA-oR-88M"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -334,20 +341,6 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tf_Body_BG.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Nq-s4-4AP">
                                                 <rect key="frame" x="4" y="0.0" width="293" height="284"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zodiac Sign" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gy7-O8-Nf2">
-                                                <rect key="frame" x="23" y="10" width="274" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.90980392160000001" green="0.98823529409999999" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="dC6-T5-dRc" id="b1H-29-eSl"/>
-                                                </connections>
-                                            </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Seperator.png" translatesAutoresizingMaskIntoConstraints="NO" id="vvq-Ed-g6l">
-                                                <rect key="frame" x="14" y="40" width="293" height="1"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tf_Top_BG.png" translatesAutoresizingMaskIntoConstraints="NO" id="5IQ-mA-scE">
                                                 <rect key="frame" x="4" y="0.0" width="293" height="29"/>
@@ -484,10 +477,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="HIW-t1-5jC"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="btnFacebookSwitch" destination="94Q-iu-ZpD" id="Amk-sc-hhH"/>
+                        <outlet property="btnTwitterSwitch" destination="BPf-Qt-l0X" id="bhf-7k-E1Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PpP-5v-vEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3420" y="747"/>
+            <point key="canvasLocation" x="4780" y="2043"/>
         </scene>
         <!--Activities View Controller-->
         <scene sceneID="KG2-az-iP0">
@@ -711,6 +708,64 @@
             </objects>
             <point key="canvasLocation" x="1434" y="2211"/>
         </scene>
+        <!--Info View Controller-->
+        <scene sceneID="5wy-cl-gM5">
+            <objects>
+                <viewController id="hi7-WX-CEo" customClass="InfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RER-O1-qqZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="zuI-fI-vWS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dvV-c9-u7L">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="th5-rT-imM">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TopBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="Sju-YK-ZoW">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="zLM-g0-xWk">
+                                <rect key="frame" x="107" y="24" width="107" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCg-ki-lBc">
+                                <rect key="frame" x="239" y="24" width="73" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <state key="normal" title="Settings" backgroundImage="SettingsBtn.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="zkV-gO-etY" kind="push" id="f9L-NK-gVN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dp7-EU-ywL">
+                                <rect key="frame" x="10" y="24" width="66" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <state key="normal" title="Logout" backgroundImage="backButton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutTapped:" destination="aE9-co-c1o" eventType="touchUpInside" id="4AJ-lx-HB0"/>
+                                    <action selector="logoutTapped:" destination="hi7-WX-CEo" eventType="touchUpInside" id="kHE-Gg-U7V"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="b3V-NT-Co7"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F6e-wu-IPV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1673" y="3862"/>
+        </scene>
         <!--Check In View Controller-->
         <scene sceneID="tUO-Lk-nfQ">
             <objects>
@@ -755,7 +810,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0X-tQ-Txd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Wm3-4b-wIo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2160" y="2902"/>
+            <point key="canvasLocation" x="2974" y="2598"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="tgp-Wk-cAl">
@@ -831,7 +886,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQV-5s-v0n" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JHM-bp-DSh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2712" y="2254"/>
+            <point key="canvasLocation" x="1992" y="2926"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="nDz-Ov-obY">
@@ -1519,6 +1574,26 @@
             </objects>
             <point key="canvasLocation" x="884" y="1523"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ife-Mc-CCa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="MJb-5u-4de" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="btnInfo.png" id="8Bf-ZW-rDj"/>
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v55-oy-aAw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hi7-WX-CEo" kind="relationship" relationship="rootViewController" id="ofZ-UT-n7O"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Asg-aD-AR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="908" y="3302"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BG_small.png" width="600" height="228"/>
@@ -1543,6 +1618,7 @@
         <image name="TopBar.png" width="640" height="92"/>
         <image name="TreeImage.png" width="149" height="151"/>
         <image name="backButton.png" width="108" height="61"/>
+        <image name="btnInfo.png" width="64" height="65"/>
         <image name="btnLoginAll.png" width="243" height="90"/>
         <image name="btnON.png" width="156" height="65"/>
         <image name="leaf.png" width="99" height="98"/>
@@ -1563,6 +1639,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="kS4-jz-Y09"/>
+        <segue reference="f9L-NK-gVN"/>
     </inferredMetricsTieBreakers>
 </document>
