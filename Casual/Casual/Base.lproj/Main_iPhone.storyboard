@@ -358,9 +358,9 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.90980392160000001" green="0.98823529409999999" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="dC6-T5-dRc" id="U9r-8o-tSt"/>
+                                                    <outlet property="delegate" destination="zkV-gO-etY" id="DJb-eM-mLU"/>
                                                 </connections>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Seperator.png" translatesAutoresizingMaskIntoConstraints="NO" id="CSA-Ef-SXP">
@@ -372,9 +372,9 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.90980392160000001" green="0.98823529409999999" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="dC6-T5-dRc" id="1lL-c0-5oR"/>
+                                                    <outlet property="delegate" destination="zkV-gO-etY" id="g2N-b3-5pz"/>
                                                 </connections>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Seperator.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qc4-19-z9t">
@@ -388,7 +388,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="dC6-T5-dRc" id="YKA-ta-kQX"/>
+                                                    <outlet property="delegate" destination="zkV-gO-etY" id="qyo-LS-mDi"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zodiac Sign" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0pn-gx-uWH">
@@ -396,9 +396,9 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.90980392160000001" green="0.98823529409999999" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="dC6-T5-dRc" id="msw-am-h0e"/>
+                                                    <outlet property="delegate" destination="zkV-gO-etY" id="vMv-4L-aDE"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="School / Major" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="etb-l4-81t">
@@ -408,7 +408,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="dC6-T5-dRc" id="dl2-Id-U22"/>
+                                                    <outlet property="delegate" destination="zkV-gO-etY" id="JCm-R4-yyw"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Occupation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YTB-jD-zo2">
@@ -418,17 +418,17 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="dC6-T5-dRc" id="zOh-gi-h6u"/>
+                                                    <outlet property="delegate" destination="zkV-gO-etY" id="CcJ-zK-nWM"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q4Q-Qz-Lcw">
-                                                <rect key="frame" x="13" y="253" width="274" height="30"/>
+                                                <rect key="frame" x="13" y="250" width="274" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.90980392160000001" green="0.98823529409999999" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="send"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="dC6-T5-dRc" id="ocu-J6-3pt"/>
+                                                    <outlet property="delegate" destination="zkV-gO-etY" id="FqS-av-sV9"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Maritial Status" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="94d-Xg-hWv">
@@ -436,9 +436,9 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.90980392160000001" green="0.98823529409999999" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="join" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="dC6-T5-dRc" id="dSB-ft-0xw"/>
+                                                    <outlet property="delegate" destination="zkV-gO-etY" id="unV-PG-Eel"/>
                                                 </connections>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Seperator.png" translatesAutoresizingMaskIntoConstraints="NO" id="m5U-JS-KWG">
@@ -467,6 +467,17 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4J5-7h-yZZ">
+                                <rect key="frame" x="251" y="24" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <state key="normal" title="Save" backgroundImage="SettingsBtn.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="zkV-gO-etY" eventType="touchUpInside" id="uPB-Sj-ORa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -480,6 +491,14 @@
                     <connections>
                         <outlet property="btnFacebookSwitch" destination="94Q-iu-ZpD" id="Amk-sc-hhH"/>
                         <outlet property="btnTwitterSwitch" destination="BPf-Qt-l0X" id="bhf-7k-E1Z"/>
+                        <outlet property="tfDateOfBirth" destination="DxP-eX-vgh" id="fXR-9d-nSP"/>
+                        <outlet property="tfLocation" destination="q4Q-Qz-Lcw" id="XF5-91-InB"/>
+                        <outlet property="tfMaritialStatus" destination="94d-Xg-hWv" id="oTc-Lq-Nyg"/>
+                        <outlet property="tfNutshell" destination="6mR-gG-7s6" id="KUm-H8-P3L"/>
+                        <outlet property="tfOccupation" destination="YTB-jD-zo2" id="3kh-we-oTz"/>
+                        <outlet property="tfPhoneNumber" destination="PiM-hQ-PZ0" id="RgY-bW-zXZ"/>
+                        <outlet property="tfSchool" destination="etb-l4-81t" id="nXI-9y-OqY"/>
+                        <outlet property="tfZodiacSign" destination="0pn-gx-uWH" id="9Wj-Wd-tuu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PpP-5v-vEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1639,6 +1658,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="f9L-NK-gVN"/>
+        <segue reference="PdD-iF-bf3"/>
     </inferredMetricsTieBreakers>
 </document>

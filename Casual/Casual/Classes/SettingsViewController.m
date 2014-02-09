@@ -8,13 +8,25 @@
 
 #import "SettingsViewController.h"
 #import "UIViewControllerCategories.h"
+#import "AFHTTPClient.h"
 
-@interface SettingsViewController ()
+@interface SettingsViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *btnFacebookSwitch;
 @property (weak, nonatomic) IBOutlet UIButton *btnTwitterSwitch;
 
+@property (weak, nonatomic) IBOutlet UITextField *tfNutshell;
+@property (weak, nonatomic) IBOutlet UITextField *tfSchool;
+@property (weak, nonatomic) IBOutlet UITextField *tfOccupation;
+@property (weak, nonatomic) IBOutlet UITextField *tfZodiacSign;
+@property (weak, nonatomic) IBOutlet UITextField *tfMaritialStatus;
+@property (weak, nonatomic) IBOutlet UITextField *tfPhoneNumber;
+@property (weak, nonatomic) IBOutlet UITextField *tfDateOfBirth;
+@property (weak, nonatomic) IBOutlet UITextField *tfLocation;
+
+
 - (IBAction)backButtonClicked:(id)sender;
+- (IBAction)saveButtonTapped:(id)sender;
 
 @end
 
@@ -72,6 +84,14 @@
 - (IBAction)backButtonClicked:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)saveButtonTapped:(id)sender
+{
+    if([self checkEnteredValues])
+        [self sendInfoToServer];
+    else
+        [self showAlertWithMessage:@"Please enter the values" andTitle:@"Error"];
 }
 
 - (IBAction)btnFacebookToggle:(UIButton*)sender
@@ -176,7 +196,175 @@
     [errorAlert show];
 }
 
+#pragma -mark Server Requests
 
+-(BOOL)checkEnteredValues
+{
+    BOOL isEnteredValesOK = NO;
+    NSDictionary *parameters = [self getParameters];
+    if(parameters.count <= 1)
+    {
+        isEnteredValesOK = NO;
+    }
+    return isEnteredValesOK;
+}
 
+-(NSDictionary*)getParameters
+{
+    NSDictionary *currentUser = [[NSUserDefaults standardUserDefaults] valueForKey:LOGGEDIN_USER_DETAILS];
+    NSString *user_id = [currentUser objectForKey:@"user_id"];
+    
+    NSString *nutShell = _tfNutshell.text;
+    NSString *school = _tfSchool.text;
+    NSString *occupation = _tfOccupation.text;
+    NSString *zodiacSign = _tfZodiacSign.text;
+    NSString *maritialStatus = _tfMaritialStatus.text;
+    NSString *phnNumber = _tfPhoneNumber.text;
+    NSString *dob = _tfDateOfBirth.text;
+    NSString *location = _tfLocation.text;
+    
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    
+    if(nutShell.length > 0)
+    {
+        [parameters setObject:nutShell forKey:@"bio"];
+    }
+    if(school.length > 0)
+    {
+        [parameters setObject:school forKey:@"school"];
+    }
+    if(occupation.length > 0)
+    {
+        [parameters setObject:occupation forKey:@"occupation"];
+    }
+    if(zodiacSign.length > 0)
+    {
+        [parameters setObject:zodiacSign forKey:@"zodiac"];
+    }
+    if(maritialStatus.length > 0)
+    {
+        [parameters setObject:maritialStatus forKey:@"matrial"];
+    }
+    if(phnNumber.length > 0)
+    {
+        [parameters setObject:phnNumber forKey:@"phnumber"];
+    }
+    if(dob.length > 0)
+    {
+        [parameters setObject:dob forKey:@"dob"];
+    }
+    if(location.length > 0)
+    {
+        [parameters setObject:location forKey:@"location"];
+    }
+    
+    
+    [parameters setObject:user_id forKey:@"user_id"];
+
+    
+    return parameters;
+}
+
+-(void)sendInfoToServer
+{
+    NSString *url = [NSString stringWithFormat:@"%@biodata.php",SERVER_URL];
+    
+    AFHTTPClient * Client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
+    
+    
+    [Client setParameterEncoding:AFJSONParameterEncoding];
+    [Client postPath:@"users/login.json" parameters:[self getParameters] success:^(AFHTTPRequestOperation *operation, id responseObject){
+        
+        [self hideLoadingScreen];
+        
+        NSError *error = nil;
+        NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+        
+        NSString *mesage = nil;
+        NSString *title = nil;
+        
+        if (error) {
+            title = @"Error";
+            mesage = [error localizedDescription];
+        }
+        else if ([[response objectForKey:@"status"] integerValue] == 1)
+        {
+            title = @"Casual";
+            mesage = @"Successfully Updated";
+        }
+        else
+        {
+            title = @"Error";
+            mesage = @"Some error occured";
+        }
+        
+        if(mesage != nil)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                            message:mesage
+                                                           delegate:nil
+                                                  cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        
+    }
+             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                 message:[error localizedDescription]
+                                                                delegate:self
+                                                       cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                                       otherButtonTitles:nil];
+                 [alert show];
+                 [self hideLoadingScreen];
+                 
+             }];
+    
+    [self showLoadingScreenWithMessage:@"Loading"];
+    
+}
+
+#pragma -mark UItextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if(textField == _tfNutshell)
+    {
+        [_tfSchool becomeFirstResponder];
+    }
+    if(textField == _tfSchool)
+    {
+        [_tfOccupation becomeFirstResponder];
+    }
+    if(textField == _tfOccupation)
+    {
+        [_tfZodiacSign becomeFirstResponder];
+    }
+    if(textField == _tfZodiacSign)
+    {
+        [_tfMaritialStatus becomeFirstResponder];
+    }
+    if(textField == _tfMaritialStatus)
+    {
+        [_tfPhoneNumber becomeFirstResponder];
+    }
+    if(textField == _tfPhoneNumber)
+    {
+        [_tfDateOfBirth becomeFirstResponder];
+    }
+    if(textField == _tfDateOfBirth)
+    {
+        [_tfLocation becomeFirstResponder];
+    }
+    if(textField == _tfLocation)
+    {
+        [_tfLocation resignFirstResponder];
+        if([self checkEnteredValues])
+            [self sendInfoToServer];
+        else
+            [self showAlertWithMessage:@"Please enter the values" andTitle:@"Error"];
+    }
+    return YES;
+}
 
 @end
