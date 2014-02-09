@@ -31,6 +31,13 @@
 		4E135A8D18A56137002DC459 /* treeRightBranch.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E135A8B18A56137002DC459 /* treeRightBranch.png */; };
 		4E37B30818A76EBC005FF445 /* TwitterServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E37B30718A76EBC005FF445 /* TwitterServices.m */; };
 		4E37B32118A7B40F005FF445 /* NSDate+NVTimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E37B32018A7B40F005FF445 /* NSDate+NVTimeAgo.m */; };
+		4E37B32418A7B984005FF445 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E37B32318A7B984005FF445 /* SettingsViewController.m */; };
+		4E37B32818A7C071005FF445 /* btnOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E37B32618A7C071005FF445 /* btnOff.png */; };
+		4E37B32918A7C071005FF445 /* btnON.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E37B32718A7C071005FF445 /* btnON.png */; };
+		4E37B32B18A7C39A005FF445 /* tf_Top_BG.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E37B32A18A7C39A005FF445 /* tf_Top_BG.png */; };
+		4E37B32D18A7C3E4005FF445 /* tf_Body_BG.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E37B32C18A7C3E4005FF445 /* tf_Body_BG.png */; };
+		4E37B33018A7CAB5005FF445 /* btnInfo_Sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E37B32E18A7CAB5005FF445 /* btnInfo_Sel.png */; };
+		4E37B33118A7CAB5005FF445 /* btnInfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E37B32F18A7CAB5005FF445 /* btnInfo.png */; };
 		4E952FE418A669D400075CCB /* ActivityTableDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E952FE318A669D400075CCB /* ActivityTableDatasource.m */; };
 		4E9D204418A154020019E86B /* TextFieldsBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204318A154020019E86B /* TextFieldsBG.png */; };
 		4E9D204618A158350019E86B /* Seperator.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204518A158350019E86B /* Seperator.png */; };
@@ -223,6 +230,14 @@
 		4E37B30718A76EBC005FF445 /* TwitterServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterServices.m; sourceTree = "<group>"; };
 		4E37B31F18A7B40F005FF445 /* NSDate+NVTimeAgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+NVTimeAgo.h"; sourceTree = "<group>"; };
 		4E37B32018A7B40F005FF445 /* NSDate+NVTimeAgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+NVTimeAgo.m"; sourceTree = "<group>"; };
+		4E37B32218A7B984005FF445 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = Classes/SettingsViewController.h; sourceTree = "<group>"; };
+		4E37B32318A7B984005FF445 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = Classes/SettingsViewController.m; sourceTree = "<group>"; };
+		4E37B32618A7C071005FF445 /* btnOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnOff.png; sourceTree = "<group>"; };
+		4E37B32718A7C071005FF445 /* btnON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnON.png; sourceTree = "<group>"; };
+		4E37B32A18A7C39A005FF445 /* tf_Top_BG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tf_Top_BG.png; sourceTree = "<group>"; };
+		4E37B32C18A7C3E4005FF445 /* tf_Body_BG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tf_Body_BG.png; sourceTree = "<group>"; };
+		4E37B32E18A7CAB5005FF445 /* btnInfo_Sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnInfo_Sel.png; sourceTree = "<group>"; };
+		4E37B32F18A7CAB5005FF445 /* btnInfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnInfo.png; sourceTree = "<group>"; };
 		4E952FE218A669D400075CCB /* ActivityTableDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableDatasource.h; sourceTree = "<group>"; };
 		4E952FE318A669D400075CCB /* ActivityTableDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableDatasource.m; sourceTree = "<group>"; };
 		4E9D204318A154020019E86B /* TextFieldsBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextFieldsBG.png; sourceTree = "<group>"; };
@@ -454,6 +469,17 @@
 			path = TimeAgo;
 			sourceTree = "<group>";
 		};
+		4E37B32518A7C071005FF445 /* SettingsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4E37B32C18A7C3E4005FF445 /* tf_Body_BG.png */,
+				4E37B32A18A7C39A005FF445 /* tf_Top_BG.png */,
+				4E37B32618A7C071005FF445 /* btnOff.png */,
+				4E37B32718A7C071005FF445 /* btnON.png */,
+			);
+			path = SettingsScreen;
+			sourceTree = "<group>";
+		};
 		4E952FE118A669D400075CCB /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,6 +493,7 @@
 		4E9D204218A154020019E86B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4E37B32518A7C071005FF445 /* SettingsScreen */,
 				4E135A8718A55BEF002DC459 /* HistoryScreen */,
 				4E9DBD3E18A41BBA00CD1AD4 /* ActivitiesScreen */,
 				4E9DBD3918A41B9B00CD1AD4 /* PostScreen */,
@@ -535,6 +562,8 @@
 		4E9FBA3B18A2B31100395558 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				4E37B32E18A7CAB5005FF445 /* btnInfo_Sel.png */,
+				4E37B32F18A7CAB5005FF445 /* btnInfo.png */,
 				4E9D7C7718A62B080083147D /* BtnHome_Sel.png */,
 				4E9D7C7818A62B080083147D /* BtnHome_Sel@2x.png */,
 				4E9D7C7118A628740083147D /* BtnActivites_Sel.png */,
@@ -661,6 +690,8 @@
 				09CACFCD18A4A01800B9A91D /* PostViewController.m */,
 				09CACFD618A4A02B00B9A91D /* CheckInViewController.h */,
 				09CACFD718A4A02B00B9A91D /* CheckInViewController.m */,
+				4E37B32218A7B984005FF445 /* SettingsViewController.h */,
+				4E37B32318A7B984005FF445 /* SettingsViewController.m */,
 				4EC2B29118A145B40045291A /* Constants.h */,
 				4EC2B27118A1439A0045291A /* Images.xcassets */,
 				4EC2B25D18A1439A0045291A /* Supporting Files */,
@@ -876,6 +907,7 @@
 				4EC2B26D18A1439A0045291A /* Main_iPad.storyboard in Resources */,
 				4E9D205118A15B1C0019E86B /* OR.png in Resources */,
 				4EC2B27218A1439A0045291A /* Images.xcassets in Resources */,
+				4E37B32918A7C071005FF445 /* btnON.png in Resources */,
 				4E9FBA4318A2B31100395558 /* BtnScan.png in Resources */,
 				4E9DBD4118A41BBA00CD1AD4 /* FB_TW_Bar.png in Resources */,
 				4E9DBD4218A41BBA00CD1AD4 /* Status_CheckIn_BG.png in Resources */,
@@ -885,10 +917,12 @@
 				4E9DBD4618A41BCB00CD1AD4 /* SettingsBtn.png in Resources */,
 				4E9D205618A15DC90019E86B /* BtnSignUp.png in Resources */,
 				4E9FBA5118A2BD0B00395558 /* TreeImage.png in Resources */,
+				4E37B32D18A7C3E4005FF445 /* tf_Body_BG.png in Resources */,
 				4E9D7C7518A628740083147D /* BtnHistory_Sel.png in Resources */,
 				4E9FBA4D18A2B99700395558 /* TabBarBG@2x.png in Resources */,
 				4E9DBD4518A41BCB00CD1AD4 /* backButton.png in Resources */,
 				4E9DBD4818A41BD500CD1AD4 /* btnLoginAll.png in Resources */,
+				4E37B32818A7C071005FF445 /* btnOff.png in Resources */,
 				4E9D204618A158350019E86B /* Seperator.png in Resources */,
 				4E135A8C18A56137002DC459 /* treeLeftBranch.png in Resources */,
 				4E9D7C6818A626190083147D /* BtnHistory_Sel@2x.png in Resources */,
@@ -902,9 +936,11 @@
 				4E135A8618A54744002DC459 /* sampleQRCode.png in Resources */,
 				4E9D205E18A15FEA0019E86B /* leaf.png in Resources */,
 				4E9D205818A15E730019E86B /* Bg_mainScreen.png in Resources */,
+				4E37B33118A7CAB5005FF445 /* btnInfo.png in Resources */,
 				4E9FBA4918A2B8A200395558 /* BtnActivites@2x.png in Resources */,
 				4E9D205218A15B1C0019E86B /* txt_OR_Join_Casual.png in Resources */,
 				4E9D7C7418A628740083147D /* BtnActivites_Sel.png in Resources */,
+				4E37B32B18A7C39A005FF445 /* tf_Top_BG.png in Resources */,
 				4EC1786E18A6AB0700B72C92 /* postTF_BG_right.png in Resources */,
 				4E9D205A18A15EE40019E86B /* BtnLogin.png in Resources */,
 				4E9FBA4A18A2B8A200395558 /* BtnHistory@2x.png in Resources */,
@@ -916,6 +952,7 @@
 				4E9FBA4118A2B31100395558 /* BtnHistory.png in Resources */,
 				4E9DBD3D18A41BAD00CD1AD4 /* TopBar.png in Resources */,
 				4E9FBA4B18A2B8A200395558 /* BtnScan@2x.png in Resources */,
+				4E37B33018A7CAB5005FF445 /* btnInfo_Sel.png in Resources */,
 				4E9FBA5018A2BD0B00395558 /* CenterImage.png in Resources */,
 				4E9FBA4218A2B31100395558 /* BtnHome.png in Resources */,
 				4E9D7C6718A626190083147D /* BtnActivites_Sel@2x.png in Resources */,
@@ -974,6 +1011,7 @@
 				09FA89E518A2157C00C05CAA /* STTwitterHTML.m in Sources */,
 				4EC1785F18A6A82800B72C92 /* HistoryViewCell.m in Sources */,
 				4E9FBA3A18A2AF2B00395558 /* HomeViewController.m in Sources */,
+				4E37B32418A7B984005FF445 /* SettingsViewController.m in Sources */,
 				4EC2B2E218A147030045291A /* AFHTTPRequestOperation.m in Sources */,
 				09FA89E618A2157C00C05CAA /* STTwitterOAuth.m in Sources */,
 				4EC2B26318A1439A0045291A /* main.m in Sources */,
