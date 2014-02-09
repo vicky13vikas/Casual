@@ -775,11 +775,27 @@
                                     <action selector="logoutTapped:" destination="hi7-WX-CEo" eventType="touchUpInside" id="kHE-Gg-U7V"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3el-39-Nbg">
+                                <rect key="frame" x="20" y="75" width="280" height="418"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="3el-39-Nbg" secondAttribute="bottom" constant="75" id="G6q-bM-MnU"/>
+                            <constraint firstItem="3el-39-Nbg" firstAttribute="leading" secondItem="dvV-c9-u7L" secondAttribute="leading" constant="20" id="QHl-d7-cHk"/>
+                            <constraint firstAttribute="trailing" secondItem="3el-39-Nbg" secondAttribute="trailing" constant="20" id="Rme-A7-2ux"/>
+                            <constraint firstItem="3el-39-Nbg" firstAttribute="top" secondItem="dvV-c9-u7L" secondAttribute="top" constant="75" id="tqM-Bv-A4h"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="b3V-NT-Co7"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="tvInfo" destination="3el-39-Nbg" id="2tS-TH-nao"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F6e-wu-IPV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1658,6 +1674,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="PdD-iF-bf3"/>
+        <segue reference="f9L-NK-gVN"/>
     </inferredMetricsTieBreakers>
 </document>
