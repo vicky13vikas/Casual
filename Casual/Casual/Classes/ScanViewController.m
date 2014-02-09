@@ -188,16 +188,17 @@
 #pragma -mark Server Requests
 
 
--(void)showUserDetails:(NSDictionary*)result
+-(NSString*)showUserDetails:(NSDictionary*)result
 {
-    NSString *userdata = [NSString stringWithFormat:@"\n\n\n First name : %@\n\n Last name : %@\n\n Email : %@",
+    NSString *userdata = [NSString stringWithFormat:@"You are now connected with:\n\n First name : %@\n Last name : %@\n Email : %@",
                                                     [result objectForKey:@"connected_to_firstName"],
                                                     [result objectForKey:@"connected_to_lastName"],
                                                     [result objectForKey:@"connected_to_email"]];
     
-    _tvUserDetails.text = userdata;
-    _tvUserDetails.hidden = NO;
-    _qrImageView.hidden = YES;
+//    _tvUserDetails.text = userdata;
+//    _tvUserDetails.hidden = NO;
+//    _qrImageView.hidden = YES;
+    return  userdata;
 }
 
 -(NSDictionary*)getParameters
@@ -228,7 +229,7 @@
     
     
     [Client setParameterEncoding:AFJSONParameterEncoding];
-    [Client postPath:@"users/login.json" parameters:[self getParameters] success:^(AFHTTPRequestOperation *operation, id responseObject){
+    [Client postPath:@"" parameters:[self getParameters] success:^(AFHTTPRequestOperation *operation, id responseObject){
         
         [self hideLoadingScreen];
         isRequesting = NO;
@@ -248,11 +249,10 @@
             title = @"Error";
             mesage = [error localizedDescription];
         }
-        else if ([[response objectForKey:@"status"] integerValue] == 1)
+        else if ([[response objectForKey:@"status"] boolValue] == 1)
         {
             title = @"Congrats!";
-            mesage = [NSString stringWithFormat:@"You are now connected to \n \"%@\"",[response objectForKey:@"connected_to_firstName"]];
-            [self showUserDetails:response];
+            mesage = [self showUserDetails:response];
         }
         else if ([[response objectForKey:@"status"] isEqualToString:@"qr_invalid"])
         {
@@ -261,7 +261,7 @@
         }
         else if ([[response objectForKey:@"status"] isEqualToString:@"already_connected"])
         {
-            title = @"Error";
+            title = @"Casual";
             mesage = @"You are already connected to this user.";
         }
         else

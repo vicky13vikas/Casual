@@ -46,6 +46,22 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [self setTextValues];
+}
+
+-(void)setTextValues
+{
+    NSDictionary *currentUser = [[NSUserDefaults standardUserDefaults] valueForKey:LOGGEDIN_USER_DETAILS];
+    
+    
+    _tfNutshell.text = [currentUser objectForKey:@"bio"];
+    _tfSchool.text = [currentUser objectForKey:@"school"];
+    _tfOccupation.text = [currentUser objectForKey:@"occupation"];
+    _tfZodiacSign.text = [currentUser objectForKey:@"zodiac"];
+    _tfMaritialStatus.text = [currentUser objectForKey:@"matrial"];
+    _tfPhoneNumber.text = [currentUser objectForKey:@"phnumber"];
+    _tfDateOfBirth.text = [currentUser objectForKey:@"dob"];
+    _tfLocation.text = [currentUser objectForKey:@"location"];    
 }
 
 -(void)viewWillAppear:(BOOL)animated

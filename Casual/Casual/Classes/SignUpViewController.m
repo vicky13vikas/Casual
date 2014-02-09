@@ -122,6 +122,16 @@
             title = @"Error";
             mesage = @"Email already registerd";
         }
+        else if ([[response objectForKey:@"status"] isEqualToString:@"invalid_code"])
+        {
+            title = @"Error";
+            mesage = @"Invalid QR code";
+        }
+        else if ([[response objectForKey:@"status"] isEqualToString:@"qr_busy"])
+        {
+            title = @"Error";
+            mesage = @"QR code assigned to other user.";
+        }
         else
         {
             title = @"Error";
@@ -249,6 +259,7 @@
 - (IBAction)scanQRCode:(id)sender
 {
     [self.view.layer addSublayer:self.capture.layer];
+    [self.capture start];
 }
 
 #pragma -mark UItextFieldDelegate
@@ -400,6 +411,7 @@
     
     self.capture.layer.frame = CGRectMake(5, 70, 310, self.view.frame.size.height - 80);
     self.capture.delegate = self;
+    [self.capture hard_stop];
 }
 
 #pragma mark - ZXCaptureDelegate Methods
@@ -490,7 +502,11 @@
 //        NSLog(@"Scanned QR Code : %@",[self displayForResult:result]);
         
         if(result.barcodeFormat == kBarcodeFormatQRCode)
+        {
             self.unique_ID = result.text;
+            [self.capture.layer removeFromSuperlayer];
+            [self.capture stop];
+        }
         else
             [self showAlertWithMessage:@"Invalid QR Code" andTitle:@"Error"];
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
