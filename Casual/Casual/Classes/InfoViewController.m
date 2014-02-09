@@ -10,7 +10,16 @@
 
 @interface InfoViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextView *tvInfo;
+@property (weak, nonatomic) IBOutlet UITextField *tfNutshell;
+@property (weak, nonatomic) IBOutlet UITextField *tfSchool;
+@property (weak, nonatomic) IBOutlet UITextField *tfOccupation;
+@property (weak, nonatomic) IBOutlet UITextField *tfZodiacSign;
+@property (weak, nonatomic) IBOutlet UITextField *tfMaritialStatus;
+@property (weak, nonatomic) IBOutlet UITextField *tfPhoneNumber;
+@property (weak, nonatomic) IBOutlet UITextField *tfDateOfBirth;
+@property (weak, nonatomic) IBOutlet UITextField *tfLocation;
+@property (weak, nonatomic) IBOutlet UIImageView *QRCodeImageView;
+
 @end
 
 @implementation InfoViewController
@@ -29,7 +38,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [self setInitialInfo];
+    [self setTextValues];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,6 +51,36 @@
 {
     [self logout];
 }
+
+-(void)setTextValues
+{
+    NSDictionary *currentUser = [[NSUserDefaults standardUserDefaults] valueForKey:LOGGEDIN_USER_DETAILS];
+    
+
+    _tfNutshell.text = [currentUser objectForKey:@"bio"];
+    _tfSchool.text = [currentUser objectForKey:@"school"];
+    _tfOccupation.text = [currentUser objectForKey:@"occupation"];
+    _tfZodiacSign.text = [currentUser objectForKey:@"zodiac"];
+    _tfMaritialStatus.text = [currentUser objectForKey:@"matrial"];
+    _tfPhoneNumber.text = [currentUser objectForKey:@"phnumber"];
+    _tfDateOfBirth.text = [currentUser objectForKey:@"dob"];
+    _tfLocation.text = [currentUser objectForKey:@"location"];
+    
+    
+    NSString *data = [currentUser objectForKey:@"unique_id"];
+    if (data && ![data isEqualToString:@""]) {
+        
+        ZXMultiFormatWriter *writer = [[ZXMultiFormatWriter alloc] init];
+        ZXBitMatrix *result = [writer encode:data format:kBarcodeFormatQRCode width:self.QRCodeImageView.frame.size.width height:self.QRCodeImageView.frame.size.width error:nil];
+        if (result) {
+            self.QRCodeImageView.image = [UIImage imageWithCGImage:[ZXImage imageWithMatrix:result].cgimage];
+        } else {
+            self.QRCodeImageView.image = nil;
+        }
+    }
+
+}
+
 
 -(void)setInitialInfo
 {
@@ -60,9 +99,6 @@
     [userDetailsString appendFormat:@"\n\n Maritial Status  :  %@", [currentUser objectForKey:@"matrial"]];
     [userDetailsString appendFormat:@"\n\n Phone Number  :  %@", [currentUser objectForKey:@"phnumber"]];
     [userDetailsString appendFormat:@"\n\n Location  :  %@", [currentUser objectForKey:@"location"]];
-
-    
-    self.tvInfo.text = userDetailsString;
 
 }
 

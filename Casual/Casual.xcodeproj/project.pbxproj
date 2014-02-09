@@ -1189,7 +1189,7 @@
 					/Volumes/Development/Development/FreelancerDropBox/Harshad/Casual/Casual/Libraries/TestFlightSDK2,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A7E8E8DD-AEC1-42CE-A7A4-B3687E75D712";
+				PROVISIONING_PROFILE = "FACE449F-6564-46E7-BD7D-696EEA8518CE";
 				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1221,7 +1221,7 @@
 					/Volumes/Development/Development/FreelancerDropBox/Harshad/Casual/Casual/Libraries/TestFlightSDK2,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A7E8E8DD-AEC1-42CE-A7A4-B3687E75D712";
+				PROVISIONING_PROFILE = "FACE449F-6564-46E7-BD7D-696EEA8518CE";
 				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};

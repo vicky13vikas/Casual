@@ -206,6 +206,10 @@
     {
         isEnteredValesOK = NO;
     }
+    else
+    {
+        isEnteredValesOK = YES;
+    }
     return isEnteredValesOK;
 }
 
