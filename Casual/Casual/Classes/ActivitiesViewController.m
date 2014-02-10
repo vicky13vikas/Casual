@@ -185,7 +185,7 @@
     STTwitterAPI *twitter = [TwitterServices sharedTwitter];
 
     [twitter getHomeTimelineSinceID:nil
-                              count:100
+                              count:20
                        successBlock:^(NSArray *statuses) {
                            [self hideLoadingScreen];
 

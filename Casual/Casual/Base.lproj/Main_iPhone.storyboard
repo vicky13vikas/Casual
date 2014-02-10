@@ -556,7 +556,7 @@
                                 <rect key="frame" x="0.0" y="60" width="320" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Status_CheckIn_BG.png" translatesAutoresizingMaskIntoConstraints="NO" id="CVP-rG-pWf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Status_CheckIn_BG.png" translatesAutoresizingMaskIntoConstraints="NO" id="CVP-rG-pWf">
                                 <rect key="frame" x="0.0" y="469" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -564,10 +564,13 @@
                                     <constraint firstAttribute="height" constant="50" id="pyr-aw-Zow"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pa-f8-tQZ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pa-f8-tQZ">
                                 <rect key="frame" x="10" y="479" width="141" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="141" id="MEk-Y3-jpH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="STATUS">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -576,10 +579,13 @@
                                     <segue destination="dCy-6J-ocL" kind="push" id="grr-3V-1rt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NIM-5c-pHx">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NIM-5c-pHx">
                                 <rect key="frame" x="171" y="479" width="141" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="141" id="QoD-GZ-dhV"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="CHECK IN">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -610,7 +616,7 @@
                                     <action selector="twitterTapped:" destination="aE9-co-c1o" eventType="touchUpInside" id="j6K-PI-9Tq"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WSb-fZ-TIU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WSb-fZ-TIU">
                                 <rect key="frame" x="9" y="124" width="302" height="337"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -711,8 +717,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="t3b-MK-baY" firstAttribute="top" secondItem="NIM-5c-pHx" secondAttribute="bottom" constant="10" id="Hf1-Q4-Imy"/>
+                            <constraint firstItem="WSb-fZ-TIU" firstAttribute="leading" secondItem="inB-z9-lqz" secondAttribute="leading" constant="9" id="UW5-SK-cNh"/>
+                            <constraint firstAttribute="trailing" secondItem="NIM-5c-pHx" secondAttribute="trailing" constant="8" id="WUU-Gv-ATJ"/>
+                            <constraint firstItem="4pa-f8-tQZ" firstAttribute="leading" secondItem="inB-z9-lqz" secondAttribute="leading" constant="10" id="aCk-Fd-SNF"/>
+                            <constraint firstAttribute="trailing" secondItem="CVP-rG-pWf" secondAttribute="trailing" id="blR-Mj-cCX"/>
+                            <constraint firstItem="t3b-MK-baY" firstAttribute="top" secondItem="CVP-rG-pWf" secondAttribute="bottom" id="bsg-oL-gx5"/>
+                            <constraint firstAttribute="bottom" secondItem="WSb-fZ-TIU" secondAttribute="bottom" constant="107" id="cTK-3E-CU9"/>
                             <constraint firstItem="t3b-MK-baY" firstAttribute="top" secondItem="4pa-f8-tQZ" secondAttribute="bottom" constant="10" id="fnC-VP-UWG"/>
-                            <constraint firstItem="t3b-MK-baY" firstAttribute="top" secondItem="CVP-rG-pWf" secondAttribute="bottom" id="yWc-Lg-aS8"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WSb-fZ-TIU" secondAttribute="trailing" constant="9" id="gF5-k3-2UK"/>
+                            <constraint firstItem="CVP-rG-pWf" firstAttribute="leading" secondItem="inB-z9-lqz" secondAttribute="leading" id="ilr-TS-TsL"/>
+                            <constraint firstAttribute="trailing" secondItem="WSb-fZ-TIU" secondAttribute="trailing" constant="9" id="m2V-2d-D8A"/>
+                            <constraint firstItem="WSb-fZ-TIU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="inB-z9-lqz" secondAttribute="leading" constant="9" id="vHE-1l-kLd"/>
+                            <constraint firstItem="WSb-fZ-TIU" firstAttribute="top" secondItem="inB-z9-lqz" secondAttribute="top" constant="124" id="vto-Qn-Y0N"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fiD-X4-0RA"/>
@@ -1770,9 +1786,21 @@
     </scenes>
     <resources>
         <image name="BG_small.png" width="600" height="228"/>
+        <image name="BG_small.png" width="600" height="228"/>
+        <image name="Background.png" width="641" height="865"/>
+        <image name="Background.png" width="641" height="865"/>
+        <image name="Background.png" width="641" height="865"/>
+        <image name="Background.png" width="641" height="865"/>
+        <image name="Background.png" width="641" height="865"/>
+        <image name="Background.png" width="641" height="865"/>
+        <image name="Background.png" width="641" height="865"/>
+        <image name="Background.png" width="641" height="865"/>
+        <image name="Background.png" width="641" height="865"/>
         <image name="Background.png" width="641" height="865"/>
         <image name="Bg_mainScreen.png" width="641" height="826"/>
         <image name="BtnActivites.png" width="98" height="98"/>
+        <image name="BtnFacebook.png" width="90" height="90"/>
+        <image name="BtnFacebook.png" width="90" height="90"/>
         <image name="BtnFacebook.png" width="90" height="90"/>
         <image name="BtnHistory.png" width="98" height="99"/>
         <image name="BtnHome.png" width="64" height="64"/>
@@ -1780,30 +1808,95 @@
         <image name="BtnScan.png" width="96" height="95"/>
         <image name="BtnSignUp.png" width="423" height="109"/>
         <image name="BtnTwitter.png" width="90" height="90"/>
+        <image name="BtnTwitter.png" width="90" height="90"/>
+        <image name="BtnTwitter.png" width="90" height="90"/>
         <image name="CenterImage.png" width="649" height="117"/>
         <image name="FB_TW_Bar.png" width="636" height="77"/>
         <image name="Logo.png" width="469" height="257"/>
+        <image name="Logo.png" width="469" height="257"/>
+        <image name="Logo.png" width="469" height="257"/>
+        <image name="Logo.png" width="469" height="257"/>
+        <image name="Logo.png" width="469" height="257"/>
+        <image name="Logo.png" width="469" height="257"/>
+        <image name="Logo.png" width="469" height="257"/>
+        <image name="Logo.png" width="469" height="257"/>
+        <image name="Logo.png" width="469" height="257"/>
+        <image name="Logo.png" width="469" height="257"/>
+        <image name="Logo.png" width="469" height="257"/>
         <image name="OR.png" width="73" height="44"/>
         <image name="Seperator.png" width="598" height="1"/>
+        <image name="Seperator.png" width="598" height="1"/>
+        <image name="Seperator.png" width="598" height="1"/>
+        <image name="Seperator.png" width="598" height="1"/>
+        <image name="Seperator.png" width="598" height="1"/>
+        <image name="Seperator.png" width="598" height="1"/>
+        <image name="Seperator.png" width="598" height="1"/>
+        <image name="Seperator.png" width="598" height="1"/>
+        <image name="Seperator.png" width="598" height="1"/>
+        <image name="Seperator.png" width="598" height="1"/>
+        <image name="Seperator.png" width="598" height="1"/>
+        <image name="Seperator.png" width="598" height="1"/>
+        <image name="Seperator.png" width="598" height="1"/>
+        <image name="Seperator.png" width="598" height="1"/>
+        <image name="Seperator.png" width="598" height="1"/>
+        <image name="Seperator.png" width="598" height="1"/>
+        <image name="Seperator.png" width="598" height="1"/>
+        <image name="Seperator.png" width="598" height="1"/>
+        <image name="Seperator.png" width="598" height="1"/>
+        <image name="Seperator.png" width="598" height="1"/>
+        <image name="SettingsBtn.png" width="138" height="61"/>
+        <image name="SettingsBtn.png" width="138" height="61"/>
+        <image name="SettingsBtn.png" width="138" height="61"/>
+        <image name="SettingsBtn.png" width="138" height="61"/>
+        <image name="SettingsBtn.png" width="138" height="61"/>
+        <image name="SettingsBtn.png" width="138" height="61"/>
         <image name="SettingsBtn.png" width="138" height="61"/>
         <image name="Status_CheckIn_BG.png" width="641" height="79"/>
         <image name="TextFieldsBG.png" width="600" height="358"/>
         <image name="TopBar.png" width="640" height="92"/>
+        <image name="TopBar.png" width="640" height="92"/>
+        <image name="TopBar.png" width="640" height="92"/>
+        <image name="TopBar.png" width="640" height="92"/>
+        <image name="TopBar.png" width="640" height="92"/>
+        <image name="TopBar.png" width="640" height="92"/>
+        <image name="TopBar.png" width="640" height="92"/>
+        <image name="TopBar.png" width="640" height="92"/>
+        <image name="TopBar.png" width="640" height="92"/>
+        <image name="TopBar.png" width="640" height="92"/>
         <image name="TreeImage.png" width="149" height="151"/>
+        <image name="backButton.png" width="108" height="61"/>
+        <image name="backButton.png" width="108" height="61"/>
+        <image name="backButton.png" width="108" height="61"/>
+        <image name="backButton.png" width="108" height="61"/>
+        <image name="backButton.png" width="108" height="61"/>
+        <image name="backButton.png" width="108" height="61"/>
+        <image name="backButton.png" width="108" height="61"/>
+        <image name="backButton.png" width="108" height="61"/>
+        <image name="backButton.png" width="108" height="61"/>
         <image name="backButton.png" width="108" height="61"/>
         <image name="btnInfo.png" width="64" height="65"/>
         <image name="btnLoginAll.png" width="243" height="90"/>
+        <image name="btnLoginAll.png" width="243" height="90"/>
+        <image name="btnLoginAll.png" width="243" height="90"/>
+        <image name="btnON.png" width="156" height="65"/>
         <image name="btnON.png" width="156" height="65"/>
         <image name="leaf.png" width="99" height="98"/>
+        <image name="postTF_BG.png" width="536" height="337"/>
         <image name="postTF_BG.png" width="536" height="337"/>
         <image name="postTF_BG_right.png" width="512" height="337"/>
         <image name="sampleQRCode.png" width="448" height="448"/>
         <image name="tf_Body_BG.png" width="600" height="538"/>
+        <image name="tf_Body_BG.png" width="600" height="538"/>
+        <image name="tf_Top_BG.png" width="598" height="59"/>
         <image name="tf_Top_BG.png" width="598" height="59"/>
         <image name="treeBranch1.png" width="84" height="407"/>
         <image name="treeLeftBranch.png" width="166" height="62"/>
         <image name="treeRightBranch.png" width="146" height="62"/>
         <image name="txt_OR_Join_Casual.png" width="369" height="37"/>
+        <image name="userPlaceHolder.jpg" width="104" height="104"/>
+        <image name="userPlaceHolder.jpg" width="104" height="104"/>
+        <image name="userPlaceHolder.jpg" width="104" height="104"/>
+        <image name="userPlaceHolder.jpg" width="104" height="104"/>
         <image name="userPlaceHolder.jpg" width="104" height="104"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -1812,6 +1905,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="kS4-jz-Y09"/>
+        <segue reference="PdD-iF-bf3"/>
     </inferredMetricsTieBreakers>
 </document>
