@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *tfDateOfBirth;
 @property (weak, nonatomic) IBOutlet UITextField *tfLocation;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 - (IBAction)backButtonClicked:(id)sender;
 - (IBAction)saveButtonTapped:(id)sender;
@@ -68,6 +69,45 @@
 {
     [super viewWillAppear:animated];
     [self setIntialButtonStates];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+-(void)keyBoardWillShow:(NSNotification*)notification
+{
+    NSDictionary* keyboardInfo = [notification userInfo];
+    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+    
+    CGRect frame = _scrollView.frame;
+    frame.size.height = frame.size.height - keyboardFrameBeginRect.size.height;
+    _scrollView.frame = frame;
+}
+
+-(void)keyBoardWillHide:(NSNotification*)notification
+{
+    NSDictionary* keyboardInfo = [notification userInfo];
+    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+    
+    CGRect frame = _scrollView.frame;
+    frame.size.height = frame.size.height + keyboardFrameBeginRect.size.height;
+    _scrollView.frame = frame;
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    [self.scrollView setContentSize:CGSizeMake(_scrollView.frame.size.width, _scrollView.frame.size.height)];
 }
 
 -(void)setIntialButtonStates

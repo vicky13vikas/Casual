@@ -1201,7 +1201,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Alex Ham (Y83239S4MU)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Manish Bhatia (W3ABFKTGD2)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Volumes/Development/Development/FreelancerDropBox/Harshad/Github/Casual/Casual/Casual/FrameWorks,
@@ -1223,7 +1223,7 @@
 					/Volumes/Development/Samples/Casual/Casual/Casual/TestFlightSDK2.2.1,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "113DA635-938D-4DAA-8365-4F31596B3A47";
+				PROVISIONING_PROFILE = "FACE449F-6564-46E7-BD7D-696EEA8518CE";
 				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1235,7 +1235,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Alex Ham (Y83239S4MU)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Manish Bhatia (W3ABFKTGD2)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Volumes/Development/Development/FreelancerDropBox/Harshad/Github/Casual/Casual/Casual/FrameWorks,
@@ -1257,7 +1257,7 @@
 					/Volumes/Development/Samples/Casual/Casual/Casual/TestFlightSDK2.2.1,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "113DA635-938D-4DAA-8365-4F31596B3A47";
+				PROVISIONING_PROFILE = "FACE449F-6564-46E7-BD7D-696EEA8518CE";
 				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};

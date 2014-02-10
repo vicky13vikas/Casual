@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *tfLocation;
 @property (weak, nonatomic) IBOutlet UIImageView *QRCodeImageView;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @end
 
 @implementation InfoViewController
@@ -43,6 +45,12 @@
 {
     [super viewWillAppear:animated];
     [self setTextValues];
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    [self.scrollView setContentSize:CGSizeMake(_scrollView.frame.size.width, 568)];
 }
 
 - (void)didReceiveMemoryWarning
