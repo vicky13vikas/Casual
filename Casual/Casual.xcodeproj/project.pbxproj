@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09148DF218A8B20F00338BD3 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09148DEE18A8B20F00338BD3 /* libTestFlight.a */; };
+		09148DF518A8DCA300338BD3 /* InfoSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09148DF418A8DCA300338BD3 /* InfoSignUpViewController.m */; };
 		09C932D618A1F59800BF2DD9 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C932D518A1F59800BF2DD9 /* Twitter.framework */; };
 		09CACFCE18A4A01800B9A91D /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CACFCD18A4A01800B9A91D /* PostViewController.m */; };
 		09CACFD818A4A02B00B9A91D /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CACFD718A4A02B00B9A91D /* CheckInViewController.m */; };
@@ -196,6 +197,8 @@
 		09148DEF18A8B20F00338BD3 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		09148DF018A8B20F00338BD3 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		09148DF118A8B20F00338BD3 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		09148DF318A8DCA300338BD3 /* InfoSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoSignUpViewController.h; path = Classes/InfoSignUpViewController.h; sourceTree = "<group>"; };
+		09148DF418A8DCA300338BD3 /* InfoSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoSignUpViewController.m; path = Classes/InfoSignUpViewController.m; sourceTree = "<group>"; };
 		09C932D518A1F59800BF2DD9 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		09CACFCC18A4A01800B9A91D /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostViewController.h; path = Classes/PostViewController.h; sourceTree = "<group>"; };
 		09CACFCD18A4A01800B9A91D /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostViewController.m; path = Classes/PostViewController.m; sourceTree = "<group>"; };
@@ -725,6 +728,8 @@
 				4E37B32318A7B984005FF445 /* SettingsViewController.m */,
 				4E37B33518A7CCC6005FF445 /* InfoViewController.h */,
 				4E37B33618A7CCC6005FF445 /* InfoViewController.m */,
+				09148DF318A8DCA300338BD3 /* InfoSignUpViewController.h */,
+				09148DF418A8DCA300338BD3 /* InfoSignUpViewController.m */,
 				4EC2B29118A145B40045291A /* Constants.h */,
 				4EC2B27118A1439A0045291A /* Images.xcassets */,
 				4EC2B25D18A1439A0045291A /* Supporting Files */,
@@ -1039,6 +1044,7 @@
 				09FA89E218A2157C00C05CAA /* STHTTPRequest+STTwitter.m in Sources */,
 				4E9D206C18A1678A0019E86B /* UIViewControllerCategories.m in Sources */,
 				09FA89E318A2157C00C05CAA /* STTwitterAPI.m in Sources */,
+				09148DF518A8DCA300338BD3 /* InfoSignUpViewController.m in Sources */,
 				4E9DBD2B18A41B1B00CD1AD4 /* ScanViewController.m in Sources */,
 				4EC2B2E518A147030045291A /* AFNetworkActivityIndicatorManager.m in Sources */,
 				4E9D206218A167350019E86B /* MBProgressHUD.m in Sources */,

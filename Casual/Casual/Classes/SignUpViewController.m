@@ -15,6 +15,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 #import "TwitterServices.h"
+#import "InfoSignUpViewController.h"
 
 
 
@@ -87,6 +88,11 @@
     return parameters;
 }
 
+-(void)showInfoUpdateScreen
+{
+    InfoSignUpViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"InfoSignUpViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 #pragma -mark Server Requests
 
@@ -116,6 +122,9 @@
         {
             title = @"Casual";
             mesage = @"Successfully Registered";
+            [[NSUserDefaults standardUserDefaults] setObject:response forKey:LOGGEDIN_USER_DETAILS];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [self showInfoUpdateScreen];
         }
         else if ([[response objectForKey:@"status"] isEqualToString:@"busy"])
         {

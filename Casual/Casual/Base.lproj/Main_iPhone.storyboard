@@ -1672,16 +1672,16 @@
             </objects>
             <point key="canvasLocation" x="1546" y="-894"/>
         </scene>
-        <!--View Controller-->
+        <!--Info Sign Up View Controller-->
         <scene sceneID="KyB-rb-tnN">
             <objects>
-                <viewController id="Gnr-Gd-Xch" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InfoSignUpViewController" id="Gnr-Gd-Xch" customClass="InfoSignUpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qlz-M0-cYm"/>
                         <viewControllerLayoutGuide type="bottom" id="euQ-ez-g9n"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Yte-vE-39x">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ywv-Gu-i8j">
@@ -1715,7 +1715,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         <connections>
-                                            <outlet property="delegate" destination="zkV-gO-etY" id="CEl-UP-wqF"/>
+                                            <outlet property="delegate" destination="Gnr-Gd-Xch" id="4hp-Eo-qDT"/>
                                         </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Seperator.png" translatesAutoresizingMaskIntoConstraints="NO" id="pYD-UX-aTF">
@@ -1729,7 +1729,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         <connections>
-                                            <outlet property="delegate" destination="zkV-gO-etY" id="wgf-7L-kFv"/>
+                                            <outlet property="delegate" destination="Gnr-Gd-Xch" id="LzG-jB-s26"/>
                                         </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Seperator.png" translatesAutoresizingMaskIntoConstraints="NO" id="SUC-qw-ZMM">
@@ -1743,7 +1743,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         <connections>
-                                            <outlet property="delegate" destination="zkV-gO-etY" id="Z7V-bn-Tf3"/>
+                                            <outlet property="delegate" destination="Gnr-Gd-Xch" id="WTc-WE-eMA"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zodiac Sign" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SUo-Ly-THW">
@@ -1753,7 +1753,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         <connections>
-                                            <outlet property="delegate" destination="zkV-gO-etY" id="rwL-G7-UQH"/>
+                                            <outlet property="delegate" destination="Gnr-Gd-Xch" id="Dvh-jH-1DP"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="School / Major" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a8N-Y6-D63">
@@ -1763,7 +1763,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         <connections>
-                                            <outlet property="delegate" destination="zkV-gO-etY" id="acZ-pd-1ZO"/>
+                                            <outlet property="delegate" destination="Gnr-Gd-Xch" id="Dos-q7-OmD"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Occupation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yos-a9-a80">
@@ -1773,7 +1773,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         <connections>
-                                            <outlet property="delegate" destination="zkV-gO-etY" id="D5u-rO-seg"/>
+                                            <outlet property="delegate" destination="Gnr-Gd-Xch" id="FaY-lg-jsz"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K2I-zP-kBf">
@@ -1783,7 +1783,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="send"/>
                                         <connections>
-                                            <outlet property="delegate" destination="zkV-gO-etY" id="k6f-JI-eRj"/>
+                                            <outlet property="delegate" destination="Gnr-Gd-Xch" id="ea9-2h-TWe"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Maritial Status" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tlz-dW-Ilx">
@@ -1793,7 +1793,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         <connections>
-                                            <outlet property="delegate" destination="zkV-gO-etY" id="pfm-un-TiY"/>
+                                            <outlet property="delegate" destination="Gnr-Gd-Xch" id="FqR-hq-EeA"/>
                                         </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Seperator.png" translatesAutoresizingMaskIntoConstraints="NO" id="7gF-lx-y4H">
@@ -1839,24 +1839,51 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y68-I7-Jp4">
-                                <rect key="frame" x="60" y="483" width="57" height="30"/>
+                                <rect key="frame" x="255" y="28" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnSaveTapped:" destination="Gnr-Gd-Xch" eventType="touchUpInside" id="ljY-0x-A9T"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMX-7p-V8x">
-                                <rect key="frame" x="204" y="483" width="56" height="30"/>
+                                <rect key="frame" x="12" y="28" width="56" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Skip">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnSkipTapped:" destination="Gnr-Gd-Xch" eventType="touchUpInside" id="shQ-N6-1Dm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Iez-wT-Hdb" appends="YES" id="m9a-pX-F4i"/>
+                        </connections>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="QRCodeImageView" destination="x3t-9P-YNz" id="vjy-Vg-bfK"/>
+                        <outlet property="tfDateOfBirth" destination="iCF-do-j5H" id="goB-N4-inT"/>
+                        <outlet property="tfLocation" destination="K2I-zP-kBf" id="NnM-AP-sbh"/>
+                        <outlet property="tfMaritialStatus" destination="tlz-dW-Ilx" id="SVu-6o-Qrn"/>
+                        <outlet property="tfNutshell" destination="iT2-Tp-Vbd" id="3vF-Hc-eDI"/>
+                        <outlet property="tfOccupation" destination="yos-a9-a80" id="bel-LF-jLY"/>
+                        <outlet property="tfPhoneNumber" destination="V9n-DM-3Mn" id="Imy-IA-ec3"/>
+                        <outlet property="tfSchool" destination="a8N-Y6-D63" id="g9d-y4-oBo"/>
+                        <outlet property="tfZodiacSign" destination="SUo-Ly-THW" id="rvx-3P-2Av"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gKB-BE-HAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Iez-wT-Hdb">
+                    <connections>
+                        <action selector="singleTap:" destination="Gnr-Gd-Xch" id="S22-dd-Wwg"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2002" y="-938"/>
         </scene>
