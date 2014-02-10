@@ -100,6 +100,7 @@
 - (IBAction)backButtonClicked:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+    [self singleTap:nil];
 }
 
 - (IBAction)saveButtonTapped:(id)sender
@@ -311,6 +312,8 @@
         {
             title = @"Casual";
             mesage = @"Successfully Updated";
+            [[NSUserDefaults standardUserDefaults] setObject:response forKey:LOGGEDIN_USER_DETAILS];
+            [[NSUserDefaults standardUserDefaults] synchronize];
         }
         else
         {
@@ -385,6 +388,18 @@
             [self showAlertWithMessage:@"Please enter the values" andTitle:@"Error"];
     }
     return YES;
+}
+
+- (IBAction)singleTap:(id)sender
+{
+    [_tfNutshell resignFirstResponder];
+    [_tfSchool resignFirstResponder];
+    [_tfOccupation resignFirstResponder];
+    [_tfZodiacSign resignFirstResponder];
+    [_tfMaritialStatus resignFirstResponder];
+    [_tfPhoneNumber resignFirstResponder];
+    [_tfDateOfBirth resignFirstResponder];
+    [_tfLocation resignFirstResponder];
 }
 
 @end

@@ -480,11 +480,15 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="v58-dV-dTa" secondAttribute="trailing" id="DHK-k9-AB8"/>
                             <constraint firstItem="v58-dV-dTa" firstAttribute="leading" secondItem="9zS-pK-FE8" secondAttribute="leading" id="FH8-jZ-wfs"/>
                             <constraint firstAttribute="bottom" secondItem="v58-dV-dTa" secondAttribute="bottom" constant="60" id="aAg-5k-7yI"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="dHw-AF-mTU" appends="YES" id="D4I-5f-x0b"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="HIW-t1-5jC"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -502,6 +506,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PpP-5v-vEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dHw-AF-mTU">
+                    <connections>
+                        <action selector="singleTap:" destination="zkV-gO-etY" id="n1s-OR-C8G"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4780" y="2043"/>
         </scene>
@@ -1974,22 +1983,9 @@
     </scenes>
     <resources>
         <image name="BG_small.png" width="600" height="228"/>
-        <image name="BG_small.png" width="600" height="228"/>
-        <image name="Background.png" width="641" height="865"/>
-        <image name="Background.png" width="641" height="865"/>
-        <image name="Background.png" width="641" height="865"/>
-        <image name="Background.png" width="641" height="865"/>
-        <image name="Background.png" width="641" height="865"/>
-        <image name="Background.png" width="641" height="865"/>
-        <image name="Background.png" width="641" height="865"/>
-        <image name="Background.png" width="641" height="865"/>
-        <image name="Background.png" width="641" height="865"/>
-        <image name="Background.png" width="641" height="865"/>
         <image name="Background.png" width="641" height="865"/>
         <image name="Bg_mainScreen.png" width="641" height="826"/>
         <image name="BtnActivites.png" width="98" height="98"/>
-        <image name="BtnFacebook.png" width="90" height="90"/>
-        <image name="BtnFacebook.png" width="90" height="90"/>
         <image name="BtnFacebook.png" width="90" height="90"/>
         <image name="BtnHistory.png" width="98" height="99"/>
         <image name="BtnHome.png" width="64" height="64"/>
@@ -1997,106 +1993,30 @@
         <image name="BtnScan.png" width="96" height="95"/>
         <image name="BtnSignUp.png" width="423" height="109"/>
         <image name="BtnTwitter.png" width="90" height="90"/>
-        <image name="BtnTwitter.png" width="90" height="90"/>
-        <image name="BtnTwitter.png" width="90" height="90"/>
         <image name="CenterImage.png" width="649" height="117"/>
         <image name="FB_TW_Bar.png" width="636" height="77"/>
         <image name="Logo.png" width="469" height="257"/>
-        <image name="Logo.png" width="469" height="257"/>
-        <image name="Logo.png" width="469" height="257"/>
-        <image name="Logo.png" width="469" height="257"/>
-        <image name="Logo.png" width="469" height="257"/>
-        <image name="Logo.png" width="469" height="257"/>
-        <image name="Logo.png" width="469" height="257"/>
-        <image name="Logo.png" width="469" height="257"/>
-        <image name="Logo.png" width="469" height="257"/>
-        <image name="Logo.png" width="469" height="257"/>
-        <image name="Logo.png" width="469" height="257"/>
-        <image name="Logo.png" width="469" height="257"/>
         <image name="OR.png" width="73" height="44"/>
         <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="Seperator.png" width="598" height="1"/>
-        <image name="SettingsBtn.png" width="138" height="61"/>
-        <image name="SettingsBtn.png" width="138" height="61"/>
-        <image name="SettingsBtn.png" width="138" height="61"/>
-        <image name="SettingsBtn.png" width="138" height="61"/>
-        <image name="SettingsBtn.png" width="138" height="61"/>
-        <image name="SettingsBtn.png" width="138" height="61"/>
         <image name="SettingsBtn.png" width="138" height="61"/>
         <image name="Status_CheckIn_BG.png" width="641" height="79"/>
         <image name="TextFieldsBG.png" width="600" height="358"/>
         <image name="TopBar.png" width="640" height="92"/>
-        <image name="TopBar.png" width="640" height="92"/>
-        <image name="TopBar.png" width="640" height="92"/>
-        <image name="TopBar.png" width="640" height="92"/>
-        <image name="TopBar.png" width="640" height="92"/>
-        <image name="TopBar.png" width="640" height="92"/>
-        <image name="TopBar.png" width="640" height="92"/>
-        <image name="TopBar.png" width="640" height="92"/>
-        <image name="TopBar.png" width="640" height="92"/>
-        <image name="TopBar.png" width="640" height="92"/>
-        <image name="TopBar.png" width="640" height="92"/>
         <image name="TreeImage.png" width="149" height="151"/>
-        <image name="backButton.png" width="108" height="61"/>
-        <image name="backButton.png" width="108" height="61"/>
-        <image name="backButton.png" width="108" height="61"/>
-        <image name="backButton.png" width="108" height="61"/>
-        <image name="backButton.png" width="108" height="61"/>
-        <image name="backButton.png" width="108" height="61"/>
-        <image name="backButton.png" width="108" height="61"/>
-        <image name="backButton.png" width="108" height="61"/>
-        <image name="backButton.png" width="108" height="61"/>
         <image name="backButton.png" width="108" height="61"/>
         <image name="btnInfo.png" width="64" height="65"/>
         <image name="btnLoginAll.png" width="243" height="90"/>
-        <image name="btnLoginAll.png" width="243" height="90"/>
-        <image name="btnLoginAll.png" width="243" height="90"/>
-        <image name="btnON.png" width="156" height="65"/>
         <image name="btnON.png" width="156" height="65"/>
         <image name="leaf.png" width="99" height="98"/>
-        <image name="postTF_BG.png" width="536" height="337"/>
         <image name="postTF_BG.png" width="536" height="337"/>
         <image name="postTF_BG_right.png" width="512" height="337"/>
         <image name="sampleQRCode.png" width="448" height="448"/>
         <image name="tf_Body_BG.png" width="600" height="538"/>
-        <image name="tf_Body_BG.png" width="600" height="538"/>
-        <image name="tf_Body_BG.png" width="600" height="538"/>
-        <image name="tf_Top_BG.png" width="598" height="59"/>
-        <image name="tf_Top_BG.png" width="598" height="59"/>
         <image name="tf_Top_BG.png" width="598" height="59"/>
         <image name="treeBranch1.png" width="84" height="407"/>
         <image name="treeLeftBranch.png" width="166" height="62"/>
         <image name="treeRightBranch.png" width="146" height="62"/>
         <image name="txt_OR_Join_Casual.png" width="369" height="37"/>
-        <image name="userPlaceHolder.jpg" width="104" height="104"/>
-        <image name="userPlaceHolder.jpg" width="104" height="104"/>
-        <image name="userPlaceHolder.jpg" width="104" height="104"/>
-        <image name="userPlaceHolder.jpg" width="104" height="104"/>
         <image name="userPlaceHolder.jpg" width="104" height="104"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
