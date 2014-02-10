@@ -22,3 +22,5 @@
 
 #define IS_FACEBOOK_ON @"isFacebookOn"
 #define IS_TWITTER_ON @"isTwitterOn"
+
+#define LOCAL_SCANNED_COUNT @"localScansCount"

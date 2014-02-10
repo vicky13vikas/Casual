@@ -253,6 +253,11 @@
         {
             title = @"Congrats!";
             mesage = [self showUserDetails:response];
+            
+            int savedScanCount = [[[NSUserDefaults standardUserDefaults] valueForKey:LOCAL_SCANNED_COUNT] integerValue];
+            
+            [[NSUserDefaults standardUserDefaults] setInteger:savedScanCount+1 forKey:LOCAL_SCANNED_COUNT];
+            [[NSUserDefaults standardUserDefaults] synchronize];
         }
         else if ([[response objectForKey:@"status"] isEqualToString:@"qr_invalid"])
         {

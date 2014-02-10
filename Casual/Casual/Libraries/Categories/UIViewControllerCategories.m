@@ -120,7 +120,11 @@
     UINavigationController* nc = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
     [self.view.window setRootViewController:nc];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:IS_LOGGED_IN];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:LOCAL_SCANNED_COUNT];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [self removeFacebook];
+    [self removeTwitter];
 }
 
 -(void)loginDoneSuccessfully

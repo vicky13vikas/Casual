@@ -109,9 +109,12 @@
     NSString *totalScans = [currentUser objectForKey:@"scan_count"];
     NSString *mutualScans = [currentUser objectForKey:@"mutualScans"];
     
+    int savedScanCount = [[[NSUserDefaults standardUserDefaults] valueForKey:LOCAL_SCANNED_COUNT] integerValue];
+    int totalNoOfScans = [totalScans integerValue] + savedScanCount;
+
     if(totalScans && ![totalScans isEqualToString:@""])
     {
-        _lblTotalScans.text = totalScans;
+        _lblTotalScans.text = [NSString stringWithFormat:@"%d",totalNoOfScans];
     }
     else
     {
