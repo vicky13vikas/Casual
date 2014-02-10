@@ -11,7 +11,7 @@
 @interface HomeViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *lblTotalScans;
 @property (strong, nonatomic) IBOutlet UILabel *lblMutualScans;
-@property (strong, nonatomic) IBOutlet UILabel *lblAddress;
+@property (weak, nonatomic) IBOutlet UITextView *tvAddress;
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (readonly) CLLocationCoordinate2D currentUserCoordinate;
@@ -72,19 +72,19 @@
   
     
     item0.image = unselectedImage0;
-//    item0.selectedImage = selectedImage0;
+    item0.selectedImage = selectedImage0;
     
     item1.image = unselectedImage1;
-//    item1.selectedImage = selectedImage1;
+    item1.selectedImage = selectedImage1;
     
     item2.image = unselectedImage2;
-//    item2.selectedImage = selectedImage2;
+    item2.selectedImage = selectedImage2;
     
     item3.image = unselectedImage3;
-//    item3.selectedImage = selectedImage3;
+    item3.selectedImage = selectedImage3;
     
     item4.image = unselectedImage4;
-//    item4.selectedImage = selectedImage4;
+    item4.selectedImage = selectedImage4;
   
   item0.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
   item1.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
@@ -350,7 +350,7 @@
         [address appendString:placeMarkToShow.country];
     }
     
-    _lblAddress.text = address;
+    _tvAddress.text = address;
 }
 
 @end

@@ -82,7 +82,7 @@
                                   _tfLastName.text, @"lastName",
                                   _tfEmail.text, @"email",
                                   _tfCreatePassword.text, @"password",
-                                  self.unique_ID,@"unique_ID",
+                                  self.unique_ID,@"unique_id",
                                  nil];
     
     return parameters;
@@ -104,7 +104,7 @@
 
     
     [Client setParameterEncoding:AFJSONParameterEncoding];
-    [Client postPath:@"users/login.json" parameters:[self getParameters] success:^(AFHTTPRequestOperation *operation, id responseObject){
+    [Client postPath:@"" parameters:[self getParameters] success:^(AFHTTPRequestOperation *operation, id responseObject){
         
         [self hideLoadingScreen];
 
@@ -263,6 +263,8 @@
   
   [_twitter verifyCredentialsWithSuccessBlock:^(NSString *username) {
     NSLog(@"%@", username);
+      _btnTwitter.enabled = NO;
+      [self showAlertWithMessage:@"Please fill the form and create a password." andTitle:@"Connected to Twitter."];
     
   } errorBlock:^(NSError *error) {
       [self showAlertWithMessage:@"Make sure you have allowed Casuals in the twitter settings." andTitle:@"Error"];
@@ -271,6 +273,7 @@
 
 - (IBAction)scanQRCode:(id)sender
 {
+    [self singleTap:nil];
     [self.view.layer addSublayer:self.capture.layer];
     [self.capture start];
 }
