@@ -1693,8 +1693,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ywv-Gu-i8j">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ywv-Gu-i8j">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                             </imageView>
@@ -1874,11 +1874,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Ywv-Gu-i8j" firstAttribute="top" secondItem="Yte-vE-39x" secondAttribute="top" id="3Li-zi-ytK"/>
+                            <constraint firstAttribute="trailing" secondItem="Ywv-Gu-i8j" secondAttribute="trailing" id="KpU-zr-lcq"/>
+                            <constraint firstAttribute="bottom" secondItem="Ywv-Gu-i8j" secondAttribute="bottom" id="O1y-O6-Qbh"/>
+                            <constraint firstItem="Ywv-Gu-i8j" firstAttribute="leading" secondItem="Yte-vE-39x" secondAttribute="leading" id="eHl-Py-tEr"/>
+                            <constraint firstAttribute="bottom" secondItem="Ywv-Gu-i8j" secondAttribute="bottom" id="lmH-Zb-BZh"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Iez-wT-Hdb" appends="YES" id="m9a-pX-F4i"/>
                         </connections>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="QRCodeImageView" destination="x3t-9P-YNz" id="vjy-Vg-bfK"/>
                         <outlet property="tfDateOfBirth" destination="iCF-do-j5H" id="goB-N4-inT"/>

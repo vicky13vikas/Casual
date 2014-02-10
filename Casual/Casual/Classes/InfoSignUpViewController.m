@@ -185,6 +185,8 @@
         {
             title = @"Casual";
             mesage = @"Successfully Updated";
+            [[NSUserDefaults standardUserDefaults] setObject:response forKey:LOGGEDIN_USER_DETAILS];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             [self loginDoneSuccessfully];
         }
         else
