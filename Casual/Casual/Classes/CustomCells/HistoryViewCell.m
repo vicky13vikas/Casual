@@ -14,11 +14,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblMutualScansRight;
 @property (weak, nonatomic) IBOutlet UILabel *lblTotalScansRight;
 @property (weak, nonatomic) IBOutlet UILabel *lblDateRight;
+@property (weak, nonatomic) IBOutlet UILabel *lblNameRight;
 
 @property (weak, nonatomic) IBOutlet UIImageView *userImageLeft;
 @property (weak, nonatomic) IBOutlet UILabel *lblMutualScansLeft;
 @property (weak, nonatomic) IBOutlet UILabel *lblTotalScansLeft;
 @property (weak, nonatomic) IBOutlet UILabel *lblDateLeft;
+@property (weak, nonatomic) IBOutlet UILabel *lblNameLeft;
 
 @property (weak, nonatomic) IBOutlet UIImageView *branchImageRight;
 @property (weak, nonatomic) IBOutlet UILabel *lblMutualRight;
@@ -92,6 +94,9 @@
     self.lblMutualScansRight.text = [NSString stringWithFormat:@"%@",(NSNumber*)[_rightSideData objectForKey:@"mutual_scan"]];
     self.lblTotalScansRight.text = [NSString stringWithFormat:@"%@",(NSNumber*)[_rightSideData objectForKey:@"scan_count"]];
     
+    NSString *name = [NSString stringWithFormat:@"%@ %@", [_rightSideData objectForKey:@"firstName"], [_rightSideData objectForKey:@"lastName"]];
+    self.lblNameRight.text = name;
+    
     NSString *dateStr = [_rightSideData objectForKey:@"scanned_date"];
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -106,6 +111,9 @@
 {
     self.lblMutualScansLeft.text = [NSString stringWithFormat:@"%@",(NSNumber*)[_leftSideData objectForKey:@"mutual_scan"]];
     self.lblTotalScansLeft.text = [NSString stringWithFormat:@"%@",(NSNumber*)[_leftSideData objectForKey:@"scan_count"]];
+
+    NSString *name = [NSString stringWithFormat:@"%@ %@", [_rightSideData objectForKey:@"firstName"], [_rightSideData objectForKey:@"lastName"]];
+    self.lblNameLeft.text = name;
     
     NSString *dateStr = [_leftSideData objectForKey:@"scanned_date"];
     
