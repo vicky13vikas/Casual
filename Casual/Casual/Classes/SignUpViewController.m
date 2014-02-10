@@ -312,9 +312,13 @@
         // Did something go wrong during login? I.e. did the user cancel?
         if(!error)
         {
-            if (status == FBSessionStateClosedLoginFailed || status == FBSessionStateClosed || status == FBSessionStateCreatedOpening) {
+            if (status == FBSessionStateClosedLoginFailed) {
                 isFacebookLoggedin = false;
               [self faceBookErrorMessage];
+            }
+            else if (status == FBSessionStateClosed || status == FBSessionStateCreatedOpening)
+            {
+                isFacebookLoggedin = false;
             }
             else {
                 isFacebookLoggedin = true;

@@ -70,6 +70,8 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    [[FBSession activeSession] handleOpenURL:url];
   
   if ([[url scheme] isEqualToString:@"myapp"] == NO) return NO;
   

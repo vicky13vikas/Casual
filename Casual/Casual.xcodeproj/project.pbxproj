@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09148DF218A8B20F00338BD3 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09148DEE18A8B20F00338BD3 /* libTestFlight.a */; };
 		09C932D618A1F59800BF2DD9 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C932D518A1F59800BF2DD9 /* Twitter.framework */; };
 		09CACFCE18A4A01800B9A91D /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CACFCD18A4A01800B9A91D /* PostViewController.m */; };
 		09CACFD818A4A02B00B9A91D /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CACFD718A4A02B00B9A91D /* CheckInViewController.m */; };
@@ -41,7 +42,6 @@
 		4E37B33B18A7D0D4005FF445 /* btnInfo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E37B33918A7D0D4005FF445 /* btnInfo@2x.png */; };
 		4E37B33E18A7D107005FF445 /* btnInfo_Sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E37B33C18A7D107005FF445 /* btnInfo_Sel.png */; };
 		4E37B33F18A7D107005FF445 /* btnInfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E37B33D18A7D107005FF445 /* btnInfo.png */; };
-		4E37B34818A80CD9005FF445 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E37B34218A80CD9005FF445 /* libTestFlight.a */; };
 		4E37B34C18A80FBE005FF445 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E37B34B18A80FBE005FF445 /* libz.1.1.3.dylib */; };
 		4E952FE418A669D400075CCB /* ActivityTableDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E952FE318A669D400075CCB /* ActivityTableDatasource.m */; };
 		4E9D204418A154020019E86B /* TextFieldsBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204318A154020019E86B /* TextFieldsBG.png */; };
@@ -192,6 +192,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09148DEE18A8B20F00338BD3 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		09148DEF18A8B20F00338BD3 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		09148DF018A8B20F00338BD3 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		09148DF118A8B20F00338BD3 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		09C932D518A1F59800BF2DD9 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		09CACFCC18A4A01800B9A91D /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostViewController.h; path = Classes/PostViewController.h; sourceTree = "<group>"; };
 		09CACFCD18A4A01800B9A91D /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostViewController.m; path = Classes/PostViewController.m; sourceTree = "<group>"; };
@@ -247,10 +251,6 @@
 		4E37B33918A7D0D4005FF445 /* btnInfo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btnInfo@2x.png"; sourceTree = "<group>"; };
 		4E37B33C18A7D107005FF445 /* btnInfo_Sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnInfo_Sel.png; sourceTree = "<group>"; };
 		4E37B33D18A7D107005FF445 /* btnInfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnInfo.png; sourceTree = "<group>"; };
-		4E37B34218A80CD9005FF445 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		4E37B34518A80CD9005FF445 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
-		4E37B34618A80CD9005FF445 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
-		4E37B34718A80CD9005FF445 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		4E37B34B18A80FBE005FF445 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		4E952FE218A669D400075CCB /* ActivityTableDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableDatasource.h; sourceTree = "<group>"; };
 		4E952FE318A669D400075CCB /* ActivityTableDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableDatasource.m; sourceTree = "<group>"; };
@@ -379,7 +379,6 @@
 				4E9FBA9818A2CA4700395558 /* AudioToolbox.framework in Frameworks */,
 				4E9FBA9618A2CA2D00395558 /* Security.framework in Frameworks */,
 				4E9FBA9418A2CA2700395558 /* Accounts.framework in Frameworks */,
-				4E37B34818A80CD9005FF445 /* libTestFlight.a in Frameworks */,
 				4E9FBA9218A2CA1500395558 /* Social.framework in Frameworks */,
 				4E9FBA9018A2CA0000395558 /* QuartzCore.framework in Frameworks */,
 				4E9FBA8E18A2C9F000395558 /* ImageIO.framework in Frameworks */,
@@ -387,6 +386,7 @@
 				4E9FBA8A18A2C9D700395558 /* CoreMedia.framework in Frameworks */,
 				4E9FBA8718A2C98300395558 /* AVFoundation.framework in Frameworks */,
 				4E9FBA8518A2C89300395558 /* libZXingObjC-iOS.a in Frameworks */,
+				09148DF218A8B20F00338BD3 /* libTestFlight.a in Frameworks */,
 				09C932D618A1F59800BF2DD9 /* Twitter.framework in Frameworks */,
 				09FA89EC18A215FF00C05CAA /* FacebookSDK.framework in Frameworks */,
 				4EC2B25918A1439A0045291A /* CoreGraphics.framework in Frameworks */,
@@ -408,6 +408,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09148DED18A8B20F00338BD3 /* TestFlightSDK2.2.1 */ = {
+			isa = PBXGroup;
+			children = (
+				09148DEE18A8B20F00338BD3 /* libTestFlight.a */,
+				09148DEF18A8B20F00338BD3 /* TestFlight+AsyncLogging.h */,
+				09148DF018A8B20F00338BD3 /* TestFlight+ManualSessions.h */,
+				09148DF118A8B20F00338BD3 /* TestFlight.h */,
+			);
+			path = TestFlightSDK2.2.1;
+			sourceTree = "<group>";
+		};
 		09CACFDB18A4B50200B9A91D /* AsyncImageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -494,17 +505,6 @@
 				4E37B32718A7C071005FF445 /* btnON.png */,
 			);
 			path = SettingsScreen;
-			sourceTree = "<group>";
-		};
-		4E37B34118A80CD9005FF445 /* TestFlightSDK2.2.1 */ = {
-			isa = PBXGroup;
-			children = (
-				4E37B34218A80CD9005FF445 /* libTestFlight.a */,
-				4E37B34518A80CD9005FF445 /* TestFlight+AsyncLogging.h */,
-				4E37B34618A80CD9005FF445 /* TestFlight+ManualSessions.h */,
-				4E37B34718A80CD9005FF445 /* TestFlight.h */,
-			);
-			path = TestFlightSDK2.2.1;
 			sourceTree = "<group>";
 		};
 		4E952FE118A669D400075CCB /* DataSource */ = {
@@ -671,8 +671,8 @@
 		4EC2B25518A1439A0045291A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				09148DED18A8B20F00338BD3 /* TestFlightSDK2.2.1 */,
 				4E37B34B18A80FBE005FF445 /* libz.1.1.3.dylib */,
-				4E37B34118A80CD9005FF445 /* TestFlightSDK2.2.1 */,
 				4E9FBA6D18A2C70E00395558 /* ZXingObjC.xcodeproj */,
 				4E9FBA9718A2CA4700395558 /* AudioToolbox.framework */,
 				4E9FBA9518A2CA2D00395558 /* Security.framework */,
@@ -1200,8 +1200,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Casual/Casual-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Volumes/Vikas\\ 2/Softwares/Apps1/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"$(inherited)/**",
+					"/Volumes/Vikas\\ 2/Softwares/Apps1/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/**",
 					"$(SRCROOT)/../../**",
 				);
 				INFOPLIST_FILE = "Casual/Casual-Info.plist";
@@ -1210,6 +1210,7 @@
 					"$(inherited)",
 					/Volumes/Development/Development/FreelancerDropBox/Harshad/Casual/Casual/Libraries/TestFlightSDK2,
 					/Volumes/Development/Development/FreelancerDropBox/Harshad/Github/Casual/Casual/TestFlightSDK2.2.1,
+					/Volumes/Development/Samples/Casual/Casual/Casual/TestFlightSDK2.2.1,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "113DA635-938D-4DAA-8365-4F31596B3A47";
@@ -1233,8 +1234,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Casual/Casual-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Volumes/Vikas\\ 2/Softwares/Apps1/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"$(inherited)/**",
+					"/Volumes/Vikas\\ 2/Softwares/Apps1/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/**",
 					"$(SRCROOT)/../../**",
 				);
 				INFOPLIST_FILE = "Casual/Casual-Info.plist";
@@ -1243,6 +1244,7 @@
 					"$(inherited)",
 					/Volumes/Development/Development/FreelancerDropBox/Harshad/Casual/Casual/Libraries/TestFlightSDK2,
 					/Volumes/Development/Development/FreelancerDropBox/Harshad/Github/Casual/Casual/TestFlightSDK2.2.1,
+					/Volumes/Development/Samples/Casual/Casual/Casual/TestFlightSDK2.2.1,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "113DA635-938D-4DAA-8365-4F31596B3A47";
