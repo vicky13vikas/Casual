@@ -202,6 +202,10 @@
     {
         message = @"Password cannot be empty";
     }
+    else if([self.unique_ID isEqualToString:@""] || !self.unique_ID)
+    {
+        message = @"QR code not scanned";
+    }
     else if(![_tfCreatePassword.text isEqualToString:_tfConfirmPassord.text])
     {
         message = @"Passwords donot match";
