@@ -1286,8 +1286,7 @@
                                             <outlet property="lblMutualScansLeft" destination="aNG-gx-gos" id="QUn-5i-0h4"/>
                                             <outlet property="lblMutualScansRight" destination="MyV-b3-RAh" id="UvI-gL-Ngj"/>
                                             <outlet property="lblNameLeft" destination="eNX-yu-4pw" id="VfZ-BD-10F"/>
-                                            <outlet property="lblNametextLeft" destination="eNX-yu-4pw" id="lyB-FN-tbN"/>
-                                            <outlet property="lblNametextRight" destination="I72-H9-fEn" id="ulb-Du-x9x"/>
+                                            <outlet property="lblNameRight" destination="I72-H9-fEn" id="lHp-0D-daV"/>
                                             <outlet property="lblTotalLeft" destination="5pi-Mt-lw1" id="Wry-2b-8Ov"/>
                                             <outlet property="lblTotalRight" destination="dQL-p3-jqx" id="7ux-J9-IFq"/>
                                             <outlet property="lblTotalScansLeft" destination="lNi-j1-1vG" id="pmi-f3-rCu"/>

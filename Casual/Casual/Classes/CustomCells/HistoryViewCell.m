@@ -25,12 +25,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *branchImageRight;
 @property (weak, nonatomic) IBOutlet UILabel *lblMutualRight;
 @property (weak, nonatomic) IBOutlet UILabel *lblTotalRight;
-@property (weak, nonatomic) IBOutlet UILabel *lblNametextRight;
 
 @property (weak, nonatomic) IBOutlet UIImageView *branchImageLeft;
 @property (weak, nonatomic) IBOutlet UILabel *lblMutualLeft;
 @property (weak, nonatomic) IBOutlet UILabel *lblTotalLeft;
-@property (weak, nonatomic) IBOutlet UILabel *lblNametextLeft;
 
 
 
@@ -78,7 +76,6 @@
     self.branchImageLeft.hidden = YES;
     self.lblMutualLeft.hidden = YES;
     self.lblTotalLeft.hidden = YES;
-    self.lblNametextLeft.hidden = YES;
     self.lblNameLeft.hidden = YES;
 }
 
@@ -92,7 +89,6 @@
     self.lblMutualRight.hidden = YES;
     self.lblTotalRight.hidden = YES;
     self.lblNameRight.hidden = YES;
-    self.lblNametextRight.hidden = YES;
 }
 
 -(void)setRightSideValues
