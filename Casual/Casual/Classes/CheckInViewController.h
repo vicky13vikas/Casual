@@ -10,4 +10,9 @@
 
 @interface CheckInViewController : UIViewController
 
+#pragma mark - MKAnnotation Protocol (for map pin)
+
+@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+- (NSString *)title;
+
 @end
