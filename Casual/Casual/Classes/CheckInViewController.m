@@ -8,14 +8,25 @@
 
 #import "CheckInViewController.h"
 #import <MapKit/MapKit.h>
+#import "PlacesLoader.h"
+#import "Place.h"
+#import "PlaceAnnotation.h"
 
+NSString * const kNameKey = @"name";
+NSString * const kReferenceKey = @"reference";
+NSString * const kAddressKey = @"vicinity";
+NSString * const kLatiudeKeypath = @"geometry.location.lat";
+NSString * const kLongitudeKeypath = @"geometry.location.lng";
 
-@interface CheckInViewController ()<CLLocationManagerDelegate, MKAnnotation>
+@interface CheckInViewController ()<CLLocationManagerDelegate, MKAnnotation, UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) CLPlacemark *placemarkToShow;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (readonly) CLLocationCoordinate2D currentUserCoordinate;
+@property (nonatomic, strong) NSArray *locations;
 
 @end
 
@@ -96,6 +107,7 @@
     
     [self performCoordinateGeocode];
     //    [self stopUpdatingCurrentLocation];
+    [self loadNearByPlaces];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -116,6 +128,7 @@
     [alert show];
 }
 
+
 - (void)performCoordinateGeocode
 {
     
@@ -123,8 +136,8 @@
     
     CLLocationCoordinate2D coord = _currentUserCoordinate;
     
-//    CLLocation *location = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
-    CLLocation *location = [[CLLocation alloc] initWithCoordinate:coord altitude:1000 horizontalAccuracy:kCLLocationAccuracyThreeKilometers verticalAccuracy:kCLLocationAccuracyThreeKilometers timestamp:[NSDate date]];
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
+//    CLLocation *location = [[CLLocation alloc] initWithCoordinate:coord altitude:1000 horizontalAccuracy:kCLLocationAccuracyThreeKilometers verticalAccuracy:kCLLocationAccuracyThreeKilometers timestamp:[NSDate date]];
     
     
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
@@ -146,10 +159,44 @@
     [_mapView setRegion:region];
     
     _mapView.layer.masksToBounds = YES;
-    _mapView.layer.cornerRadius = 10.0;
     _mapView.mapType = MKMapTypeStandard;
     [_mapView setScrollEnabled:YES];
     [_mapView addAnnotation:self];
+}
+
+- (void)loadNearByPlaces
+{
+    CLLocationCoordinate2D coord = _currentUserCoordinate;
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
+
+    [[PlacesLoader sharedInstance] loadPOIsForLocation:location radius:1000 successHanlder:^(NSDictionary *response) {
+//        NSLog(@"Response: %@", response);
+        if([[response objectForKey:@"status"] isEqualToString:@"OK"])
+        {
+            id places = [response objectForKey:@"results"];
+            NSMutableArray *temp = [NSMutableArray array];
+            
+            if([places isKindOfClass:[NSArray class]])
+            {
+                for(NSDictionary *resultsDict in places)
+                {
+                    CLLocation *location = [[CLLocation alloc] initWithLatitude:[[resultsDict valueForKeyPath:kLatiudeKeypath] floatValue] longitude:[[resultsDict valueForKeyPath:kLongitudeKeypath] floatValue]];
+                    Place *currentPlace = [[Place alloc] initWithLocation:location reference:[resultsDict objectForKey:kReferenceKey] name:[resultsDict objectForKey:kNameKey] address:[resultsDict objectForKey:kAddressKey]];
+                    [temp addObject:currentPlace];
+                    
+//                    PlaceAnnotation *annotation = [[PlaceAnnotation alloc] initWithPlace:currentPlace];
+//                    [_mapView addAnnotation:annotation];
+                }
+            }
+            
+            _locations = [temp copy];
+            
+//            NSLog(@"Locations: %@", _locations);
+            [_tableView reloadData];
+        }
+    } errorHandler:^(NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 #pragma mark - MKAnnotation Protocol (for map pin)
@@ -164,5 +211,36 @@
     return self.placemarkToShow.thoroughfare;
 }
 
+
+
+
+
+#pragma -mark UITableView Delegates and datasource.
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _locations.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlacesListTableViewCell" forIndexPath:indexPath];
+
+    Place *place = _locations[indexPath.row];
+    
+    cell.textLabel.text = place.placeName;
+    cell.detailTextLabel.text = place.address;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [_mapView removeAnnotations:_mapView.annotations];
+    Place *place = _locations[indexPath.row];
+
+    PlaceAnnotation *annotation = [[PlaceAnnotation alloc] initWithPlace:place];
+    [_mapView addAnnotation:annotation];
+
+}
 
 @end
