@@ -23,7 +23,7 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (nonatomic, strong) CLPlacemark *placemarkToShow;
+@property (nonatomic, strong) Place *currentPlace;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (readonly) CLLocationCoordinate2D currentUserCoordinate;
 @property (nonatomic, strong) NSArray *locations;
@@ -153,15 +153,22 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
 
 -(void)displayPlacemarksInMap:(NSArray*)placemarks
 {
-    _placemarkToShow = placemarks[0];
+     CLPlacemark *placemarkToShow = placemarks[0];
 
-    MKCoordinateRegion region =  MKCoordinateRegionMakeWithDistance(_placemarkToShow.location.coordinate, 2000, 2000);
+    MKCoordinateRegion region =  MKCoordinateRegionMakeWithDistance(placemarkToShow.location.coordinate, 2000, 2000);
     [_mapView setRegion:region];
     
     _mapView.layer.masksToBounds = YES;
     _mapView.mapType = MKMapTypeStandard;
     [_mapView setScrollEnabled:YES];
-    [_mapView addAnnotation:self];
+    
+    CLLocationCoordinate2D coord = _currentUserCoordinate;
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
+    
+    _currentPlace = [[Place alloc] initWithLocation:location reference:nil name:placemarkToShow.name address:placemarkToShow.thoroughfare];
+
+    PlaceAnnotation *annotation = [[PlaceAnnotation alloc] initWithPlace:_currentPlace];
+    [_mapView addAnnotation:annotation];
 }
 
 - (void)loadNearByPlaces
@@ -199,20 +206,6 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
     }];
 }
 
-#pragma mark - MKAnnotation Protocol (for map pin)
-
-- (CLLocationCoordinate2D)coordinate
-{
-    return self.placemarkToShow.location.coordinate;
-}
-
-- (NSString *)title
-{
-    return self.placemarkToShow.thoroughfare;
-}
-
-
-
 
 
 #pragma -mark UITableView Delegates and datasource.
@@ -236,11 +229,12 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [_mapView removeAnnotations:_mapView.annotations];
-    Place *place = _locations[indexPath.row];
+    _currentPlace = _locations[indexPath.row];
 
-    PlaceAnnotation *annotation = [[PlaceAnnotation alloc] initWithPlace:place];
+    PlaceAnnotation *annotation = [[PlaceAnnotation alloc] initWithPlace:_currentPlace];
     [_mapView addAnnotation:annotation];
 
+    
 }
 
 @end
