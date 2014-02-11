@@ -237,4 +237,88 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
     
 }
 
+#pragma -mark Facebook Posting
+
+- (IBAction)postLocationToFacebook:(id)sender
+{
+    if([[FBSession activeSession] isOpen])
+    {
+        if (([[[FBSession activeSession]permissions]indexOfObject:@"publish_actions"] == NSNotFound))
+        {
+            [self RequestWritePermissions];
+        }
+        else
+            [self post];
+    }
+    else if([[FBSession activeSession] state] == FBSessionStateCreatedTokenLoaded)
+    {
+        [[FBSession activeSession] openWithCompletionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+            if (([[[FBSession activeSession]permissions]indexOfObject:@"publish_actions"] == NSNotFound))
+            {
+                [self RequestWritePermissions];
+            }
+            else
+                [self post];
+        }];
+    }
+    else
+    {
+        [self showAlertWithMessage:@"Please allow Facebook in settings page" andTitle:@"Facebook not signed In"];
+    }
+}
+
+- (void) post
+{
+    id <FBGraphPlace>place = (id<FBGraphPlace>)[FBGraphObject graphObject] ;
+    id <FBGraphLocation> location = (id<FBGraphLocation>)[FBGraphObject graphObject];
+    
+    [location setLatitude:[NSNumber numberWithDouble:_currentPlace.location.coordinate.latitude]];
+    [location setLongitude:[NSNumber numberWithDouble:_currentPlace.location.coordinate.longitude]];
+    [location setStreet:_currentPlace.address];
+    
+    [place setLocation:location];
+//    [place setName:_currentPlace.placeName];
+//    [place setCategory:@"River"];
+    
+    [[FBRequest requestForPostStatusUpdate:@"1231223" place:place tags:[NSArray arrayWithObjects:@"vicky13vikas", nil]]
+     startWithCompletionHandler:
+     ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *result, NSError *error)
+     {
+         [self hideLoadingScreen];
+         // Did everything come back okay with no errors?
+         if (!error && result) {
+             [self showAlertWithMessage:@"Posted Successfully" andTitle:nil];
+             [self.navigationController popViewControllerAnimated:YES];
+         }
+         else {
+             [self showAlertWithMessage:@"Error Posting to Facebook" andTitle:@"Error"];
+         }
+     }];
+}
+
+-(void)faceBookErrorMessage
+{
+    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:ALERT_TITLE message:@"Error Connecting To Facebook" delegate:nil cancelButtonTitle:ALERT_OK otherButtonTitles:nil];
+    [errorAlert show];
+    
+}
+
+-(void)RequestWritePermissions
+{
+    NSArray *permissions = [[NSArray alloc] initWithObjects:
+                            @"publish_actions", nil];
+    
+    [[FBSession activeSession] requestNewPublishPermissions:permissions defaultAudience:FBSessionDefaultAudienceFriends completionHandler:^(FBSession *session, NSError *error)
+     {
+         if (!error) {
+             [self post];
+         }
+         else
+         {
+             [self showAlertWithMessage:@"Error Posting to Facebook" andTitle:@"Error"];
+         }
+     }];
+}
+
+
 @end
