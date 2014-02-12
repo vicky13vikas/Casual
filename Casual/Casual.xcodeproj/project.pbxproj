@@ -47,6 +47,7 @@
 		4E9B147B18ABBF6600C9A6A8 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9B147718ABBF6600C9A6A8 /* libTestFlight.a */; };
 		4E9B147D18ABC00400C9A6A8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9B147C18ABC00400C9A6A8 /* CoreLocation.framework */; };
 		4E9B147F18ABC04400C9A6A8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9B147E18ABC04400C9A6A8 /* MapKit.framework */; };
+		4E9B148118ABC4EA00C9A6A8 /* topBarButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9B148018ABC4EA00C9A6A8 /* topBarButton.png */; };
 		4E9D204418A154020019E86B /* TextFieldsBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204318A154020019E86B /* TextFieldsBG.png */; };
 		4E9D204618A158350019E86B /* Seperator.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204518A158350019E86B /* Seperator.png */; };
 		4E9D204818A159930019E86B /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204718A159930019E86B /* Background.png */; };
@@ -261,6 +262,7 @@
 		4E9B147A18ABBF6600C9A6A8 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		4E9B147C18ABC00400C9A6A8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4E9B147E18ABC04400C9A6A8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4E9B148018ABC4EA00C9A6A8 /* topBarButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = topBarButton.png; path = ../../../../../../../../../../Users/vikaskumar/Desktop/topBarButton.png; sourceTree = "<group>"; };
 		4E9D204318A154020019E86B /* TextFieldsBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextFieldsBG.png; sourceTree = "<group>"; };
 		4E9D204518A158350019E86B /* Seperator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Seperator.png; sourceTree = "<group>"; };
 		4E9D204718A159930019E86B /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
@@ -535,6 +537,7 @@
 				4E9DBD3918A41B9B00CD1AD4 /* PostScreen */,
 				4E9FBA3B18A2B31100395558 /* HomeScreen */,
 				4E9D204918A15B1C0019E86B /* BG_small.png */,
+				4E9B148018ABC4EA00C9A6A8 /* topBarButton.png */,
 				4E9D204A18A15B1C0019E86B /* BtnFacebook.png */,
 				4E135A8518A54744002DC459 /* sampleQRCode.png */,
 				4E9DBD4718A41BD500CD1AD4 /* btnLoginAll.png */,
@@ -961,6 +964,7 @@
 				4EC2B26A18A1439A0045291A /* Main_iPhone.storyboard in Resources */,
 				4E9D204818A159930019E86B /* Background.png in Resources */,
 				4E9DBD4618A41BCB00CD1AD4 /* SettingsBtn.png in Resources */,
+				4E9B148118ABC4EA00C9A6A8 /* topBarButton.png in Resources */,
 				4E9D205618A15DC90019E86B /* BtnSignUp.png in Resources */,
 				4E9FBA5118A2BD0B00395558 /* TreeImage.png in Resources */,
 				4E37B32D18A7C3E4005FF445 /* tf_Body_BG.png in Resources */,
