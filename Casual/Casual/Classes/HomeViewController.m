@@ -233,15 +233,6 @@
     }
     
     _currentUserCoordinate = [newLocation coordinate];
-//    _selectedRow = 1;
-    
-    // update the current location cells detail label with these coords
-//    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-//    cell.detailTextLabel.text = [NSString stringWithFormat:@"φ:%.4F, λ:%.4F", _currentUserCoordinate.latitude, _currentUserCoordinate.longitude];
-    
-    // after recieving a location, stop updating
-    
-    NSLog(@"%@", [NSString stringWithFormat:@"φ:%.4F, λ:%.4F", _currentUserCoordinate.latitude, _currentUserCoordinate.longitude]);
     
     [self performCoordinateGeocode];
 //    [self stopUpdatingCurrentLocation];
@@ -252,17 +243,17 @@
     NSLog(@"%@", error);
     
     // stop updating
-    [self stopUpdatingCurrentLocation];
+//    [self stopUpdatingCurrentLocation];
     
     // since we got an error, set selected location to invalid location
     _currentUserCoordinate = kCLLocationCoordinate2DInvalid;
     
     // show the error alert
-    UIAlertView *alert = [[UIAlertView alloc] init];
-    alert.title = @"Error updating location";
-    alert.message = [error localizedDescription];
-    [alert addButtonWithTitle:@"OK"];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] init];
+//    alert.title = @"Error updating location";
+//    alert.message = [error localizedDescription];
+//    [alert addButtonWithTitle:@"OK"];
+//    [alert show];
 }
 
 - (void)performCoordinateGeocode

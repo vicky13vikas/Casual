@@ -104,15 +104,15 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
     NSLog(@"%@", error);
     
     // stop updating
-    [self stopUpdatingCurrentLocation];
+//    [self stopUpdatingCurrentLocation];
     
     // since we got an error, set selected location to invalid location
     _currentUserCoordinate = kCLLocationCoordinate2DInvalid;
     
     // show the error alert
     UIAlertView *alert = [[UIAlertView alloc] init];
-    alert.title = @"Error updating location";
-    alert.message = [error localizedDescription];
+    alert.title = nil;
+    alert.message = @"Error updating location";
     [alert addButtonWithTitle:@"OK"];
     [alert show];
 }
