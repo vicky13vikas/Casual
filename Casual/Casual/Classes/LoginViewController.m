@@ -14,7 +14,11 @@
 @property (strong, nonatomic) IBOutlet UITextField *tfUsername;
 @property (strong, nonatomic) IBOutlet UITextField *tfPassword;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+
 - (IBAction)btnLoginTapped:(id)sender;
+- (IBAction)singleTap:(id)sender;
 
 @end
 
@@ -35,6 +39,12 @@
 	// Do any additional setup after loading the view.
 }
 
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    [self.scrollView setContentSize:CGSizeMake(_scrollView.frame.size.width, 380)];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -51,6 +61,12 @@
         [self sendRLoginRequest];
   
 //  [self loginDoneSuccessfully];
+}
+
+- (IBAction)singleTap:(id)sender
+{
+    [_tfPassword resignFirstResponder];
+    [_tfUsername resignFirstResponder];
 }
 
 #pragma -mark Server Requests
