@@ -46,9 +46,6 @@
 		4E37B33F18A7D107005FF445 /* btnInfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E37B33D18A7D107005FF445 /* btnInfo.png */; };
 		4E37B34C18A80FBE005FF445 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E37B34B18A80FBE005FF445 /* libz.1.1.3.dylib */; };
 		4E952FE418A669D400075CCB /* ActivityTableDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E952FE318A669D400075CCB /* ActivityTableDatasource.m */; };
-		4E973C3A18AAA1730089D193 /* PlacesLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E973C3918AAA1730089D193 /* PlacesLoader.m */; };
-		4E973C4418AAA2A70089D193 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E973C4318AAA2A70089D193 /* Place.m */; };
-		4E973C4718AAAAC30089D193 /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E973C4618AAAAC30089D193 /* PlaceAnnotation.m */; };
 		4E9D204418A154020019E86B /* TextFieldsBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204318A154020019E86B /* TextFieldsBG.png */; };
 		4E9D204618A158350019E86B /* Seperator.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204518A158350019E86B /* Seperator.png */; };
 		4E9D204818A159930019E86B /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D204718A159930019E86B /* Background.png */; };
@@ -262,12 +259,6 @@
 		4E37B34B18A80FBE005FF445 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		4E952FE218A669D400075CCB /* ActivityTableDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableDatasource.h; sourceTree = "<group>"; };
 		4E952FE318A669D400075CCB /* ActivityTableDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableDatasource.m; sourceTree = "<group>"; };
-		4E973C3818AAA1730089D193 /* PlacesLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesLoader.h; sourceTree = "<group>"; };
-		4E973C3918AAA1730089D193 /* PlacesLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesLoader.m; sourceTree = "<group>"; };
-		4E973C4218AAA2A70089D193 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
-		4E973C4318AAA2A70089D193 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
-		4E973C4518AAAAC30089D193 /* PlaceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceAnnotation.h; sourceTree = "<group>"; };
-		4E973C4618AAAAC30089D193 /* PlaceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceAnnotation.m; sourceTree = "<group>"; };
 		4E9D204318A154020019E86B /* TextFieldsBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextFieldsBG.png; sourceTree = "<group>"; };
 		4E9D204518A158350019E86B /* Seperator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Seperator.png; sourceTree = "<group>"; };
 		4E9D204718A159930019E86B /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
@@ -532,19 +523,6 @@
 			path = Classes/DataSource;
 			sourceTree = "<group>";
 		};
-		4E973C3718AAA1730089D193 /* PlacesLoader */ = {
-			isa = PBXGroup;
-			children = (
-				4E973C4518AAAAC30089D193 /* PlaceAnnotation.h */,
-				4E973C4618AAAAC30089D193 /* PlaceAnnotation.m */,
-				4E973C4218AAA2A70089D193 /* Place.h */,
-				4E973C4318AAA2A70089D193 /* Place.m */,
-				4E973C3818AAA1730089D193 /* PlacesLoader.h */,
-				4E973C3918AAA1730089D193 /* PlacesLoader.m */,
-			);
-			path = PlacesLoader;
-			sourceTree = "<group>";
-		};
 		4E9D204218A154020019E86B /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -795,7 +773,6 @@
 		4EC2B29218A146B30045291A /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				4E973C3718AAA1730089D193 /* PlacesLoader */,
 				4E37B31B18A7B2FF005FF445 /* TimeAgo */,
 				09CACFDB18A4B50200B9A91D /* AsyncImageView */,
 				09FA89C618A2157C00C05CAA /* STTwitter */,
@@ -1070,14 +1047,12 @@
 				09FA89E718A2157C00C05CAA /* STTwitterOS.m in Sources */,
 				09FA89E218A2157C00C05CAA /* STHTTPRequest+STTwitter.m in Sources */,
 				4E9D206C18A1678A0019E86B /* UIViewControllerCategories.m in Sources */,
-				4E973C4418AAA2A70089D193 /* Place.m in Sources */,
 				09FA89E318A2157C00C05CAA /* STTwitterAPI.m in Sources */,
 				09148DF518A8DCA300338BD3 /* InfoSignUpViewController.m in Sources */,
 				4E9DBD2B18A41B1B00CD1AD4 /* ScanViewController.m in Sources */,
 				4EC2B2E518A147030045291A /* AFNetworkActivityIndicatorManager.m in Sources */,
 				4E9D206218A167350019E86B /* MBProgressHUD.m in Sources */,
 				4E37B32118A7B40F005FF445 /* NSDate+NVTimeAgo.m in Sources */,
-				4E973C3A18AAA1730089D193 /* PlacesLoader.m in Sources */,
 				4E9FBA3418A28B0C00395558 /* RootViewController.m in Sources */,
 				09FA89E518A2157C00C05CAA /* STTwitterHTML.m in Sources */,
 				4EC1785F18A6A82800B72C92 /* HistoryViewCell.m in Sources */,
@@ -1086,7 +1061,6 @@
 				4EC2B2E218A147030045291A /* AFHTTPRequestOperation.m in Sources */,
 				09FA89E618A2157C00C05CAA /* STTwitterOAuth.m in Sources */,
 				4EC2B26318A1439A0045291A /* main.m in Sources */,
-				4E973C4718AAAAC30089D193 /* PlaceAnnotation.m in Sources */,
 				4EC2B2E118A147030045291A /* AFHTTPClient.m in Sources */,
 				09FA89E018A2157C00C05CAA /* NSDateFormatter+STTwitter.m in Sources */,
 				09FA89E918A2157C00C05CAA /* JSONSyntaxHighlight.m in Sources */,
