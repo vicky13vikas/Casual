@@ -149,10 +149,14 @@
         [self sendInfoToServer];
     else
         [self showAlertWithMessage:@"Please enter the values" andTitle:@"Error"];
+    
+    [self singleTap:nil];
 }
 
 - (IBAction)btnFacebookToggle:(UIButton*)sender
 {
+    [self singleTap:nil];
+
     if ([[NSUserDefaults standardUserDefaults] valueForKey:IS_FACEBOOK_ON])
     {
         [self removeFacebook];
@@ -170,6 +174,8 @@
 
 - (IBAction)btnTwitter:(id)sender
 {
+    [self singleTap:nil];
+
     if ([[NSUserDefaults standardUserDefaults] valueForKey:IS_TWITTER_ON])
     {
         [self removeTwitter];
