@@ -760,6 +760,7 @@
                     <navigationItem key="navigationItem" id="fiD-X4-0RA"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="btnCheckin" destination="NIM-5c-pHx" id="heY-GM-2kI"/>
                         <outlet property="btnFacebook" destination="dOK-zK-edI" id="sfJ-QM-f4a"/>
                         <outlet property="btnTwitter" destination="zRl-rL-uES" id="dtH-Zp-1E3"/>
                         <outlet property="tableView" destination="WSb-fZ-TIU" id="4D8-WD-2Jc"/>
@@ -2204,6 +2205,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="kS4-jz-Y09"/>
+        <segue reference="PdD-iF-bf3"/>
     </inferredMetricsTieBreakers>
 </document>

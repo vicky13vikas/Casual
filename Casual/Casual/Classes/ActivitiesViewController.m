@@ -20,6 +20,7 @@
 @property (nonatomic, strong) ActivityTableDatasource *tableDataSource;
 @property (weak, nonatomic) IBOutlet UIButton *btnFacebook;
 @property (weak, nonatomic) IBOutlet UIButton *btnTwitter;
+@property (weak, nonatomic) IBOutlet UIButton *btnCheckin;
 
 - (IBAction)faceBookTapped:(id)sender;
 - (IBAction)twitterTapped:(id)sender;
@@ -59,6 +60,7 @@
     if (![[NSUserDefaults standardUserDefaults] valueForKey:IS_FACEBOOK_ON])
     {
         _btnFacebook.enabled = NO;
+        _btnCheckin.enabled = NO;
         if ([[NSUserDefaults standardUserDefaults] valueForKey:IS_TWITTER_ON])
         {
             [self twitterTapped:nil];
@@ -67,6 +69,7 @@
     else
     {
         _btnFacebook.enabled = YES;
+        _btnCheckin.enabled = YES;
         [self faceBookTapped:nil];
     }
     
