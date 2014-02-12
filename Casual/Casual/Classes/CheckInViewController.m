@@ -7,10 +7,11 @@
 //
 
 #import "CheckInViewController.h"
-#import <MapKit/MapKit.h>
 #import "PlacesLoader.h"
 #import "Place.h"
 #import "PlaceAnnotation.h"
+
+#define REGION_RADIUS 1000
 
 NSString * const kNameKey = @"name";
 NSString * const kReferenceKey = @"reference";
@@ -23,7 +24,7 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (nonatomic, strong) Place *currentPlace;
+@property (nonatomic, strong) id <FBGraphPlace> currentPlace;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (readonly) CLLocationCoordinate2D currentUserCoordinate;
 @property (nonatomic, strong) NSArray *locations;
@@ -95,19 +96,10 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
     }
     
     _currentUserCoordinate = [newLocation coordinate];
-    //    _selectedRow = 1;
     
-    // update the current location cells detail label with these coords
-    //    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    //    cell.detailTextLabel.text = [NSString stringWithFormat:@"φ:%.4F, λ:%.4F", _currentUserCoordinate.latitude, _currentUserCoordinate.longitude];
+    [self loadNearByPlacesFromFacebook];
     
-    // after recieving a location, stop updating
-    
-    NSLog(@"%@", [NSString stringWithFormat:@"φ:%.4F, λ:%.4F", _currentUserCoordinate.latitude, _currentUserCoordinate.longitude]);
-    
-    [self performCoordinateGeocode];
-    //    [self stopUpdatingCurrentLocation];
-    [self loadNearByPlaces];
+    [self displayPlacemarksInMap];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -147,28 +139,22 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
             return;
         }
         NSLog(@"Received placemarks: %@", placemarks);
-        [self displayPlacemarksInMap:placemarks];
+//        [self displayPlacemarksInMap:placemarks];
     }];
 }
 
--(void)displayPlacemarksInMap:(NSArray*)placemarks
+-(void)displayPlacemarksInMap
 {
-     CLPlacemark *placemarkToShow = placemarks[0];
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([[[_currentPlace location] latitude] doubleValue], [[[_currentPlace location] longitude] doubleValue]);
 
-    MKCoordinateRegion region =  MKCoordinateRegionMakeWithDistance(placemarkToShow.location.coordinate, 2000, 2000);
+    MKCoordinateRegion region =  MKCoordinateRegionMakeWithDistance(coordinate, REGION_RADIUS, REGION_RADIUS);
     [_mapView setRegion:region];
     
     _mapView.layer.masksToBounds = YES;
     _mapView.mapType = MKMapTypeStandard;
-    [_mapView setScrollEnabled:YES];
-    
-    CLLocationCoordinate2D coord = _currentUserCoordinate;
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
-    
-    _currentPlace = [[Place alloc] initWithLocation:location reference:nil name:placemarkToShow.name address:placemarkToShow.thoroughfare];
+    [_mapView setScrollEnabled:NO];
 
-    PlaceAnnotation *annotation = [[PlaceAnnotation alloc] initWithPlace:_currentPlace];
-    [_mapView addAnnotation:annotation];
+    [_mapView addAnnotation:self];
 }
 
 - (void)loadNearByPlaces
@@ -218,11 +204,11 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlacesListTableViewCell" forIndexPath:indexPath];
-
-    Place *place = _locations[indexPath.row];
     
-    cell.textLabel.text = place.placeName;
-    cell.detailTextLabel.text = place.address;
+    id <FBGraphPlace>place = (id<FBGraphPlace>)_locations[indexPath.row] ;
+    
+    cell.textLabel.text = [place name];
+    cell.detailTextLabel.text = [[place location] street];
     return cell;
 }
 
@@ -230,17 +216,18 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
 {
     [_mapView removeAnnotations:_mapView.annotations];
     _currentPlace = _locations[indexPath.row];
-
-    PlaceAnnotation *annotation = [[PlaceAnnotation alloc] initWithPlace:_currentPlace];
-    [_mapView addAnnotation:annotation];
-
     
+    _currentPlace = (id<FBGraphPlace>)_locations[indexPath.row] ;
+
+    [_mapView addAnnotation:self];
+//    [self displayPlacemarksInMap];
 }
 
 #pragma -mark Facebook Posting
 
 - (IBAction)postLocationToFacebook:(id)sender
 {
+    [self showLoadingScreenWithMessage:@"Posting..."];
     if([[FBSession activeSession] isOpen])
     {
         if (([[[FBSession activeSession]permissions]indexOfObject:@"publish_actions"] == NSNotFound))
@@ -264,23 +251,13 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
     else
     {
         [self showAlertWithMessage:@"Please allow Facebook in settings page" andTitle:@"Facebook not signed In"];
+        [self hideLoadingScreen];
     }
 }
 
 - (void) post
 {
-    id <FBGraphPlace>place = (id<FBGraphPlace>)[FBGraphObject graphObject] ;
-    id <FBGraphLocation> location = (id<FBGraphLocation>)[FBGraphObject graphObject];
-    
-    [location setLatitude:[NSNumber numberWithDouble:_currentPlace.location.coordinate.latitude]];
-    [location setLongitude:[NSNumber numberWithDouble:_currentPlace.location.coordinate.longitude]];
-    [location setStreet:_currentPlace.address];
-    
-    [place setLocation:location];
-//    [place setName:_currentPlace.placeName];
-//    [place setCategory:@"River"];
-    
-    [[FBRequest requestForPostStatusUpdate:@"1231223" place:place tags:[NSArray arrayWithObjects:@"vicky13vikas", nil]]
+    [[FBRequest requestForPostStatusUpdate:@"" place:_currentPlace tags:[NSArray arrayWithObjects:nil]]
      startWithCompletionHandler:
      ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *result, NSError *error)
      {
@@ -288,12 +265,72 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
          // Did everything come back okay with no errors?
          if (!error && result) {
              [self showAlertWithMessage:@"Posted Successfully" andTitle:nil];
-             [self.navigationController popViewControllerAnimated:YES];
          }
          else {
              [self showAlertWithMessage:@"Error Posting to Facebook" andTitle:@"Error"];
          }
      }];
+    
+}
+
+
+-(void)loadNearByPlacesFromFacebook
+{
+    if([[FBSession activeSession] isOpen])
+    {
+        if (([[[FBSession activeSession]permissions]indexOfObject:@"publish_actions"] == NSNotFound))
+        {
+            [self RequestWritePermissions];
+        }
+        else
+            [self loadNearPlaces];
+    }
+    else if([[FBSession activeSession] state] == FBSessionStateCreatedTokenLoaded)
+    {
+        [[FBSession activeSession] openWithCompletionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+            if (([[[FBSession activeSession]permissions]indexOfObject:@"publish_actions"] == NSNotFound))
+            {
+                [self RequestWritePermissions];
+            }
+            else
+                [self loadNearPlaces];
+        }];
+    }
+    else
+    {
+        [self showAlertWithMessage:@"Please allow Facebook in settings page" andTitle:@"Facebook not signed In"];
+    }
+
+}
+
+-(void)parseResultsfromFacebookPlaces:(id)result
+{
+    NSArray *data = [result objectForKey:@"data"];
+
+    NSMutableArray *temp = [NSMutableArray array];
+    for (FBGraphObject<FBGraphPlace> * place in data)
+    {
+        [temp addObject:place];
+    }
+    _locations = [temp copy];
+    _currentPlace = _locations[0];
+    [self displayPlacemarksInMap];
+    [_tableView reloadData];
+}
+
+-(void)loadNearPlaces
+{
+    [[FBRequest requestForPlacesSearchAtCoordinate:_currentUserCoordinate radiusInMeters:REGION_RADIUS resultsLimit:30 searchText:nil] startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        
+        if(!error)
+        {
+            [self parseResultsfromFacebookPlaces:result];
+        }
+        else
+        {
+            [self showAlertWithMessage:@"Error Loading Places from Facebook" andTitle:@"Error"];
+        }
+    }];
 }
 
 -(void)faceBookErrorMessage
@@ -316,9 +353,22 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
          else
          {
              [self showAlertWithMessage:@"Error Posting to Facebook" andTitle:@"Error"];
+             [self hideLoadingScreen];
          }
      }];
 }
 
+#pragma mark - MKAnnotation Protocol (for map pin)
+
+- (CLLocationCoordinate2D)coordinate
+{
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([[[_currentPlace location] latitude] doubleValue], [[[_currentPlace location] longitude] doubleValue]);
+    return coordinate;
+}
+
+- (NSString *)title
+{
+    return [_currentPlace name];
+}
 
 @end
