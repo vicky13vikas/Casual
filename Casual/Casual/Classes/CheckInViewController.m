@@ -121,7 +121,7 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
 {
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([[[_currentPlace location] latitude] doubleValue], [[[_currentPlace location] longitude] doubleValue]);
 
-    MKCoordinateRegion region =  MKCoordinateRegionMakeWithDistance(coordinate, REGION_RADIUS, REGION_RADIUS);
+    MKCoordinateRegion region =  MKCoordinateRegionMakeWithDistance(coordinate, REGION_RADIUS * 2, REGION_RADIUS * 2);
     [_mapView setRegion:region];
     
     _mapView.layer.masksToBounds = YES;
