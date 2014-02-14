@@ -11,6 +11,9 @@
 #import "AFHTTPClient.h"
 
 @interface SettingsViewController () <UITextFieldDelegate>
+{
+    BOOL isKeyboardVisible;
+}
 
 @property (weak, nonatomic) IBOutlet UIButton *btnFacebookSwitch;
 @property (weak, nonatomic) IBOutlet UIButton *btnTwitterSwitch;
@@ -84,24 +87,32 @@
 
 -(void)keyBoardWillShow:(NSNotification*)notification
 {
-    NSDictionary* keyboardInfo = [notification userInfo];
-    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
-    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
-    
-    CGRect frame = _scrollView.frame;
-    frame.size.height = frame.size.height - keyboardFrameBeginRect.size.height;
-    _scrollView.frame = frame;
+    if(!isKeyboardVisible)
+    {
+        isKeyboardVisible = YES;
+        NSDictionary* keyboardInfo = [notification userInfo];
+        NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+        CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+        
+        CGRect frame = _scrollView.frame;
+        frame.size.height = frame.size.height - keyboardFrameBeginRect.size.height + 44;
+        _scrollView.frame = frame;
+    }
 }
 
 -(void)keyBoardWillHide:(NSNotification*)notification
 {
-    NSDictionary* keyboardInfo = [notification userInfo];
-    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
-    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
-    
-    CGRect frame = _scrollView.frame;
-    frame.size.height = frame.size.height + keyboardFrameBeginRect.size.height;
-    _scrollView.frame = frame;
+    if(isKeyboardVisible)
+    {
+        isKeyboardVisible = NO;
+        NSDictionary* keyboardInfo = [notification userInfo];
+        NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+        CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+        
+        CGRect frame = _scrollView.frame;
+        frame.size.height = frame.size.height + keyboardFrameBeginRect.size.height - 44;
+        _scrollView.frame = frame;
+    }
 }
 
 - (void)viewDidLayoutSubviews
@@ -394,6 +405,27 @@
 }
 
 #pragma -mark UItextFieldDelegate
+
+-(UIView *)accessoryView {
+    UIButton *hide = [UIButton buttonWithType:UIButtonTypeCustom];
+    hide.frame = CGRectMake(260, 2, 60, 30);
+    [hide   setTitle:@"Hide" forState:UIControlStateNormal];
+    [hide addTarget:self action:@selector(singleTap:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIView *transparentBlackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 34)];
+    transparentBlackView.backgroundColor = [UIColor colorWithRed:0.f green:0.f blue:0.f alpha:0.6f];
+    
+    UIView *accessoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 34)];
+    [accessoryView addSubview:transparentBlackView];
+    [accessoryView addSubview:hide];
+    
+    return accessoryView;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    textField.inputAccessoryView = [self accessoryView];
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
