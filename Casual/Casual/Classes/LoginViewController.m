@@ -144,6 +144,28 @@
 
 #pragma -mark UItextFieldDelegate
 
+-(UIView *)accessoryViewWithPreviousEnabled:(BOOL)previousEnabled nextEnabled:(BOOL)nextEnabled{
+     UIButton *hide = [UIButton buttonWithType:UIButtonTypeCustom];
+    hide.frame = CGRectMake(260, 2, 60, 30);
+    [hide   setTitle:@"Hide" forState:UIControlStateNormal];
+    hide.enabled = previousEnabled;
+    [hide addTarget:self action:@selector(singleTap:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIView *transparentBlackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 34)];
+    transparentBlackView.backgroundColor = [UIColor colorWithRed:0.f green:0.f blue:0.f alpha:0.6f];
+    
+    UIView *accessoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 34)];
+    [accessoryView addSubview:transparentBlackView];
+    [accessoryView addSubview:hide];
+    
+    return accessoryView;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    textField.inputAccessoryView = [self accessoryViewWithPreviousEnabled:YES nextEnabled:YES];
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
   if(textField == _tfUsername)
