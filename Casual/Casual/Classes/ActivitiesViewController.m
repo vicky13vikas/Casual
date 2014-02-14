@@ -60,7 +60,6 @@
     if (![[NSUserDefaults standardUserDefaults] valueForKey:IS_FACEBOOK_ON])
     {
         _btnFacebook.enabled = NO;
-        _btnCheckin.enabled = NO;
         if ([[NSUserDefaults standardUserDefaults] valueForKey:IS_TWITTER_ON])
         {
             [self twitterTapped:nil];
@@ -69,7 +68,6 @@
     else
     {
         _btnFacebook.enabled = YES;
-        _btnCheckin.enabled = YES;
         [self faceBookTapped:nil];
     }
     
@@ -94,12 +92,6 @@
     [self logout];
 }
 
--(IBAction)unwindActivitiesSegue:(UIStoryboardSegue*)segue
-{
-  
-}
-
-
 - (IBAction)faceBookTapped:(id)sender
 {
     [self showLoadingScreenWithMessage:@"Loading..."];
@@ -112,6 +104,32 @@
     [self showLoadingScreenWithMessage:@"Loading..."];
     _tableDataSource.datasource = kStatustypeTwitter;
     [self loadStatusFromTwitter];
+}
+
+#pragma -mark segue
+
+
+-(IBAction)unwindActivitiesSegue:(UIStoryboardSegue*)segue
+{
+    
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender NS_AVAILABLE_IOS(6_0)
+{
+    if([identifier isEqualToString:@"CheckInSegue"])
+    {
+        if (![[NSUserDefaults standardUserDefaults] valueForKey:IS_FACEBOOK_ON])
+        {
+            [self showAlertWithMessage:@"Please switch on Facebook in the settings page." andTitle:@"Error"];
+            return NO;
+        }
+    }
+    return YES;
 }
 
 #pragma -mark FaceBook
