@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Voy-eV-7Ve">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Voy-eV-7Ve">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -304,7 +304,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v58-dV-dTa">
-                                        <rect key="frame" x="0.0" y="297" width="320" height="50"/>
+                                        <rect key="frame" x="0.0" y="387" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BtnFacebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qle-um-1CI">
@@ -341,7 +341,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UFR-Ql-kmK">
-                                        <rect key="frame" x="10" y="10" width="301" height="290"/>
+                                        <rect key="frame" x="10" y="100" width="301" height="290"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yOH-qa-heu">
@@ -477,6 +477,14 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userPlaceHolder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="vwp-W3-Fjf" customClass="AsyncImageView">
+                                        <rect key="frame" x="120" y="12" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="LaQ-up-vI4" appends="YES" id="2QR-sW-tOb"/>
+                                        </connections>
+                                    </imageView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -506,12 +514,18 @@
                         <outlet property="tfPhoneNumber" destination="PiM-hQ-PZ0" id="RgY-bW-zXZ"/>
                         <outlet property="tfSchool" destination="etb-l4-81t" id="nXI-9y-OqY"/>
                         <outlet property="tfZodiacSign" destination="0pn-gx-uWH" id="9Wj-Wd-tuu"/>
+                        <outlet property="userImageView" destination="vwp-W3-Fjf" id="5pd-6P-94l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PpP-5v-vEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="dHw-AF-mTU">
                     <connections>
                         <action selector="singleTap:" destination="zkV-gO-etY" id="n1s-OR-C8G"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="LaQ-up-vI4">
+                    <connections>
+                        <action selector="userImageTapped:" destination="zkV-gO-etY" id="xPV-IH-Aeg"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -937,15 +951,20 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Here is your unique Casual ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlH-Id-d0Y">
-                                        <rect key="frame" x="44" y="0.0" width="228" height="21"/>
+                                        <rect key="frame" x="82" y="0.0" width="228" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5AJ-w6-xaH">
-                                        <rect key="frame" x="111" y="23" width="95" height="95"/>
+                                        <rect key="frame" x="190" y="20" width="95" height="95"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userPlaceHolder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wYl-UX-di5" customClass="AsyncImageView">
+                                        <rect key="frame" x="20" y="28" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
                                     </imageView>
                                 </subviews>
                             </scrollView>
@@ -975,6 +994,7 @@
                         <outlet property="tfPhoneNumber" destination="rid-Wy-EFo" id="776-Vd-H7U"/>
                         <outlet property="tfSchool" destination="nTe-uT-gdE" id="7mu-rR-oMq"/>
                         <outlet property="tfZodiacSign" destination="Yib-VU-Rbp" id="qR7-yM-MIW"/>
+                        <outlet property="userImageView" destination="wYl-UX-di5" id="FIh-dA-t3T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F6e-wu-IPV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1277,11 +1297,11 @@
                                                     <rect key="frame" x="80" y="120" width="70" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userPlaceHolder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="w6j-49-Amj">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userPlaceHolder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="w6j-49-Amj" customClass="AsyncImageView">
                                                     <rect key="frame" x="244" y="41" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userPlaceHolder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="URt-dY-EdY">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userPlaceHolder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="URt-dY-EdY" customClass="AsyncImageView">
                                                     <rect key="frame" x="31" y="94" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -2012,15 +2032,23 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Here is your unique Casual ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0E-un-E2B">
-                                        <rect key="frame" x="46" y="0.0" width="228" height="21"/>
+                                        <rect key="frame" x="82" y="0.0" width="228" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x3t-9P-YNz">
-                                        <rect key="frame" x="113" y="20" width="95" height="95"/>
+                                        <rect key="frame" x="179" y="20" width="95" height="95"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userPlaceHolder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="gUZ-b0-lS4">
+                                        <rect key="frame" x="20" y="36" width="68" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="bkR-6b-ZOz" appends="YES" id="BH0-eG-dFB"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                             </scrollView>
@@ -2058,12 +2086,18 @@
                         <outlet property="tfPhoneNumber" destination="V9n-DM-3Mn" id="Imy-IA-ec3"/>
                         <outlet property="tfSchool" destination="a8N-Y6-D63" id="g9d-y4-oBo"/>
                         <outlet property="tfZodiacSign" destination="SUo-Ly-THW" id="rvx-3P-2Av"/>
+                        <outlet property="userImageView" destination="gUZ-b0-lS4" id="5Nc-TD-bud"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gKB-BE-HAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Iez-wT-Hdb">
                     <connections>
                         <action selector="singleTap:" destination="Gnr-Gd-Xch" id="S22-dd-Wwg"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="bkR-6b-ZOz">
+                    <connections>
+                        <action selector="userImageTapped:" destination="Gnr-Gd-Xch" id="8yN-nO-4A2"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -2235,6 +2269,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="WkD-QI-loW"/>
+        <segue reference="f9L-NK-gVN"/>
     </inferredMetricsTieBreakers>
 </document>

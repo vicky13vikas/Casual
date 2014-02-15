@@ -8,6 +8,7 @@
 
 
 #define SERVER_URL @"http://198.1.74.28/~spaniac1/casual/"
+#define IMAGE_SERVER_URL @"http://casual.hostcone.com/casual/img/"
 
 #define ALERT_TITLE @"Casual"
 #define ALERT_OK @"OK"

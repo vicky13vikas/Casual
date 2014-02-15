@@ -9,8 +9,10 @@
 #import "SettingsViewController.h"
 #import "UIViewControllerCategories.h"
 #import "AFHTTPClient.h"
+#import "Base64.h"
+#import "AsyncImageView.h"
 
-@interface SettingsViewController () <UITextFieldDelegate>
+@interface SettingsViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     BOOL isKeyboardVisible;
 }
@@ -26,11 +28,16 @@
 @property (weak, nonatomic) IBOutlet UITextField *tfPhoneNumber;
 @property (weak, nonatomic) IBOutlet UITextField *tfDateOfBirth;
 @property (weak, nonatomic) IBOutlet UITextField *tfLocation;
+@property (weak, nonatomic) IBOutlet AsyncImageView *userImageView;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property (strong, nonatomic) UIImagePickerController *cameraPicker;
+
+
 - (IBAction)backButtonClicked:(id)sender;
 - (IBAction)saveButtonTapped:(id)sender;
+- (IBAction)userImageTapped:(UITapGestureRecognizer *)sender;
 
 @end
 
@@ -65,7 +72,10 @@
     _tfMaritialStatus.text = [currentUser objectForKey:@"matrial"];
     _tfPhoneNumber.text = [currentUser objectForKey:@"phnumber"];
     _tfDateOfBirth.text = [currentUser objectForKey:@"dob"];
-    _tfLocation.text = [currentUser objectForKey:@"location"];    
+    _tfLocation.text = [currentUser objectForKey:@"location"];
+    
+    NSString *imageURL = [NSString stringWithFormat:@"%@%@",IMAGE_SERVER_URL, [currentUser objectForKey:@"image_name"]];
+    _userImageView.imageURL = [NSURL URLWithString:imageURL];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -335,6 +345,12 @@
     {
         [parameters setObject:location forKey:@"location"];
     }
+    if (_userImageView.image) {
+        NSData *fileData = UIImageJPEGRepresentation(_userImageView.image, 0.30);
+        NSString *encodedString = [fileData base64EncodedString];
+        
+        [parameters setObject:encodedString forKey:@"imgdata"];
+    }
     
     
     [parameters setObject:user_id forKey:@"user_id"];
@@ -480,4 +496,53 @@
     [_tfLocation resignFirstResponder];
 }
 
+- (IBAction)userImageTapped:(UITapGestureRecognizer *)sender
+{
+    if(_cameraPicker == nil)
+    {
+        _cameraPicker = [[UIImagePickerController alloc] init];
+        _cameraPicker.delegate = self;
+    }
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        [_cameraPicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    }
+    else
+    {
+        [_cameraPicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    [_cameraPicker setAllowsEditing:YES];
+    
+    [self presentViewController:_cameraPicker animated:YES completion:nil];
+}
+
+#pragma -mark UIImagePickerController Delegates
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    
+    [_cameraPicker dismissViewControllerAnimated:NO completion:nil];
+    
+    UIImage *_pickedAvatar;
+    
+    if([picker sourceType] == UIImagePickerControllerSourceTypePhotoLibrary)
+    {
+        _pickedAvatar = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    }
+    else
+    {
+        _pickedAvatar = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    }
+    
+    _userImageView.image = _pickedAvatar;
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    if([picker sourceType] == UIImagePickerControllerSourceTypePhotoLibrary)
+    {
+        [self dismissViewControllerAnimated:NO completion:nil];
+    }
+}
 @end

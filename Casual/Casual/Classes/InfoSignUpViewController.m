@@ -8,8 +8,9 @@
 
 #import "InfoSignUpViewController.h"
 #import "AFHTTPClient.h"
+#import "Base64.h"
 
-@interface InfoSignUpViewController ()
+@interface InfoSignUpViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     BOOL isKeyboardVisible;
 }
@@ -23,12 +24,16 @@
 @property (weak, nonatomic) IBOutlet UITextField *tfDateOfBirth;
 @property (weak, nonatomic) IBOutlet UITextField *tfLocation;
 @property (weak, nonatomic) IBOutlet UIImageView *QRCodeImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property (strong, nonatomic) UIImagePickerController *cameraPicker;
+
+
 - (IBAction)btnSkipTapped:(id)sender;
 - (IBAction)btnSaveTapped:(id)sender;
-
+- (IBAction)userImageTapped:(UITapGestureRecognizer *)sender;
 
 @end
 
@@ -98,7 +103,7 @@
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    [self.scrollView setContentSize:CGSizeMake(_scrollView.frame.size.width, _scrollView.frame.size.height)];
+    [self.scrollView setContentSize:CGSizeMake(_scrollView.frame.size.width, 500)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -200,6 +205,12 @@
     if(location.length > 0)
     {
         [parameters setObject:location forKey:@"location"];
+    }
+    if (_userImageView.image) {
+        NSData *fileData = UIImageJPEGRepresentation(_userImageView.image, 0.30);
+        NSString *encodedString = [fileData base64EncodedString];
+        
+        [parameters setObject:encodedString forKey:@"imgdata"];
     }
     
     
@@ -360,4 +371,55 @@
     else
         [self showAlertWithMessage:@"Please enter the values" andTitle:@"Error"];
 }
+
+- (IBAction)userImageTapped:(UITapGestureRecognizer *)sender
+{
+    if(_cameraPicker == nil)
+    {
+        _cameraPicker = [[UIImagePickerController alloc] init];
+        _cameraPicker.delegate = self;
+    }
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        [_cameraPicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    }
+    else
+    {
+        [_cameraPicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    [_cameraPicker setAllowsEditing:YES];
+
+    [self presentViewController:_cameraPicker animated:YES completion:nil];
+}
+
+#pragma -mark UIImagePickerController Delegates
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+
+    [_cameraPicker dismissViewControllerAnimated:NO completion:nil];
+    
+    UIImage *_pickedAvatar;
+    
+    if([picker sourceType] == UIImagePickerControllerSourceTypePhotoLibrary)
+    {
+        _pickedAvatar = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    }
+    else
+    {
+        _pickedAvatar = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    }
+    
+    _userImageView.image = _pickedAvatar;
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    if([picker sourceType] == UIImagePickerControllerSourceTypePhotoLibrary)
+    {
+        [self dismissViewControllerAnimated:NO completion:nil];
+    }
+}
+
 @end

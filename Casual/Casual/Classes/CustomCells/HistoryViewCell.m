@@ -7,16 +7,17 @@
 //
 
 #import "HistoryViewCell.h"
+#import "AsyncImageView.h"
 
 @interface HistoryViewCell()
 
-@property (weak, nonatomic) IBOutlet UIImageView *userImageRight;
+@property (weak, nonatomic) IBOutlet AsyncImageView *userImageRight;
 @property (weak, nonatomic) IBOutlet UILabel *lblMutualScansRight;
 @property (weak, nonatomic) IBOutlet UILabel *lblTotalScansRight;
 @property (weak, nonatomic) IBOutlet UILabel *lblDateRight;
 @property (weak, nonatomic) IBOutlet UILabel *lblNameRight;
 
-@property (weak, nonatomic) IBOutlet UIImageView *userImageLeft;
+@property (weak, nonatomic) IBOutlet AsyncImageView *userImageLeft;
 @property (weak, nonatomic) IBOutlet UILabel *lblMutualScansLeft;
 @property (weak, nonatomic) IBOutlet UILabel *lblTotalScansLeft;
 @property (weak, nonatomic) IBOutlet UILabel *lblDateLeft;
@@ -111,6 +112,9 @@
     
     [dateFormat setDateFormat:@"MMM d"];
     self.lblDateRight.text = [dateFormat stringFromDate:date];
+    
+    NSString *imageURL = [NSString stringWithFormat:@"%@%@",IMAGE_SERVER_URL, [_rightSideData objectForKey:@"image_name"]];
+    _userImageLeft.imageURL = [NSURL URLWithString:imageURL];
 }
 
 -(void)setLeftSideValues
@@ -129,6 +133,9 @@
     
     [dateFormat setDateFormat:@"MMM d"];
     self.lblDateLeft.text = [dateFormat stringFromDate:date];
+    
+    NSString *imageURL = [NSString stringWithFormat:@"%@%@",IMAGE_SERVER_URL, [_leftSideData objectForKey:@"image_name"]];
+    _userImageLeft.imageURL = [NSURL URLWithString:imageURL];
 }
 
 @end

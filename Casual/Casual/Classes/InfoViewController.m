@@ -7,6 +7,7 @@
 //
 
 #import "InfoViewController.h"
+#import "AsyncImageView.h"
 
 @interface InfoViewController ()
 
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *QRCodeImageView;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet AsyncImageView *userImageView;
 
 @end
 
@@ -77,6 +79,9 @@
     _tfPhoneNumber.text = [currentUser objectForKey:@"phnumber"];
     _tfDateOfBirth.text = [currentUser objectForKey:@"dob"];
     _tfLocation.text = [currentUser objectForKey:@"location"];
+    
+    NSString *imageURL = [NSString stringWithFormat:@"%@%@",IMAGE_SERVER_URL, [currentUser objectForKey:@"image_name"]];
+    _userImageView.imageURL = [NSURL URLWithString:imageURL];
     
     
     NSString *data = [currentUser objectForKey:@"unique_id"];
