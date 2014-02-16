@@ -128,7 +128,7 @@
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    [self.scrollView setContentSize:CGSizeMake(_scrollView.frame.size.width, _scrollView.frame.size.height)];
+    [self.scrollView setContentSize:CGSizeMake(_scrollView.frame.size.width, 580)];
 }
 
 -(void)setIntialButtonStates
