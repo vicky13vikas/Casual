@@ -8,13 +8,19 @@
 
 #import "PostViewController.h"
 
-@interface PostViewController ()
+@interface PostViewController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextView *tfPostStatus;
 @property (strong, nonatomic) FBProfilePictureView *profilePciView;
 @property (strong, nonatomic) IBOutlet UIImageView *userImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageToPost;
+
+@property (strong, nonatomic) UIImagePickerController *cameraPicker;
+
+
 
 - (IBAction)postToFacebook:(id)sender;
+- (IBAction)attachImageClicked:(id)sender;
 
 @end
 
@@ -86,10 +92,17 @@
     }
 }
 
+- (IBAction)attachImageClicked:(id)sender
+{
+    [_tfPostStatus resignFirstResponder];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose image from" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Saved images", nil];
+    [actionSheet showInView:[self.view window]];
+}
+
 - (void) post
 {
     [self showLoadingScreenWithMessage:@"Posting..."];
-  [[FBRequest requestForPostStatusUpdate:_tfPostStatus.text]
+/*  [[FBRequest requestForPostStatusUpdate:_tfPostStatus.text]
    startWithCompletionHandler:
    ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *result, NSError *error)
    {
@@ -102,7 +115,30 @@
      else {
        [self showAlertWithMessage:@"Error Posting to Facebook" andTitle:@"Error"];
      }
-   }];
+   }];   */
+    
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:_tfPostStatus.text, @"message",
+                                                                      _imageToPost.image, @"source",
+                                                                    nil];
+    
+    [FBRequestConnection startWithGraphPath:@"/me/photos"
+                                 parameters:params
+                                 HTTPMethod:@"POST"
+                          completionHandler:^(
+                                              FBRequestConnection *connection,
+                                              id result,
+                                              NSError *error
+                                              ) {
+                              [self hideLoadingScreen];
+                              // Did everything come back okay with no errors?
+                              if (!error && result) {
+                                  [self showAlertWithMessage:@"Posted Successfully" andTitle:nil];
+                                  [self.navigationController popViewControllerAnimated:YES];
+                              }
+                              else {
+                                  [self showAlertWithMessage:@"Error Posting to Facebook" andTitle:@"Error"];
+                              }
+                          }];
 }
 
 -(void)faceBookErrorMessage
@@ -128,5 +164,57 @@
         }
     }];
 }
+
+
+#pragma -mark UIActionsheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)
+    {
+        [self showImagePickerWithSourceType:UIImagePickerControllerSourceTypeCamera];
+    }
+    else if(buttonIndex == 1)
+    {
+        [self showImagePickerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+}
+
+- (void)showImagePickerWithSourceType:(UIImagePickerControllerSourceType)imageSource
+{
+    if(_cameraPicker == nil)
+    {
+        _cameraPicker = [[UIImagePickerController alloc] init];
+        _cameraPicker.delegate = self;
+    }
+    
+    [_cameraPicker setSourceType:imageSource];
+
+    [_cameraPicker setAllowsEditing:YES];
+    
+    [self presentViewController:_cameraPicker animated:YES completion:nil];
+}
+
+
+#pragma -mark UIImagePickerController Delegates
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    
+    [_cameraPicker dismissViewControllerAnimated:NO completion:nil];
+    
+    UIImage *_pickedAvatar;
+    _pickedAvatar = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    _imageToPost.image = _pickedAvatar;
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    if([picker sourceType] == UIImagePickerControllerSourceTypePhotoLibrary)
+    {
+        [self dismissViewControllerAnimated:NO completion:nil];
+    }
+}
+
 
 @end

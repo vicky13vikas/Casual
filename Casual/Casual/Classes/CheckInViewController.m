@@ -17,6 +17,9 @@ NSString * const kLatiudeKeypath = @"geometry.location.lat";
 NSString * const kLongitudeKeypath = @"geometry.location.lng";
 
 @interface CheckInViewController ()<CLLocationManagerDelegate, MKAnnotation, UITableViewDataSource, UITableViewDelegate>
+{
+    BOOL isRequestingWritePermission;
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -214,22 +217,13 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
 {
     if([[FBSession activeSession] isOpen])
     {
-        if (([[[FBSession activeSession]permissions]indexOfObject:@"publish_actions"] == NSNotFound))
-        {
-            [self RequestWritePermissions];
-        }
-        else
-            [self loadNearPlaces];
+          [self loadNearPlaces];
     }
     else if([[FBSession activeSession] state] == FBSessionStateCreatedTokenLoaded)
     {
         [[FBSession activeSession] openWithCompletionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
-            if (([[[FBSession activeSession]permissions]indexOfObject:@"publish_actions"] == NSNotFound))
-            {
-                [self RequestWritePermissions];
-            }
-            else
-                [self loadNearPlaces];
+          if(!error)
+            [self loadNearPlaces];
         }];
     }
     else
@@ -278,11 +272,15 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
 
 -(void)RequestWritePermissions
 {
+    isRequestingWritePermission = YES;
+    
     NSArray *permissions = [[NSArray alloc] initWithObjects:
                             @"publish_actions", nil];
     
     [[FBSession activeSession] requestNewPublishPermissions:permissions defaultAudience:FBSessionDefaultAudienceFriends completionHandler:^(FBSession *session, NSError *error)
      {
+         isRequestingWritePermission = NO;
+         
          if (!error) {
              [self post];
          }

@@ -367,7 +367,7 @@
     
     
     [Client setParameterEncoding:AFJSONParameterEncoding];
-    [Client postPath:@"users/login.json" parameters:[self getParameters] success:^(AFHTTPRequestOperation *operation, id responseObject){
+    [Client postPath:@"" parameters:[self getParameters] success:^(AFHTTPRequestOperation *operation, id responseObject){
         
         [self hideLoadingScreen];
         

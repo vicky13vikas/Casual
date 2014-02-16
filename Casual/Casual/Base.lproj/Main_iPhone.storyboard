@@ -1198,7 +1198,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="postTF_BG.png" translatesAutoresizingMaskIntoConstraints="NO" id="rwv-t0-Rls">
-                                <rect key="frame" x="63" y="100" width="249" height="216"/>
+                                <rect key="frame" x="63" y="100" width="249" height="184"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userPlaceHolder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="FfC-L7-Hkd">
@@ -1206,7 +1206,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8h0-2L-7lC">
-                                <rect key="frame" x="76" y="106" width="229" height="203"/>
+                                <rect key="frame" x="76" y="106" width="229" height="171"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1216,17 +1216,41 @@
                                 <rect key="frame" x="119" y="13" width="82" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cjl-Ft-ntN">
+                                <rect key="frame" x="82" y="292" width="156" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Attach Image to post">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="attachImageClicked:" destination="dCy-6J-ocL" eventType="touchUpInside" id="en8-F3-hjK"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iiH-Jf-vWz">
+                                <rect key="frame" x="100" y="325" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Pb3-2W-Aim" appends="YES" id="bfY-uX-yB4"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="dUX-VS-HQe"/>
                     <connections>
+                        <outlet property="imageToPost" destination="iiH-Jf-vWz" id="DI3-aZ-W7w"/>
                         <outlet property="tfPostStatus" destination="8h0-2L-7lC" id="GaT-no-cuc"/>
                         <outlet property="userImageView" destination="FfC-L7-Hkd" id="Tt8-dG-UKj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQV-5s-v0n" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JHM-bp-DSh" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="Pb3-2W-Aim">
+                    <connections>
+                        <action selector="attachImageClicked:" destination="dCy-6J-ocL" id="9Kp-zb-Xnd"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1992" y="2926"/>
         </scene>
