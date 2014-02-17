@@ -59,41 +59,51 @@
 {
     [super layoutSubviews];
     if(self.rightSideData != nil)
+    {
         [self setRightSideValues];
+        [self hideRightSide:NO];
+    }
     else
-        [self hideRightSide];
+    {
+        [self hideRightSide:YES];
+    }
     
     if(self.leftSideData != nil)
+    {
         [self setLeftSideValues];
+        [self hideLeftSide:NO];
+    }
     else
-        [self hideLeftSide];
+    {
+        [self hideLeftSide:YES];
+    }
 }
 
 
--(void)hideLeftSide
+-(void)hideLeftSide:(BOOL)shouldHide
 {
-    self.userImageLeft.hidden = YES;
-    self.lblMutualScansLeft.hidden = YES;
-    self.lblTotalScansLeft.hidden = YES;
-    self.lblDateLeft.hidden = YES;
-    self.branchImageLeft.hidden = YES;
-    self.lblMutualLeft.hidden = YES;
-    self.lblTotalLeft.hidden = YES;
-    self.lblNametextLeft.hidden = YES;
-    self.lblNameLeft.hidden = YES;
+    self.userImageLeft.hidden = shouldHide;
+    self.lblMutualScansLeft.hidden = shouldHide;
+    self.lblTotalScansLeft.hidden = shouldHide;
+    self.lblDateLeft.hidden = shouldHide;
+    self.branchImageLeft.hidden = shouldHide;
+    self.lblMutualLeft.hidden = shouldHide;
+    self.lblTotalLeft.hidden = shouldHide;
+    self.lblNametextLeft.hidden = shouldHide;
+    self.lblNameLeft.hidden = shouldHide;
 }
 
--(void)hideRightSide
+-(void)hideRightSide:(BOOL)shouldHide
 {
-    self.userImageRight.hidden = YES;
-    self.lblMutualScansRight.hidden = YES;
-    self.lblTotalScansRight.hidden = YES;
-    self.lblDateRight.hidden = YES;
-    self.branchImageRight.hidden = YES;
-    self.lblMutualRight.hidden = YES;
-    self.lblTotalRight.hidden = YES;
-    self.lblNameRight.hidden = YES;
-    self.lblNametextRight.hidden = YES;
+    self.userImageRight.hidden = shouldHide;
+    self.lblMutualScansRight.hidden = shouldHide;
+    self.lblTotalScansRight.hidden = shouldHide;
+    self.lblDateRight.hidden = shouldHide;
+    self.branchImageRight.hidden = shouldHide;
+    self.lblMutualRight.hidden = shouldHide;
+    self.lblTotalRight.hidden = shouldHide;
+    self.lblNameRight.hidden = shouldHide;
+    self.lblNametextRight.hidden = shouldHide;
 }
 
 -(void)setRightSideValues
@@ -114,7 +124,11 @@
     self.lblDateRight.text = [dateFormat stringFromDate:date];
     
     NSString *imageURL = [NSString stringWithFormat:@"%@%@",IMAGE_SERVER_URL, [_rightSideData objectForKey:@"image_name"]];
-    _userImageLeft.imageURL = [NSURL URLWithString:imageURL];
+    _userImageRight.imageURL = [NSURL URLWithString:imageURL];
+    
+    UITapGestureRecognizer *tapgesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rightSideImageTapped:)];
+    [_userImageRight addGestureRecognizer:tapgesture];
+    
 }
 
 -(void)setLeftSideValues
@@ -136,6 +150,20 @@
     
     NSString *imageURL = [NSString stringWithFormat:@"%@%@",IMAGE_SERVER_URL, [_leftSideData objectForKey:@"image_name"]];
     _userImageLeft.imageURL = [NSURL URLWithString:imageURL];
+    
+    UITapGestureRecognizer *tapgesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(leftSideImageTapped:)];
+    [_userImageLeft addGestureRecognizer:tapgesture];
+}
+
+-(void)rightSideImageTapped:(id)gestureRecognizer
+{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:SHOW_USER_INFO_NOTIFICATION object:self.rightSideData];
+}
+
+-(void)leftSideImageTapped:(id)gestureRecognizer
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:SHOW_USER_INFO_NOTIFICATION object:self.leftSideData];
 }
 
 @end

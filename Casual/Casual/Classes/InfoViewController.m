@@ -10,6 +10,9 @@
 #import "AsyncImageView.h"
 
 @interface InfoViewController ()
+{
+    BOOL isLoggedinUser;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *tfNutshell;
 @property (weak, nonatomic) IBOutlet UITextField *tfSchool;
@@ -23,6 +26,7 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet AsyncImageView *userImageView;
+@property (weak, nonatomic) IBOutlet UIButton *btnLogout;
 
 @end
 
@@ -41,12 +45,23 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    if(_userDetail)
+    {
+        isLoggedinUser = NO;
+        _btnLogout.titleLabel.text = @"Cancel";
+    }
+    else
+        isLoggedinUser = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self setTextValues];
+    if(_userDetail == nil)
+        [self setTextValuesForLoggedInUser];
+    else
+        [self setTextValuesForOtherUser];
 }
 
 - (void)viewDidLayoutSubviews
@@ -63,10 +78,13 @@
 
 - (IBAction)logoutTapped:(id)sender
 {
-    [self logout];
+    if(isLoggedinUser)
+        [self logout];
+    else
+        [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)setTextValues
+-(void)setTextValuesForLoggedInUser
 {
     NSDictionary *currentUser = [[NSUserDefaults standardUserDefaults] valueForKey:LOGGEDIN_USER_DETAILS];
     
@@ -85,6 +103,36 @@
     
     
     NSString *data = [currentUser objectForKey:@"unique_id"];
+    if (data && ![data isEqualToString:@""]) {
+        
+        ZXMultiFormatWriter *writer = [[ZXMultiFormatWriter alloc] init];
+        ZXBitMatrix *result = [writer encode:data format:kBarcodeFormatQRCode width:self.QRCodeImageView.frame.size.width height:self.QRCodeImageView.frame.size.width error:nil];
+        if (result) {
+            self.QRCodeImageView.image = [UIImage imageWithCGImage:[ZXImage imageWithMatrix:result].cgimage];
+        } else {
+            self.QRCodeImageView.image = nil;
+        }
+    }
+
+}
+
+
+-(void)setTextValuesForOtherUser
+{
+    _tfNutshell.text = [_userDetail objectForKey:@"bio"];
+    _tfSchool.text = [_userDetail objectForKey:@"school"];
+    _tfOccupation.text = [_userDetail objectForKey:@"occupation"];
+    _tfZodiacSign.text = [_userDetail objectForKey:@"zodiac"];
+    _tfMaritialStatus.text = [_userDetail objectForKey:@"matrial"];
+    _tfPhoneNumber.text = [_userDetail objectForKey:@"phnumber"];
+    _tfDateOfBirth.text = [_userDetail objectForKey:@"dob"];
+    _tfLocation.text = [_userDetail objectForKey:@"location"];
+    
+    NSString *imageURL = [NSString stringWithFormat:@"%@%@",IMAGE_SERVER_URL, [_userDetail objectForKey:@"image_name"]];
+    _userImageView.imageURL = [NSURL URLWithString:imageURL];
+    
+    
+    NSString *data = [_userDetail objectForKey:@"unique_id"];
     if (data && ![data isEqualToString:@""]) {
         
         ZXMultiFormatWriter *writer = [[ZXMultiFormatWriter alloc] init];

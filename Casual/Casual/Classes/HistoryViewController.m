@@ -9,6 +9,7 @@
 #import "HistoryViewController.h"
 #import "HistoryViewCell.h"
 #import "AFHTTPClient.h"
+#import "InfoViewController.h"
 
 
 @interface HistoryViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -41,6 +42,15 @@
 {
     [super viewWillAppear:animated];
     [self sendHistoryRequestToServer];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showUserInfo:) name:SHOW_USER_INFO_NOTIFICATION object:nil];
+}
+
+-(void) viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:SHOW_USER_INFO_NOTIFICATION object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -160,5 +170,12 @@
         [self showLoadingScreenWithMessage:@"Loading"];
 }
 
+
+-(void)showUserInfo:(NSNotification*)notification
+{
+    InfoViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"InfoViewController"];
+    vc.userDetail = (NSDictionary*)notification.object;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 @end

@@ -126,6 +126,11 @@
 
 -(NSDictionary*)getParameters
 {
+    if(_unique_ID.length <= 0)
+    {
+        self.unique_ID = @"NO";
+    }
+    
     NSDictionary * parameters = [NSDictionary dictionaryWithObjectsAndKeys:
                                   _tfFirstName.text, @"firstName",
                                   _tfLastName.text, @"lastName",
@@ -250,10 +255,6 @@
     else if([_tfCreatePassword.text isEqualToString:@""])
     {
         message = @"Password cannot be empty";
-    }
-    else if([self.unique_ID isEqualToString:@""] || !self.unique_ID)
-    {
-        message = @"QR code not scanned";
     }
     else if(![_tfCreatePassword.text isEqualToString:_tfConfirmPassord.text])
     {

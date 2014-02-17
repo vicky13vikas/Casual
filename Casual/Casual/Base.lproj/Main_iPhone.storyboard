@@ -775,7 +775,7 @@
         <!--Info View Controller-->
         <scene sceneID="5wy-cl-gM5">
             <objects>
-                <viewController id="hi7-WX-CEo" customClass="InfoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InfoViewController" id="hi7-WX-CEo" customClass="InfoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RER-O1-qqZ"/>
                         <viewControllerLayoutGuide type="bottom" id="zuI-fI-vWS"/>
@@ -985,6 +985,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="QRCodeImageView" destination="5AJ-w6-xaH" id="8W4-84-uYx"/>
+                        <outlet property="btnLogout" destination="dp7-EU-ywL" id="Zky-GA-EJF"/>
                         <outlet property="scrollView" destination="Lyj-yf-hf5" id="fGh-ce-YZ4"/>
                         <outlet property="tfDateOfBirth" destination="FTn-Qg-iFy" id="xQ4-NK-m5E"/>
                         <outlet property="tfLocation" destination="TZn-TG-Vg1" id="BKh-cR-tjd"/>
@@ -1321,11 +1322,11 @@
                                                     <rect key="frame" x="80" y="120" width="70" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userPlaceHolder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="w6j-49-Amj" customClass="AsyncImageView">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userPlaceHolder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="w6j-49-Amj" customClass="AsyncImageView">
                                                     <rect key="frame" x="244" y="41" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userPlaceHolder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="URt-dY-EdY" customClass="AsyncImageView">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userPlaceHolder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="URt-dY-EdY" customClass="AsyncImageView">
                                                     <rect key="frame" x="31" y="94" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>

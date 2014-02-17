@@ -27,3 +27,6 @@
 #define IS_TWITTER_ON @"isTwitterOn"
 
 #define LOCAL_SCANNED_COUNT @"localScansCount"
+
+
+#define SHOW_USER_INFO_NOTIFICATION @"showUserInfoNotification"

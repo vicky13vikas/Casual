@@ -10,4 +10,6 @@
 
 @interface InfoViewController : UIViewController
 
+@property (nonatomic, retain) NSDictionary *userDetail;
+
 @end
