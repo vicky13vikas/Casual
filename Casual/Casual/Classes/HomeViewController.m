@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "PostViewController.h"
 
 @interface HomeViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *lblTotalScans;
@@ -345,6 +346,15 @@
     }
     
     _tvAddress.text = address;
+}
+
+#pragma -mark IBActions
+
+- (IBAction)btnFacebookTwitterTapped:(id)sender
+{
+    PostViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"PostViewController"];
+    vc.isFromhistory = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

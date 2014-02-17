@@ -10,4 +10,6 @@
 
 @interface PostViewController : UIViewController
 
+@property (nonatomic) BOOL isFromhistory;
+
 @end

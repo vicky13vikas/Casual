@@ -83,14 +83,6 @@
                                     <action selector="logoutTapped:" destination="Uhg-9K-b4o" eventType="touchUpInside" id="sP3-g2-8sM"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="CenterImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="GsP-oR-2VI">
-                                <rect key="frame" x="-2" y="299" width="325" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Dev-4h-NKA"/>
-                                    <constraint firstAttribute="width" constant="325" id="ZcV-ql-bdw"/>
-                                </constraints>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TreeImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="EMQ-CE-rYx">
                                 <rect key="frame" x="20" y="82" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -144,6 +136,39 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1aM-Yl-ClV">
+                                <rect key="frame" x="0.0" y="282" width="320" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FB_TW_Bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="UfW-7k-M4P">
+                                        <rect key="frame" x="0.0" y="21" width="320" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" tag="511" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eah-Iv-cjD">
+                                        <rect key="frame" x="78" y="12" width="65" height="65"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" image="BtnFacebook.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnFacebookTwitterTapped:" destination="Uhg-9K-b4o" eventType="touchUpInside" id="8Yn-My-GCR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="512" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEN-yz-mv3">
+                                        <rect key="frame" x="178" y="12" width="65" height="65"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" image="BtnTwitter.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnFacebookTwitterTapped:" destination="Uhg-9K-b4o" eventType="touchUpInside" id="Df1-oY-mgo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -153,7 +178,6 @@
                             <constraint firstItem="uHh-Qs-jOa" firstAttribute="top" secondItem="XkK-7u-beQ" secondAttribute="top" id="WZi-DX-n6e"/>
                             <constraint firstItem="uHh-Qs-jOa" firstAttribute="leading" secondItem="XkK-7u-beQ" secondAttribute="leading" id="ahw-Ja-tOa"/>
                             <constraint firstItem="RFl-Jm-pVA" firstAttribute="top" secondItem="uHh-Qs-jOa" secondAttribute="bottom" id="aqG-aF-ieu"/>
-                            <constraint firstItem="uHh-Qs-jOa" firstAttribute="centerX" secondItem="GsP-oR-2VI" secondAttribute="centerX" id="e37-Lo-p2G"/>
                             <constraint firstItem="uHh-Qs-jOa" firstAttribute="trailing" secondItem="XkK-7u-beQ" secondAttribute="trailing" id="f6t-i5-EuJ"/>
                         </constraints>
                     </view>
@@ -1158,7 +1182,7 @@
         <!--Post View Controller-->
         <scene sceneID="tgp-Wk-cAl">
             <objects>
-                <viewController id="dCy-6J-ocL" customClass="PostViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostViewController" id="dCy-6J-ocL" customClass="PostViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Csj-dM-iWk"/>
                         <viewControllerLayoutGuide type="bottom" id="Shp-Ac-AHn"/>
@@ -1195,7 +1219,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="JHM-bp-DSh" kind="unwind" unwindAction="unwindActivitiesSegue:" id="9Ci-hq-ojt"/>
+                                    <action selector="cancelButtonClicked:" destination="dCy-6J-ocL" eventType="touchUpInside" id="Zgz-ym-ivs"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="postTF_BG.png" translatesAutoresizingMaskIntoConstraints="NO" id="rwv-t0-Rls">
@@ -1246,7 +1270,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQV-5s-v0n" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="JHM-bp-DSh" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="Pb3-2W-Aim">
                     <connections>
                         <action selector="attachImageClicked:" destination="dCy-6J-ocL" id="9Kp-zb-Xnd"/>
@@ -2261,7 +2284,6 @@
         <image name="BtnScan.png" width="96" height="95"/>
         <image name="BtnSignUp.png" width="423" height="109"/>
         <image name="BtnTwitter.png" width="90" height="90"/>
-        <image name="CenterImage.png" width="649" height="117"/>
         <image name="FB_TW_Bar.png" width="636" height="77"/>
         <image name="Logo.png" width="469" height="257"/>
         <image name="OR.png" width="73" height="44"/>
@@ -2294,6 +2316,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="f9L-NK-gVN"/>
+        <segue reference="WkD-QI-loW"/>
     </inferredMetricsTieBreakers>
 </document>
