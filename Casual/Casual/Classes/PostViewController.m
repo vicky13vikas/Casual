@@ -8,19 +8,23 @@
 
 #import "PostViewController.h"
 #import "TwitterServices.h"
+#import "AsyncImageView.h"
 
 #define TAG_ACTIONSHEET_POST    44
 #define TAG_ACTIONSHEET_CAMERA  45
 
-@interface PostViewController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface PostViewController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
+{
+    BOOL isKeyboardVisible;
+}
 
 @property (strong, nonatomic) IBOutlet UITextView *tfPostStatus;
-@property (strong, nonatomic) FBProfilePictureView *profilePciView;
-@property (strong, nonatomic) IBOutlet UIImageView *userImageView;
+@property (strong, nonatomic) IBOutlet AsyncImageView *userImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageToPost;
 
 @property (strong, nonatomic) UIImagePickerController *cameraPicker;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 - (IBAction)attachImageClicked:(id)sender;
 
@@ -42,11 +46,62 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    NSString *userID = [[[NSUserDefaults standardUserDefaults] objectForKey:FACEBOOK_DETAILS] objectForKey:@"id"];
-    _profilePciView = [[FBProfilePictureView alloc] initWithProfileID:userID pictureCropping:FBProfilePictureCroppingSquare];
-    _profilePciView.frame = _userImageView.frame;
-    [self.view addSubview:_profilePciView];
+    NSDictionary *currentUser = [[NSUserDefaults standardUserDefaults] valueForKey:LOGGEDIN_USER_DETAILS];
+    NSString *imageURL = [NSString stringWithFormat:@"%@%@",IMAGE_SERVER_URL, [currentUser objectForKey:@"image_name"]];
+    _userImageView.imageURL = [NSURL URLWithString:imageURL];
 }
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+-(void)keyBoardWillShow:(NSNotification*)notification
+{
+    if(!isKeyboardVisible)
+    {
+        isKeyboardVisible = YES;
+        NSDictionary* keyboardInfo = [notification userInfo];
+        NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+        CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+        
+        CGRect frame = _scrollView.frame;
+        frame.size.height = frame.size.height - keyboardFrameBeginRect.size.height;
+        _scrollView.frame = frame;
+    }
+}
+
+-(void)keyBoardWillHide:(NSNotification*)notification
+{
+    if(isKeyboardVisible)
+    {
+        isKeyboardVisible = NO;
+        NSDictionary* keyboardInfo = [notification userInfo];
+        NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+        CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+        
+        CGRect frame = _scrollView.frame;
+        frame.size.height = frame.size.height + keyboardFrameBeginRect.size.height;
+        _scrollView.frame = frame;
+    }
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    [self.scrollView setContentSize:CGSizeMake(_scrollView.frame.size.width, _scrollView.frame.size.height)];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -341,6 +396,35 @@
 - (IBAction)cancelButtonClicked:(id)sender
 {
     [self.navigationController  popViewControllerAnimated:YES];
+}
+
+#pragma -mark UItextFieldDelegate
+
+-(void)singleTap
+{
+    [_tfPostStatus resignFirstResponder];
+}
+
+-(UIView *)accessoryView {
+    UIButton *hide = [UIButton buttonWithType:UIButtonTypeCustom];
+    hide.frame = CGRectMake(260, 2, 60, 30);
+    [hide   setTitle:@"Hide" forState:UIControlStateNormal];
+    [hide addTarget:self action:@selector(singleTap) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIView *transparentBlackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 34)];
+    transparentBlackView.backgroundColor = [UIColor colorWithRed:0.f green:0.f blue:0.f alpha:0.6f];
+    
+    UIView *accessoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 34)];
+    [accessoryView addSubview:transparentBlackView];
+    [accessoryView addSubview:hide];
+    
+    return accessoryView;
+}
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    textView.inputAccessoryView = [self accessoryView];
+    return YES;
 }
 
 @end
