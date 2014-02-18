@@ -83,7 +83,7 @@
                                     <action selector="logoutTapped:" destination="Uhg-9K-b4o" eventType="touchUpInside" id="sP3-g2-8sM"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TreeImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="EMQ-CE-rYx">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TreeImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="EMQ-CE-rYx" customClass="AsyncImageView">
                                 <rect key="frame" x="20" y="82" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -189,6 +189,7 @@
                         <outlet property="lblMutualScans" destination="Ecg-p7-2xS" id="7y1-4D-2Zx"/>
                         <outlet property="lblTotalScans" destination="FXC-wZ-XAj" id="HhG-ms-32p"/>
                         <outlet property="tvAddress" destination="2Qj-3x-xqb" id="qAk-l8-l0o"/>
+                        <outlet property="userProfileImage" destination="EMQ-CE-rYx" id="Qzv-cR-jbZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="otS-fm-Te2" userLabel="First Responder" sceneMemberID="firstResponder"/>

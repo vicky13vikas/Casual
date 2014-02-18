@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "PostViewController.h"
+#import "AsyncImageView.h"
 
 @interface HomeViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *lblTotalScans;
@@ -19,6 +20,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnFacebook;
 @property (weak, nonatomic) IBOutlet UIButton *btnTwitter;
+@property (weak, nonatomic) IBOutlet AsyncImageView *userProfileImage;
 
 @end
 
@@ -133,6 +135,8 @@
         _lblMutualScans.text = @"0";
     }
     
+    NSString *imageURL = [NSString stringWithFormat:@"%@%@",IMAGE_SERVER_URL, [currentUser objectForKey:@"image_name"]];
+    _userProfileImage.imageURL = [NSURL URLWithString:imageURL];
 }
 
 -(void)viewDidAppear:(BOOL)animated
