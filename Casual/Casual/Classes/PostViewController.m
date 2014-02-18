@@ -1,4 +1,4 @@
-  //
+//
 //  PostViewController.m
 //  Casual
 //
@@ -7,6 +7,10 @@
 //
 
 #import "PostViewController.h"
+#import "TwitterServices.h"
+
+#define TAG_ACTIONSHEET_POST    44
+#define TAG_ACTIONSHEET_CAMERA  45
 
 @interface PostViewController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -18,8 +22,6 @@
 @property (strong, nonatomic) UIImagePickerController *cameraPicker;
 
 
-
-- (IBAction)postToFacebook:(id)sender;
 - (IBAction)attachImageClicked:(id)sender;
 
 @end
@@ -52,10 +54,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)postButtonTapped:(id)sender
+{
+    [_tfPostStatus resignFirstResponder];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Post to" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", @"Twitter", nil];
+    [actionSheet showInView:[self.view window]];
+    actionSheet.tag = TAG_ACTIONSHEET_POST;
+    
+}
+
 
 #pragma -mark Facebook Posting
 
-- (IBAction)postToFacebook:(id)sender
+- (void)postToFacebook
 {
     [_tfPostStatus resignFirstResponder];
     if([_tfPostStatus.text isEqualToString:@""])
@@ -97,6 +108,7 @@
     [_tfPostStatus resignFirstResponder];
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose image from" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Saved images", nil];
     [actionSheet showInView:[self.view window]];
+    actionSheet.tag = TAG_ACTIONSHEET_CAMERA;
 }
 
 - (void) post
@@ -165,19 +177,116 @@
     }];
 }
 
+#pragma mark - Posting to Twitter -
+
+-(void)postToTwitter
+{
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:IS_TWITTER_ON])
+    {
+        STTwitterAPI *twitter = [TwitterServices sharedTwitter];
+        [twitter verifyCredentialsWithSuccessBlock:^(NSString *username) {
+            [self sendPostTwitter];
+        } errorBlock:^(NSError *error) {
+            [self hideLoadingScreen];
+            [self showAlertWithMessage:@"Make sure you have allowed Casuals in the twitter settings." andTitle:@"Error"];
+        }];
+    }
+    else
+    {
+        [self showAlertWithMessage:@"Please switch on Twitter in the settings page." andTitle:@"Error"];
+    }
+
+}
+
+
+-(void)sendPostTwitter
+{
+    if([_tfPostStatus.text isEqualToString:@""])
+    {
+        [self showAlertWithMessage:@"Please write your status before posting." andTitle:@"Empty status"];
+    }
+    else
+    {
+        STTwitterAPI *twitter = [TwitterServices sharedTwitter];
+
+        
+        
+         NSData *imageData = UIImageJPEGRepresentation(_imageToPost.image, 0.9);
+        if (imageData)
+        {
+            [twitter postStatusUpdate:_tfPostStatus.text
+                       mediaDataArray:[NSArray arrayWithObject:imageData]
+                    possiblySensitive:0
+                    inReplyToStatusID:nil
+                             latitude:nil
+                            longitude:nil
+                              placeID:nil
+                   displayCoordinates:nil
+                  uploadProgressBlock:^(NSInteger bytesWritten, NSInteger totalBytesWritten, NSInteger totalBytesExpectedToWrite) {
+                      NSLog(@"%lu %lu %lu", (long)bytesWritten, (long)totalBytesWritten, (long)totalBytesExpectedToWrite);
+                  } successBlock:^(NSDictionary *status) {
+                      [self showAlertWithMessage:@"Posted Successfully" andTitle:nil];
+                      [self.navigationController popViewControllerAnimated:YES];
+                  }
+                    errorBlock:^(NSError *error) {
+                      [self showAlertWithMessage:@"Error Posting to Twitter" andTitle:@"Error"];
+                  }];
+        }
+        else
+        {
+            [twitter postStatusUpdate:_tfPostStatus.text
+                    inReplyToStatusID:nil
+                             latitude:nil
+                            longitude:nil
+                              placeID:nil
+                   displayCoordinates:nil
+                             trimUser:0
+                         successBlock:^(NSDictionary *status) {
+                             [self showAlertWithMessage:@"Posted Successfully" andTitle:nil];
+                             [self.navigationController popViewControllerAnimated:YES];
+                         }
+                           errorBlock:^(NSError *error) {
+                               [self showAlertWithMessage:@"Error Posting to Twitter" andTitle:@"Error"];
+                           }];
+
+        }
+    }
+}
 
 #pragma -mark UIActionsheetDelegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if(buttonIndex == 0)
-    {
-        [self showImagePickerWithSourceType:UIImagePickerControllerSourceTypeCamera];
+    switch (actionSheet.tag) {
+        case TAG_ACTIONSHEET_CAMERA:
+        {
+            if(buttonIndex == 0)
+            {
+                [self showImagePickerWithSourceType:UIImagePickerControllerSourceTypeCamera];
+            }
+            else if(buttonIndex == 1)
+            {
+                [self showImagePickerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+            }
+        }
+            break;
+        case TAG_ACTIONSHEET_POST:
+        {
+            if(buttonIndex == 0)
+            {
+                [self postToFacebook];
+            }
+            else if(buttonIndex == 1)
+            {
+                [self postToTwitter];
+            }
+        }
+            break;
+            
+        default:
+            break;
     }
-    else if(buttonIndex == 1)
-    {
-        [self showImagePickerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    }
+    
 }
 
 - (void)showImagePickerWithSourceType:(UIImagePickerControllerSourceType)imageSource

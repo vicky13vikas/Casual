@@ -1208,7 +1208,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="postToFacebook:" destination="dCy-6J-ocL" eventType="touchUpInside" id="wKS-eh-Jqf"/>
+                                    <action selector="postButtonTapped:" destination="dCy-6J-ocL" eventType="touchUpInside" id="tOf-dC-l9g"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6y-Jm-tUk">
