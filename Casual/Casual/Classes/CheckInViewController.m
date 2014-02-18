@@ -19,6 +19,7 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
 @interface CheckInViewController ()<CLLocationManagerDelegate, MKAnnotation, UITableViewDataSource, UITableViewDelegate>
 {
     BOOL isRequestingWritePermission;
+    BOOL isMessageShown;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -228,7 +229,11 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
     }
     else
     {
-        [self showAlertWithMessage:@"Please allow Facebook in settings page" andTitle:@"Facebook not signed In"];
+        if(!isMessageShown)
+        {
+            isMessageShown = YES;
+            [self showAlertWithMessage:@"Please allow Facebook in settings page" andTitle:@"Facebook not signed In"];
+        }
     }
 
 }

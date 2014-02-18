@@ -17,6 +17,8 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (readonly) CLLocationCoordinate2D currentUserCoordinate;
 
+@property (weak, nonatomic) IBOutlet UIButton *btnFacebook;
+@property (weak, nonatomic) IBOutlet UIButton *btnTwitter;
 
 @end
 
@@ -144,7 +146,30 @@
     {
         [self getLoginDetails];
     }
+    [self setIntialButtonStates];
 }
+
+-(void)setIntialButtonStates
+{
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:IS_FACEBOOK_ON])
+    {
+        [_btnFacebook setEnabled:YES];
+    }
+    else
+    {
+        [_btnFacebook setEnabled:NO];
+    }
+    
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:IS_TWITTER_ON])
+    {
+        [_btnTwitter setEnabled:YES];
+    }
+    else
+    {
+        [_btnTwitter setEnabled:NO];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {

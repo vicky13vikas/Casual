@@ -184,6 +184,8 @@
                     <navigationItem key="navigationItem" id="9xO-oK-ZEh"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="btnFacebook" destination="Eah-Iv-cjD" id="HAI-5N-C7w"/>
+                        <outlet property="btnTwitter" destination="xEN-yz-mv3" id="0HT-5i-XF7"/>
                         <outlet property="lblMutualScans" destination="Ecg-p7-2xS" id="7y1-4D-2Zx"/>
                         <outlet property="lblTotalScans" destination="FXC-wZ-XAj" id="HhG-ms-32p"/>
                         <outlet property="tvAddress" destination="2Qj-3x-xqb" id="qAk-l8-l0o"/>
