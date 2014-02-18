@@ -88,7 +88,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RaY-0B-pk0">
-                                <rect key="frame" x="0.0" y="475" width="320" height="40"/>
+                                <rect key="frame" x="0.0" y="479" width="320" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TOTAL SCANS:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVb-an-J7a">
@@ -174,7 +174,7 @@
                         <constraints>
                             <constraint firstItem="uHh-Qs-jOa" firstAttribute="top" secondItem="Gls-rJ-CAG" secondAttribute="top" id="DAT-nQ-ZcV"/>
                             <constraint firstItem="uHh-Qs-jOa" firstAttribute="leading" secondItem="Gls-rJ-CAG" secondAttribute="leading" id="GZf-Ok-GaT"/>
-                            <constraint firstItem="RFl-Jm-pVA" firstAttribute="top" secondItem="RaY-0B-pk0" secondAttribute="bottom" constant="4" id="JhH-Ag-4Ke"/>
+                            <constraint firstItem="RFl-Jm-pVA" firstAttribute="top" secondItem="RaY-0B-pk0" secondAttribute="bottom" constant="15" id="JhH-Ag-4Ke"/>
                             <constraint firstItem="uHh-Qs-jOa" firstAttribute="top" secondItem="XkK-7u-beQ" secondAttribute="top" id="WZi-DX-n6e"/>
                             <constraint firstItem="uHh-Qs-jOa" firstAttribute="leading" secondItem="XkK-7u-beQ" secondAttribute="leading" id="ahw-Ja-tOa"/>
                             <constraint firstItem="RFl-Jm-pVA" firstAttribute="top" secondItem="uHh-Qs-jOa" secondAttribute="bottom" id="aqG-aF-ieu"/>

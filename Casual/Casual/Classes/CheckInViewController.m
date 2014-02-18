@@ -113,11 +113,11 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
     _currentUserCoordinate = kCLLocationCoordinate2DInvalid;
     
     // show the error alert
-    UIAlertView *alert = [[UIAlertView alloc] init];
-    alert.title = nil;
-    alert.message = @"Error updating location";
-    [alert addButtonWithTitle:@"OK"];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] init];
+//    alert.title = nil;
+//    alert.message = @"Error updating location";
+//    [alert addButtonWithTitle:@"OK"];
+//    [alert show];
 }
 
 -(void)displayPlacemarksInMap

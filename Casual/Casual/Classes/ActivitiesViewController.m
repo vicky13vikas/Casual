@@ -138,7 +138,7 @@
 {
     if ([[NSUserDefaults standardUserDefaults] valueForKey:IS_FACEBOOK_ON])
     {
-        [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"me/statuses?fields=message,from,comments"] parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"me/feed?fields=message,from,comments"] parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
             [self hideLoadingScreen];
             if(!error)
             {
@@ -169,7 +169,7 @@
             [facebookDetail setObject:status forKey:@"status"];
             [facebookDetail setObject:[dataList[i] valueForKeyPath:@"from.name"] forKey:@"screenName"];
             [facebookDetail setObject:[dataList[i] valueForKeyPath:@"from.id"] forKey:@"imageURL_OR_ID"];
-            [facebookDetail setObject:[dataList[i] valueForKey:@"updated_time"] forKey:@"date"];
+            [facebookDetail setObject:[dataList[i] valueForKey:@"created_time"] forKey:@"date"];
             
             [messageList addObject:facebookDetail];
         }

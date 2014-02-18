@@ -114,43 +114,50 @@
 - (void) post
 {
     [self showLoadingScreenWithMessage:@"Posting..."];
-/*  [[FBRequest requestForPostStatusUpdate:_tfPostStatus.text]
-   startWithCompletionHandler:
-   ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *result, NSError *error)
-   {
-       [self hideLoadingScreen];
-     // Did everything come back okay with no errors?
-     if (!error && result) {
-       [self showAlertWithMessage:@"Posted Successfully" andTitle:nil];
-       [self.navigationController popViewControllerAnimated:YES];
-     }
-     else {
-       [self showAlertWithMessage:@"Error Posting to Facebook" andTitle:@"Error"];
-     }
-   }];   */
     
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:_tfPostStatus.text, @"message",
-                                                                      _imageToPost.image, @"source",
-                                                                    nil];
-    
-    [FBRequestConnection startWithGraphPath:@"/me/photos"
-                                 parameters:params
-                                 HTTPMethod:@"POST"
-                          completionHandler:^(
-                                              FBRequestConnection *connection,
-                                              id result,
-                                              NSError *error
-                                              ) {
-                              [self hideLoadingScreen];
-                              // Did everything come back okay with no errors?
-                              if (!error && result) {
-                                  [self showAlertWithMessage:@"Posted Successfully" andTitle:nil];
-                                  [self.navigationController popViewControllerAnimated:YES];
-                              }
-                              else {
-                                  [self showAlertWithMessage:@"Error Posting to Facebook" andTitle:@"Error"];
-                              }
-                          }];
+    if(_imageToPost.image == nil)
+    {
+        [[FBRequest requestForPostStatusUpdate:_tfPostStatus.text]
+         startWithCompletionHandler:
+         ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *result, NSError *error)
+         {
+             [self hideLoadingScreen];
+             // Did everything come back okay with no errors?
+             if (!error && result) {
+                 [self showAlertWithMessage:@"Posted Successfully" andTitle:nil];
+                 [self.navigationController popViewControllerAnimated:YES];
+             }
+             else {
+                 [self showAlertWithMessage:@"Error Posting to Facebook" andTitle:@"Error"];
+             }
+         }];
+    }
+    else
+    {
+        
+        NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:_tfPostStatus.text, @"message",
+                                _imageToPost.image, @"source",
+                                nil];
+        
+        [FBRequestConnection startWithGraphPath:@"/me/photos"
+                                     parameters:params
+                                     HTTPMethod:@"POST"
+                              completionHandler:^(
+                                                  FBRequestConnection *connection,
+                                                  id result,
+                                                  NSError *error
+                                                  ) {
+                                  [self hideLoadingScreen];
+                                  // Did everything come back okay with no errors?
+                                  if (!error && result) {
+                                      [self showAlertWithMessage:@"Posted Successfully" andTitle:nil];
+                                      [self.navigationController popViewControllerAnimated:YES];
+                                  }
+                                  else {
+                                      [self showAlertWithMessage:@"Error Posting to Facebook" andTitle:@"Error"];
+                                  }
+                              }];
+    }
 }
 
 -(void)faceBookErrorMessage
@@ -201,6 +208,8 @@
 
 -(void)sendPostTwitter
 {
+    [self showLoadingScreenWithMessage:@"Posting..."];
+
     if([_tfPostStatus.text isEqualToString:@""])
     {
         [self showAlertWithMessage:@"Please write your status before posting." andTitle:@"Empty status"];
@@ -225,10 +234,12 @@
                   uploadProgressBlock:^(NSInteger bytesWritten, NSInteger totalBytesWritten, NSInteger totalBytesExpectedToWrite) {
                       NSLog(@"%lu %lu %lu", (long)bytesWritten, (long)totalBytesWritten, (long)totalBytesExpectedToWrite);
                   } successBlock:^(NSDictionary *status) {
+                      [self hideLoadingScreen];
                       [self showAlertWithMessage:@"Posted Successfully" andTitle:nil];
                       [self.navigationController popViewControllerAnimated:YES];
                   }
                     errorBlock:^(NSError *error) {
+                        [self hideLoadingScreen];
                       [self showAlertWithMessage:@"Error Posting to Twitter" andTitle:@"Error"];
                   }];
         }
@@ -242,10 +253,12 @@
                    displayCoordinates:nil
                              trimUser:0
                          successBlock:^(NSDictionary *status) {
+                             [self hideLoadingScreen];
                              [self showAlertWithMessage:@"Posted Successfully" andTitle:nil];
                              [self.navigationController popViewControllerAnimated:YES];
                          }
                            errorBlock:^(NSError *error) {
+                               [self hideLoadingScreen];
                                [self showAlertWithMessage:@"Error Posting to Twitter" andTitle:@"Error"];
                            }];
 
