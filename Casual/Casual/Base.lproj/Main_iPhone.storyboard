@@ -1252,9 +1252,12 @@
                                         </connections>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cjl-Ft-ntN">
-                                        <rect key="frame" x="82" y="202" width="156" height="30"/>
+                                        <rect key="frame" x="111" y="202" width="98" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Attach Image"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                        <state key="normal" title="Attach Image" backgroundImage="btnLoginAll.png">
+                                            <color key="titleColor" red="0.79215686269999996" green="0.98039215690000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="attachImageClicked:" destination="dCy-6J-ocL" eventType="touchUpInside" id="en8-F3-hjK"/>
                                         </connections>
