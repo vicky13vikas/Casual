@@ -23,6 +23,9 @@
 #define FACEBOOK_DETAILS @"FacebookUserDetails"
 #define LOGGEDIN_USER_DETAILS @"LoggedInUserDetails"
 
+#define SAVED_USER_NAME @"savedUsername"
+#define SAVED_PASSWORD @"Savedpassword"
+
 #define IS_FACEBOOK_ON @"isFacebookOn"
 #define IS_TWITTER_ON @"isTwitterOn"
 

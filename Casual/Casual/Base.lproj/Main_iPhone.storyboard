@@ -1612,7 +1612,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bsc-3O-VFP">
-                                <rect key="frame" x="0.0" y="73" width="320" height="215"/>
+                                <rect key="frame" x="0.0" y="72" width="320" height="275"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BG_small.png" translatesAutoresizingMaskIntoConstraints="NO" id="nFp-O2-Cta">
@@ -1663,6 +1663,17 @@
                                             <action selector="btnSignupClicked:" destination="dC6-T5-dRc" eventType="touchUpInside" id="P36-zt-dgi"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remember Me" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1r-Fx-vgb">
+                                        <rect key="frame" x="14" y="218" width="130" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="R1i-W1-iPJ">
+                                        <rect key="frame" x="152" y="218" width="51" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </switch>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -1676,6 +1687,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="scrollView" destination="Bsc-3O-VFP" id="uHI-Hg-FNo"/>
+                        <outlet property="swtRememberMe" destination="R1i-W1-iPJ" id="LrD-gW-0GK"/>
                         <outlet property="tfPassword" destination="g8H-8E-vVe" id="iLF-Je-pr3"/>
                         <outlet property="tfUsername" destination="RtR-VE-Ygo" id="PBL-qh-XUh"/>
                     </connections>

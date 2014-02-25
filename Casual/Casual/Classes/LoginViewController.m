@@ -13,6 +13,7 @@
 @interface LoginViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *tfUsername;
 @property (strong, nonatomic) IBOutlet UITextField *tfPassword;
+@property (weak, nonatomic) IBOutlet UISwitch *swtRememberMe;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -37,6 +38,28 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSString *savedUsername = [[NSUserDefaults standardUserDefaults] valueForKey:SAVED_USER_NAME];
+    NSString *savedPassword = [[NSUserDefaults standardUserDefaults] valueForKey:SAVED_PASSWORD];
+    
+    if(savedUsername.length > 0 && savedPassword.length > 0)
+    {
+        _tfPassword.text = savedPassword;
+        _tfUsername.text = savedUsername;
+        [_swtRememberMe setOn:YES];
+    }
+    else
+    {
+        [_swtRememberMe setOn:NO];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:SAVED_USER_NAME];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:SAVED_PASSWORD];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)viewDidLayoutSubviews
@@ -106,6 +129,11 @@
     else if ([[response objectForKey:@"status"] integerValue] == 1)
     {
         [[NSUserDefaults standardUserDefaults] setObject:response forKey:LOGGEDIN_USER_DETAILS];
+        if(_swtRememberMe.isOn)
+        {
+            [[NSUserDefaults standardUserDefaults] setObject:_tfUsername.text forKey:SAVED_USER_NAME];
+            [[NSUserDefaults standardUserDefaults] setObject:_tfPassword.text forKey:SAVED_PASSWORD];
+        }
         [[NSUserDefaults standardUserDefaults] synchronize];
         [self loginDoneSuccessfully];
     }
