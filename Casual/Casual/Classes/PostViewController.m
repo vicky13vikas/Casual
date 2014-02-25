@@ -387,10 +387,7 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    if([picker sourceType] == UIImagePickerControllerSourceTypePhotoLibrary)
-    {
-        [self dismissViewControllerAnimated:NO completion:nil];
-    }
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (IBAction)cancelButtonClicked:(id)sender

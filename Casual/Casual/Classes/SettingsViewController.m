@@ -12,7 +12,7 @@
 #import "Base64.h"
 #import "AsyncImageView.h"
 
-@interface SettingsViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface SettingsViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 {
     BOOL isKeyboardVisible;
 }
@@ -498,23 +498,9 @@
 
 - (IBAction)userImageTapped:(UITapGestureRecognizer *)sender
 {
-    if(_cameraPicker == nil)
-    {
-        _cameraPicker = [[UIImagePickerController alloc] init];
-        _cameraPicker.delegate = self;
-    }
     
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-    {
-        [_cameraPicker setSourceType:UIImagePickerControllerSourceTypeCamera];
-    }
-    else
-    {
-        [_cameraPicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    }
-    [_cameraPicker setAllowsEditing:YES];
-    
-    [self presentViewController:_cameraPicker animated:YES completion:nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose image from" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Saved images", nil];
+    [actionSheet showInView:[self.view window]];
 }
 
 #pragma -mark UIImagePickerController Delegates
@@ -540,9 +526,37 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    if([picker sourceType] == UIImagePickerControllerSourceTypePhotoLibrary)
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
+
+#pragma -mark UIActionsheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    if(buttonIndex == 0)
     {
-        [self dismissViewControllerAnimated:NO completion:nil];
+        [self showImagePickerWithSourceType:UIImagePickerControllerSourceTypeCamera];
     }
+    else if(buttonIndex == 1)
+    {
+        [self showImagePickerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    
+}
+
+- (void)showImagePickerWithSourceType:(UIImagePickerControllerSourceType)imageSource
+{
+    if(_cameraPicker == nil)
+    {
+        _cameraPicker = [[UIImagePickerController alloc] init];
+        _cameraPicker.delegate = self;
+    }
+    
+    [_cameraPicker setSourceType:imageSource];
+    
+    [_cameraPicker setAllowsEditing:YES];
+    
+    [self presentViewController:_cameraPicker animated:YES completion:nil];
 }
 @end

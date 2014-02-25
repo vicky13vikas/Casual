@@ -26,6 +26,7 @@
 		09FA89EA18A2157C00C05CAA /* STHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FA89DF18A2157C00C05CAA /* STHTTPRequest.m */; };
 		09FA89EC18A215FF00C05CAA /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FA89EB18A215FF00C05CAA /* FacebookSDK.framework */; };
 		09FA8A3918A23A2E00C05CAA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FA8A3818A23A2E00C05CAA /* LoginViewController.m */; };
+		4E019C4218B539A500EDDF29 /* topBarButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E019C4118B539A500EDDF29 /* topBarButton.png */; };
 		4E135A8618A54744002DC459 /* sampleQRCode.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E135A8518A54744002DC459 /* sampleQRCode.png */; };
 		4E135A8918A55BEF002DC459 /* treeBranch1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E135A8818A55BEF002DC459 /* treeBranch1.png */; };
 		4E135A8C18A56137002DC459 /* treeLeftBranch.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E135A8A18A56137002DC459 /* treeLeftBranch.png */; };
@@ -233,6 +234,7 @@
 		09FA89EB18A215FF00C05CAA /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Casual/FrameWorks/FacebookSDK.framework; sourceTree = "<group>"; };
 		09FA8A3718A23A2E00C05CAA /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Classes/LoginViewController.h; sourceTree = "<group>"; };
 		09FA8A3818A23A2E00C05CAA /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Classes/LoginViewController.m; sourceTree = "<group>"; };
+		4E019C4118B539A500EDDF29 /* topBarButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topBarButton.png; sourceTree = "<group>"; };
 		4E135A8518A54744002DC459 /* sampleQRCode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sampleQRCode.png; sourceTree = "<group>"; };
 		4E135A8818A55BEF002DC459 /* treeBranch1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treeBranch1.png; sourceTree = "<group>"; };
 		4E135A8A18A56137002DC459 /* treeLeftBranch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treeLeftBranch.png; sourceTree = "<group>"; };
@@ -550,6 +552,7 @@
 				4E9D204A18A15B1C0019E86B /* BtnFacebook.png */,
 				4E135A8518A54744002DC459 /* sampleQRCode.png */,
 				4E9DBD4718A41BD500CD1AD4 /* btnLoginAll.png */,
+				4E019C4118B539A500EDDF29 /* topBarButton.png */,
 				4E9D204B18A15B1C0019E86B /* BtnTwitter.png */,
 				4E9D204C18A15B1C0019E86B /* OR.png */,
 				4E9D204D18A15B1C0019E86B /* txt_OR_Join_Casual.png */,
@@ -974,6 +977,7 @@
 				4EC2B26A18A1439A0045291A /* Main_iPhone.storyboard in Resources */,
 				4E9D204818A159930019E86B /* Background.png in Resources */,
 				4E9DBD4618A41BCB00CD1AD4 /* SettingsBtn.png in Resources */,
+				4E019C4218B539A500EDDF29 /* topBarButton.png in Resources */,
 				4E9D205618A15DC90019E86B /* BtnSignUp.png in Resources */,
 				4E9FBA5118A2BD0B00395558 /* TreeImage.png in Resources */,
 				4E37B32D18A7C3E4005FF445 /* tf_Body_BG.png in Resources */,
@@ -1241,7 +1245,7 @@
 					/Volumes/Development/Samples/Casual/Casual/Casual/TestFlightSDK2.2.1,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "FACE449F-6564-46E7-BD7D-696EEA8518CE";
+				PROVISIONING_PROFILE = "546E51B3-67CD-4495-95F8-D60C0B92C8A0";
 				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1276,7 +1280,7 @@
 					/Volumes/Development/Samples/Casual/Casual/Casual/TestFlightSDK2.2.1,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "FACE449F-6564-46E7-BD7D-696EEA8518CE";
+				PROVISIONING_PROFILE = "546E51B3-67CD-4495-95F8-D60C0B92C8A0";
 				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
