@@ -14,7 +14,7 @@ typedef enum
     kStatustypeTwitter
 }SelectedSource;
 
-@interface ActivityTableDatasource : NSObject <UITableViewDataSource>
+@interface ActivityTableDatasource : NSObject <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, retain)NSArray *messageList;
 

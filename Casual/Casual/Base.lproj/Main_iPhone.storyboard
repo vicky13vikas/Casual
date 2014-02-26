@@ -677,13 +677,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="302" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userPlaceHolder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6qb-Lx-qlh" customClass="AsyncImageView">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userPlaceHolder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6qb-Lx-qlh" customClass="AsyncImageView">
                                                     <rect key="frame" x="20" y="13" width="40" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="41" id="iC5-G2-Rlc"/>
+                                                        <constraint firstAttribute="width" constant="40" id="lqs-0l-Zvf"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="postTF_BG.png" translatesAutoresizingMaskIntoConstraints="NO" id="J66-VD-Ufa">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="postTF_BG.png" translatesAutoresizingMaskIntoConstraints="NO" id="J66-VD-Ufa">
                                                     <rect key="frame" x="61" y="13" width="239" height="94"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="94" id="5QZ-cw-7gS"/>
+                                                        <constraint firstAttribute="width" constant="239" id="79a-PI-6at"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="218" translatesAutoresizingMaskIntoConstraints="NO" id="GCd-Oc-ap0">
                                                     <rect key="frame" x="74" y="37" width="218" height="60"/>
@@ -706,13 +714,29 @@
                                                     <color key="textColor" red="0.74509803919999995" green="0.52941176469999995" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8aE-1A-mhf" customClass="AsyncImageView">
+                                                    <rect key="frame" x="74" y="37" width="218" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="8aE-1A-mhf" secondAttribute="trailing" constant="10" id="RJA-QS-bbZ"/>
+                                                <constraint firstItem="6qb-Lx-qlh" firstAttribute="top" secondItem="SlQ-Ip-rOM" secondAttribute="top" constant="13" id="RMu-Xb-L8K"/>
+                                                <constraint firstItem="J66-VD-Ufa" firstAttribute="leading" secondItem="6qb-Lx-qlh" secondAttribute="trailing" constant="1" id="a4Q-fX-7bN"/>
+                                                <constraint firstAttribute="bottom" secondItem="8aE-1A-mhf" secondAttribute="bottom" constant="23" id="g3u-QX-EY3"/>
+                                                <constraint firstItem="8aE-1A-mhf" firstAttribute="leading" secondItem="SlQ-Ip-rOM" secondAttribute="leading" constant="74" id="hvo-bc-EVA"/>
+                                                <constraint firstAttribute="bottom" secondItem="J66-VD-Ufa" secondAttribute="bottom" constant="13" id="r5v-50-rXC"/>
+                                                <constraint firstAttribute="trailing" secondItem="J66-VD-Ufa" secondAttribute="trailing" constant="2" id="s6L-5f-kt7"/>
+                                                <constraint firstItem="8aE-1A-mhf" firstAttribute="top" secondItem="SlQ-Ip-rOM" secondAttribute="top" constant="37" id="tiy-rD-h6k"/>
+                                                <constraint firstItem="J66-VD-Ufa" firstAttribute="top" secondItem="SlQ-Ip-rOM" secondAttribute="top" constant="13" id="ubY-8w-5ed"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="lblDate" destination="z9D-jY-X7m" id="a3s-2q-BN2"/>
                                             <outlet property="lblUserName" destination="Yxz-Vg-2Hs" id="V5I-DI-S6G"/>
                                             <outlet property="messageLabel" destination="GCd-Oc-ap0" id="xqa-U1-FWM"/>
+                                            <outlet property="postImageView" destination="8aE-1A-mhf" id="iLc-MB-V65"/>
                                             <outlet property="profileImageView" destination="6qb-Lx-qlh" id="weQ-tA-kCl"/>
                                         </connections>
                                     </tableViewCell>
@@ -723,13 +747,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="302" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userPlaceHolder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="gE0-hu-c5V" customClass="AsyncImageView">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userPlaceHolder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="gE0-hu-c5V" customClass="AsyncImageView">
                                                     <rect key="frame" x="242" y="13" width="40" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="TgM-Mm-5T8"/>
+                                                        <constraint firstAttribute="height" constant="41" id="wiK-Dr-edR"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="postTF_BG_right.png" translatesAutoresizingMaskIntoConstraints="NO" id="ffF-KW-PjY">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="postTF_BG_right.png" translatesAutoresizingMaskIntoConstraints="NO" id="ffF-KW-PjY">
                                                     <rect key="frame" x="0.0" y="13" width="241" height="94"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="94" id="8H3-7H-qsX"/>
+                                                        <constraint firstAttribute="width" constant="241" id="RKi-La-rxQ"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="213" translatesAutoresizingMaskIntoConstraints="NO" id="GKW-NW-a7S">
                                                     <rect key="frame" x="9" y="37" width="213" height="60"/>
@@ -738,6 +770,10 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jb7-Nd-8j0" customClass="AsyncImageView">
+                                                    <rect key="frame" x="9" y="37" width="213" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sxs-cQ-94P">
                                                     <rect key="frame" x="9" y="22" width="110" height="12"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -753,12 +789,24 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="gE0-hu-c5V" firstAttribute="top" secondItem="khw-Tr-DYy" secondAttribute="top" constant="13" id="2Yz-TN-KBD"/>
+                                                <constraint firstAttribute="trailing" secondItem="Jb7-Nd-8j0" secondAttribute="trailing" constant="80" id="3a2-JX-QGs"/>
+                                                <constraint firstItem="ffF-KW-PjY" firstAttribute="leading" secondItem="khw-Tr-DYy" secondAttribute="leading" id="9pe-26-L0e"/>
+                                                <constraint firstItem="gE0-hu-c5V" firstAttribute="leading" secondItem="ffF-KW-PjY" secondAttribute="trailing" constant="1" id="JMe-2v-s8f"/>
+                                                <constraint firstAttribute="bottom" secondItem="Jb7-Nd-8j0" secondAttribute="bottom" constant="23" id="O82-E0-lnc"/>
+                                                <constraint firstItem="ffF-KW-PjY" firstAttribute="top" secondItem="khw-Tr-DYy" secondAttribute="top" constant="13" id="hSR-Ox-6EQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="ffF-KW-PjY" secondAttribute="bottom" constant="13" id="xcn-AJ-mL3"/>
+                                                <constraint firstItem="Jb7-Nd-8j0" firstAttribute="top" secondItem="khw-Tr-DYy" secondAttribute="top" constant="37" id="yXM-TQ-2Pq"/>
+                                                <constraint firstItem="Jb7-Nd-8j0" firstAttribute="leading" secondItem="khw-Tr-DYy" secondAttribute="leading" constant="9" id="yd3-Zf-3bN"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="lblDate" destination="6wI-Q6-Qfb" id="99b-5D-GR8"/>
                                             <outlet property="lblUserName" destination="Sxs-cQ-94P" id="XOi-r9-69w"/>
                                             <outlet property="messageLabel" destination="GKW-NW-a7S" id="pi1-m6-Rbg"/>
+                                            <outlet property="postImageView" destination="Jb7-Nd-8j0" id="5FG-JO-BKb"/>
                                             <outlet property="profileImageView" destination="gE0-hu-c5V" id="YMz-bw-mPd"/>
                                         </connections>
                                     </tableViewCell>
@@ -2342,6 +2390,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="WkD-QI-loW"/>
+        <segue reference="PdD-iF-bf3"/>
     </inferredMetricsTieBreakers>
 </document>

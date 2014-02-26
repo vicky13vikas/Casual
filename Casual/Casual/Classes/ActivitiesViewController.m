@@ -47,6 +47,7 @@
     
     _tableDataSource = [[ActivityTableDatasource alloc] init];
     _tableView.dataSource = _tableDataSource;
+    _tableView.delegate = _tableDataSource;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -138,7 +139,7 @@
 {
     if ([[NSUserDefaults standardUserDefaults] valueForKey:IS_FACEBOOK_ON])
     {
-        [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"me/feed?fields=message,from,comments"] parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"me/feed?limit=200"] parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
             [self hideLoadingScreen];
             if(!error)
             {
@@ -164,9 +165,18 @@
         NSMutableDictionary *facebookDetail = [[NSMutableDictionary alloc] init];
         
         NSString *status = [dataList[i] valueForKey:@"message"];
-        if(status)
+        NSString *picture = [dataList[i] valueForKey:@"picture"];
+
+        if(status || picture)
         {
-            [facebookDetail setObject:status forKey:@"status"];
+            if (status)
+            {
+                [facebookDetail setObject:status forKey:@"status"];
+            }
+            if (picture)
+            {
+                [facebookDetail setObject:picture forKey:@"picture"];
+            }
             [facebookDetail setObject:[dataList[i] valueForKeyPath:@"from.name"] forKey:@"screenName"];
             [facebookDetail setObject:[dataList[i] valueForKeyPath:@"from.id"] forKey:@"imageURL_OR_ID"];
             [facebookDetail setObject:[dataList[i] valueForKey:@"created_time"] forKey:@"date"];

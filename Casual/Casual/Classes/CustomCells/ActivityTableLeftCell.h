@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblUserName;
 @property (nonatomic, retain)FBProfilePictureView *FBProfilePicView;
 @property (weak, nonatomic) IBOutlet UILabel *lblDate;
+@property (weak, nonatomic) IBOutlet AsyncImageView *postImageView;
 
 @end

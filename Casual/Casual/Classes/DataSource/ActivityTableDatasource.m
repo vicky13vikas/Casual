@@ -29,18 +29,30 @@
     {
         cellIdentifier = @"ActivityTableLeftCell";
         ActivityTableLeftCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        cell.messageLabel.text = [cellData objectForKey:@"status"];
         cell.lblUserName.text = [cellData objectForKey:@"screenName"];
         
         if(_datasource == kStatustypeFacebook)
         {
             cell.FBProfilePicView.hidden = NO;
             cell.FBProfilePicView.profileID = [cellData objectForKey:@"imageURL_OR_ID"];
+            if([cellData objectForKey:@"picture"])
+            {
+                cell.postImageView.imageURL = [NSURL URLWithString:[cellData objectForKey:@"picture"]];
+                cell.messageLabel.hidden = YES;
+                cell.postImageView.hidden = NO;
+            }
+            else
+            {
+                cell.messageLabel.text = [cellData objectForKey:@"status"];
+                cell.postImageView.hidden = YES;
+                cell.messageLabel.hidden = NO;
+            }
         }
         else
         {
             cell.FBProfilePicView.hidden = YES;
             cell.profileImageView.imageURL = [NSURL URLWithString:[cellData objectForKey:@"imageURL_OR_ID"]];
+            cell.messageLabel.text = [cellData objectForKey:@"status"];
         }
         
         cell.lblDate.text = [self getParsedDateFromString:[cellData objectForKey:@"date"]];
@@ -50,18 +62,30 @@
     {
         cellIdentifier = @"ActivityTableRightCell";
         ActivityTableRightCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        cell.messageLabel.text = [cellData objectForKey:@"status"];
         cell.lblUserName.text = [cellData objectForKey:@"screenName"];
         
         if(_datasource == kStatustypeFacebook)
         {
             cell.FBProfilePicView.hidden = NO;
             cell.FBProfilePicView.profileID = [cellData objectForKey:@"imageURL_OR_ID"];
+            if([cellData objectForKey:@"picture"])
+            {
+                cell.postImageView.imageURL = [NSURL URLWithString:[cellData objectForKey:@"picture"]];
+                cell.messageLabel.hidden = YES;
+                cell.postImageView.hidden = NO;
+            }
+            else
+            {
+                cell.messageLabel.text = [cellData objectForKey:@"status"];
+                cell.postImageView.hidden = YES;
+                cell.messageLabel.hidden = NO;
+            }
         }
         else
         {
             cell.FBProfilePicView.hidden = YES;
             cell.profileImageView.imageURL = [NSURL URLWithString:[cellData objectForKey:@"imageURL_OR_ID"]];
+            cell.messageLabel.text = [cellData objectForKey:@"status"];
         }
         
         cell.lblDate.text = [self getParsedDateFromString:[cellData objectForKey:@"date"]];
@@ -69,6 +93,20 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *cellData = _messageList[indexPath.row];
+    CGFloat rowHeight = 0.00f;
+    if ([cellData objectForKey:@"picture"]) {
+        rowHeight = 200.0f;
+    }
+    else
+    {
+        rowHeight = 120.0f;
+    }
+    
+    return rowHeight;
+}
 
 -(NSString*)getParsedDateFromString:(NSString*)dateString;
 {
