@@ -263,7 +263,6 @@
 
 -(void)sendPostTwitter
 {
-    [self showLoadingScreenWithMessage:@"Posting..."];
 
     if([_tfPostStatus.text isEqualToString:@""])
     {
@@ -273,7 +272,7 @@
     {
         STTwitterAPI *twitter = [TwitterServices sharedTwitter];
 
-        
+        [self showLoadingScreenWithMessage:@"Posting..."];
         
          NSData *imageData = UIImageJPEGRepresentation(_imageToPost.image, 0.9);
         if (imageData)

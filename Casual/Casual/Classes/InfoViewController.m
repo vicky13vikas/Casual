@@ -184,7 +184,7 @@
     
 }
 
-
+// Not used
 -(void)setInitialInfo
 {
     NSDictionary *currentUser = [[NSUserDefaults standardUserDefaults] valueForKey:LOGGEDIN_USER_DETAILS];
