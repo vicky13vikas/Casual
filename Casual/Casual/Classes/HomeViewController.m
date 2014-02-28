@@ -77,13 +77,13 @@
   
     
     item0.image = unselectedImage0;
-//    item0.selectedImage = selectedImage0;
+//     item0.selectedImage = selectedImage0;
     
     item1.image = unselectedImage1;
-//    item1.selectedImage = selectedImage1;
+//     item1.selectedImage = selectedImage1;
     
     item2.image = unselectedImage2;
-//    item2.selectedImage = selectedImage2;
+//     item2.selectedImage = selectedImage2;
     
     item3.image = unselectedImage3;
 //    item3.selectedImage = selectedImage3;

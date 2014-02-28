@@ -61,7 +61,16 @@
     if(_userDetail == nil)
         [self setTextValuesForLoggedInUser];
     else
-        [self setTextValuesForOtherUser];
+    {
+        if (_isFromScanned)
+        {
+            [self setTextValuesForScannedUser];
+        }
+        else
+        {
+            [self setTextValuesForOtherUser];
+        }
+    }
 }
 
 - (void)viewDidLayoutSubviews
@@ -146,6 +155,34 @@
 
 }
 
+-(void)setTextValuesForScannedUser
+{
+    _tfNutshell.text = [_userDetail objectForKey:@"connected_to_bio"];
+    _tfSchool.text = [_userDetail objectForKey:@"connected_to_school"];
+    _tfOccupation.text = [_userDetail objectForKey:@"connected_to_occupation"];
+    _tfZodiacSign.text = [_userDetail objectForKey:@"connected_to_zodiac"];
+    _tfMaritialStatus.text = [_userDetail objectForKey:@"connected_to_matrial"];
+    _tfPhoneNumber.text = [_userDetail objectForKey:@"connected_to_phnumber"];
+    _tfDateOfBirth.text = [_userDetail objectForKey:@"connected_to_dob"];
+    _tfLocation.text = [_userDetail objectForKey:@"connected_to_location"];
+    
+    NSString *imageURL = [NSString stringWithFormat:@"%@%@",IMAGE_SERVER_URL, [_userDetail objectForKey:@"connected_to_image_name"]];
+    _userImageView.imageURL = [NSURL URLWithString:imageURL];
+    
+    
+    NSString *data = [_userDetail objectForKey:@"connected_to_userID"];
+    if (data && ![data isEqualToString:@""]) {
+        
+        ZXMultiFormatWriter *writer = [[ZXMultiFormatWriter alloc] init];
+        ZXBitMatrix *result = [writer encode:data format:kBarcodeFormatQRCode width:self.QRCodeImageView.frame.size.width height:self.QRCodeImageView.frame.size.width error:nil];
+        if (result) {
+            self.QRCodeImageView.image = [UIImage imageWithCGImage:[ZXImage imageWithMatrix:result].cgimage];
+        } else {
+            self.QRCodeImageView.image = nil;
+        }
+    }
+    
+}
 
 
 -(void)setInitialInfo

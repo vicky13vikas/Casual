@@ -9,6 +9,7 @@
 #import "ScanViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "AFHTTPClient.h"
+#import "InfoViewController.h"
 
 @interface ScanViewController () <ZXCaptureDelegate>
 {
@@ -253,7 +254,7 @@
         {
             title = @"Congrats!";
             mesage = [self showUserDetails:response];
-            
+            [self showUserInfo:response];
             int savedScanCount = [[[NSUserDefaults standardUserDefaults] valueForKey:LOCAL_SCANNED_COUNT] integerValue];
             
             [[NSUserDefaults standardUserDefaults] setInteger:savedScanCount+1 forKey:LOCAL_SCANNED_COUNT];
@@ -309,4 +310,13 @@
     [self.view.layer addSublayer:self.capture.layer];
     [self.capture start];
 }
+
+-(void)showUserInfo:(NSDictionary*)userInfo
+{
+    InfoViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"InfoViewController"];
+    vc.userDetail = userInfo;
+    vc.isFromScanned = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 @end

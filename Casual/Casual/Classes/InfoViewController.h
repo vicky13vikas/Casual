@@ -11,5 +11,6 @@
 @interface InfoViewController : UIViewController
 
 @property (nonatomic, retain) NSDictionary *userDetail;
+@property (nonatomic, assign) BOOL isFromScanned;
 
 @end
