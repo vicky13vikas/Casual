@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Voy-eV-7Ve">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Voy-eV-7Ve">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
@@ -643,30 +643,8 @@
                                     <segue destination="9WE-wh-PXJ" kind="push" identifier="CheckInSegue" id="yDN-Cx-1Bj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOK-zK-edI">
-                                <rect key="frame" x="100" y="65" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" image="BtnFacebook.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="faceBookTapped:" destination="aE9-co-c1o" eventType="touchUpInside" id="ykV-jm-vUp"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRl-rL-uES">
-                                <rect key="frame" x="170" y="66" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" image="BtnTwitter.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="twitterTapped:" destination="aE9-co-c1o" eventType="touchUpInside" id="j6K-PI-9Tq"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WSb-fZ-TIU">
-                                <rect key="frame" x="9" y="124" width="302" height="337"/>
+                                <rect key="frame" x="9" y="104" width="302" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -816,22 +794,42 @@
                                 <rect key="frame" x="119" y="12" width="82" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOK-zK-edI">
+                                <rect key="frame" x="100" y="65" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" image="BtnFacebook.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="faceBookTapped:" destination="aE9-co-c1o" eventType="touchUpInside" id="ykV-jm-vUp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRl-rL-uES">
+                                <rect key="frame" x="170" y="66" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" image="BtnTwitter.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="twitterTapped:" destination="aE9-co-c1o" eventType="touchUpInside" id="j6K-PI-9Tq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="WSb-fZ-TIU" firstAttribute="top" secondItem="inB-z9-lqz" secondAttribute="top" constant="104" id="2G8-Q8-JPb"/>
+                            <constraint firstAttribute="trailing" secondItem="WSb-fZ-TIU" secondAttribute="trailing" constant="9" id="DSR-fg-Q9q"/>
                             <constraint firstItem="t3b-MK-baY" firstAttribute="top" secondItem="NIM-5c-pHx" secondAttribute="bottom" constant="10" id="Hf1-Q4-Imy"/>
-                            <constraint firstItem="WSb-fZ-TIU" firstAttribute="leading" secondItem="inB-z9-lqz" secondAttribute="leading" constant="9" id="UW5-SK-cNh"/>
+                            <constraint firstItem="t3b-MK-baY" firstAttribute="top" secondItem="WSb-fZ-TIU" secondAttribute="bottom" constant="48" id="V5R-ad-lJc"/>
                             <constraint firstAttribute="trailing" secondItem="NIM-5c-pHx" secondAttribute="trailing" constant="8" id="WUU-Gv-ATJ"/>
                             <constraint firstItem="4pa-f8-tQZ" firstAttribute="leading" secondItem="inB-z9-lqz" secondAttribute="leading" constant="10" id="aCk-Fd-SNF"/>
                             <constraint firstAttribute="trailing" secondItem="CVP-rG-pWf" secondAttribute="trailing" id="blR-Mj-cCX"/>
                             <constraint firstItem="t3b-MK-baY" firstAttribute="top" secondItem="CVP-rG-pWf" secondAttribute="bottom" id="bsg-oL-gx5"/>
-                            <constraint firstAttribute="bottom" secondItem="WSb-fZ-TIU" secondAttribute="bottom" constant="107" id="cTK-3E-CU9"/>
                             <constraint firstItem="t3b-MK-baY" firstAttribute="top" secondItem="4pa-f8-tQZ" secondAttribute="bottom" constant="10" id="fnC-VP-UWG"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WSb-fZ-TIU" secondAttribute="trailing" constant="9" id="gF5-k3-2UK"/>
                             <constraint firstItem="CVP-rG-pWf" firstAttribute="leading" secondItem="inB-z9-lqz" secondAttribute="leading" id="ilr-TS-TsL"/>
-                            <constraint firstAttribute="trailing" secondItem="WSb-fZ-TIU" secondAttribute="trailing" constant="9" id="m2V-2d-D8A"/>
-                            <constraint firstItem="WSb-fZ-TIU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="inB-z9-lqz" secondAttribute="leading" constant="9" id="vHE-1l-kLd"/>
-                            <constraint firstItem="WSb-fZ-TIU" firstAttribute="top" secondItem="inB-z9-lqz" secondAttribute="top" constant="124" id="vto-Qn-Y0N"/>
+                            <constraint firstItem="WSb-fZ-TIU" firstAttribute="leading" secondItem="inB-z9-lqz" secondAttribute="leading" constant="9" id="kil-ZG-aNk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fiD-X4-0RA"/>
