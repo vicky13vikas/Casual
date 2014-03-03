@@ -67,13 +67,13 @@
   UITabBarItem *item1 = [tabBar.items objectAtIndex:1];
   UITabBarItem *item2 = [tabBar.items objectAtIndex:2];
   UITabBarItem *item3 = [tabBar.items objectAtIndex:3];
-  UITabBarItem *item4 = [tabBar.items objectAtIndex:4];
+//  UITabBarItem *item4 = [tabBar.items objectAtIndex:4];
   
   [item0 setFinishedSelectedImage:selectedImage0 withFinishedUnselectedImage:unselectedImage0];
   [item1 setFinishedSelectedImage:selectedImage1 withFinishedUnselectedImage:unselectedImage1];
   [item2 setFinishedSelectedImage:selectedImage2 withFinishedUnselectedImage:unselectedImage2];
   [item3 setFinishedSelectedImage:selectedImage3 withFinishedUnselectedImage:unselectedImage3];
-  [item4 setFinishedSelectedImage:selectedImage4 withFinishedUnselectedImage:unselectedImage4];
+//  [item4 setFinishedSelectedImage:selectedImage4 withFinishedUnselectedImage:unselectedImage4];
   
     
     item0.image = unselectedImage0;
@@ -88,14 +88,14 @@
     item3.image = unselectedImage3;
     item3.selectedImage = selectedImage3;
     
-    item4.image = unselectedImage4;
-     item4.selectedImage = selectedImage4;
+//    item4.image = unselectedImage4;
+//    item4.selectedImage = selectedImage4;
   
   item0.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
   item1.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
   item2.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
   item3.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
-  item4.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+//  item4.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
   
   if ([tabBar respondsToSelector:@selector(setBackgroundImage:)])
   {

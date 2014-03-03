@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (strong, nonatomic) UIImagePickerController *cameraPicker;
+@property (weak, nonatomic) IBOutlet UIImageView *QRCodeImageView;
 
 
 - (IBAction)backButtonClicked:(id)sender;
@@ -76,6 +77,19 @@
     
     NSString *imageURL = [NSString stringWithFormat:@"%@%@",IMAGE_SERVER_URL, [currentUser objectForKey:@"image_name"]];
     _userImageView.imageURL = [NSURL URLWithString:imageURL];
+    
+    NSString *data = [currentUser objectForKey:@"unique_id"];
+    if (data && ![data isEqualToString:@""]) {
+        
+        ZXMultiFormatWriter *writer = [[ZXMultiFormatWriter alloc] init];
+        ZXBitMatrix *result = [writer encode:data format:kBarcodeFormatQRCode width:self.QRCodeImageView.frame.size.width height:self.QRCodeImageView.frame.size.width error:nil];
+        if (result) {
+            self.QRCodeImageView.image = [UIImage imageWithCGImage:[ZXImage imageWithMatrix:result].cgimage];
+        } else {
+            self.QRCodeImageView.image = nil;
+        }
+    }
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -128,7 +142,7 @@
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    [self.scrollView setContentSize:CGSizeMake(_scrollView.frame.size.width, 580)];
+    [self.scrollView setContentSize:CGSizeMake(_scrollView.frame.size.width, 710)];
 }
 
 -(void)setIntialButtonStates

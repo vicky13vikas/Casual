@@ -22,7 +22,6 @@
                         <segue destination="RVp-JM-gSj" kind="relationship" relationship="viewControllers" id="c42-WO-PSr"/>
                         <segue destination="1vn-tQ-UFp" kind="relationship" relationship="viewControllers" id="iY3-ST-vn6"/>
                         <segue destination="wpk-3i-gPo" kind="relationship" relationship="viewControllers" id="dTt-50-ha8"/>
-                        <segue destination="MJb-5u-4de" kind="relationship" relationship="viewControllers" id="UNc-ox-CCk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wgT-M9-O6V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -331,7 +330,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v58-dV-dTa">
-                                        <rect key="frame" x="0.0" y="387" width="320" height="50"/>
+                                        <rect key="frame" x="0.0" y="518" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BtnFacebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qle-um-1CI">
@@ -368,7 +367,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UFR-Ql-kmK">
-                                        <rect key="frame" x="10" y="100" width="301" height="290"/>
+                                        <rect key="frame" x="10" y="231" width="301" height="290"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yOH-qa-heu">
@@ -505,12 +504,16 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userPlaceHolder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="vwp-W3-Fjf" customClass="AsyncImageView">
-                                        <rect key="frame" x="120" y="12" width="80" height="80"/>
+                                        <rect key="frame" x="120" y="143" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="LaQ-up-vI4" appends="YES" id="2QR-sW-tOb"/>
                                         </connections>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Qq-ks-EGl">
+                                        <rect key="frame" x="95" y="5" width="130" height="130"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                             </scrollView>
@@ -530,6 +533,7 @@
                     <navigationItem key="navigationItem" id="HIW-t1-5jC"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="QRCodeImageView" destination="8Qq-ks-EGl" id="uot-LB-OEe"/>
                         <outlet property="btnFacebookSwitch" destination="94Q-iu-ZpD" id="Amk-sc-hhH"/>
                         <outlet property="btnTwitterSwitch" destination="BPf-Qt-l0X" id="bhf-7k-E1Z"/>
                         <outlet property="scrollView" destination="enf-xl-6gK" id="B0M-ft-P7o"/>
@@ -889,7 +893,7 @@
                                     <action selector="logoutTapped:" destination="hi7-WX-CEo" eventType="touchUpInside" id="kHE-Gg-U7V"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lyj-yf-hf5">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lyj-yf-hf5">
                                 <rect key="frame" x="0.0" y="62" width="320" height="457"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
