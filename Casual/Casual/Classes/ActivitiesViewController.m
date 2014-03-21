@@ -235,6 +235,7 @@
     NSArray *screenName = [result valueForKeyPath:@"user.screen_name"];
     NSArray *profileImageUrl = [result valueForKeyPath:@"user.profile_image_url"];
     NSArray *dateString = [result valueForKey:@"created_at"];
+    NSArray *imageURLs = [[[result valueForKey:@"entities"] valueForKey:@"media"] valueForKey:@"media_url"];
     
     [messageList removeAllObjects];
     
@@ -242,9 +243,16 @@
     {
         NSMutableDictionary *twitterDetail = [[NSMutableDictionary alloc] init];
         
-        if(text[i])
+        if(text[i] || imageURLs[i])
         {
-            [twitterDetail setObject:text[i] forKey:@"status"];
+            if(text[i])
+            {
+                [twitterDetail setObject:text[i] forKey:@"status"];
+            }
+            if(imageURLs[i])
+            {
+                [twitterDetail setObject:imageURLs[i] forKey:@"picture"];
+            }
             [twitterDetail setObject:screenName[i] forKey:@"screenName"];
             [twitterDetail setObject:profileImageUrl[i] forKey:@"imageURL_OR_ID"];
             [twitterDetail setObject:dateString[i] forKey:@"date"];
