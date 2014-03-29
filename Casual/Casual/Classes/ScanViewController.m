@@ -42,6 +42,24 @@
 	// Do any additional setup after loading the view.
 
     [self scanQRCode];
+    [self getLoginDetails];
+}
+
+-(void)getLoginDetails
+{
+    NSDictionary *currentUser = [[NSUserDefaults standardUserDefaults] valueForKey:LOGGEDIN_USER_DETAILS];
+    
+    NSString *data = [currentUser objectForKey:@"unique_id"];
+    if (data && ![data isEqualToString:@""]) {
+        
+        ZXMultiFormatWriter *writer = [[ZXMultiFormatWriter alloc] init];
+        ZXBitMatrix *result = [writer encode:data format:kBarcodeFormatQRCode width:self.qrImageView.frame.size.width height:self.qrImageView.frame.size.width error:nil];
+        if (result) {
+            self.qrImageView.image = [UIImage imageWithCGImage:[ZXImage imageWithMatrix:result].cgimage];
+        } else {
+            self.qrImageView.image = nil;
+        }
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated

@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnFacebook;
 @property (weak, nonatomic) IBOutlet UIButton *btnTwitter;
 @property (weak, nonatomic) IBOutlet AsyncImageView *userProfileImage;
+@property (weak, nonatomic) IBOutlet UIImageView *qrImageView;
 
 @end
 
@@ -137,6 +138,18 @@
     
     NSString *imageURL = [NSString stringWithFormat:@"%@%@",IMAGE_SERVER_URL, [currentUser objectForKey:@"image_name"]];
     _userProfileImage.imageURL = [NSURL URLWithString:imageURL];
+    
+    NSString *data = [currentUser objectForKey:@"unique_id"];
+    if (data && ![data isEqualToString:@""]) {
+        
+        ZXMultiFormatWriter *writer = [[ZXMultiFormatWriter alloc] init];
+        ZXBitMatrix *result = [writer encode:data format:kBarcodeFormatQRCode width:self.qrImageView.frame.size.width height:self.qrImageView.frame.size.width error:nil];
+        if (result) {
+            self.qrImageView.image = [UIImage imageWithCGImage:[ZXImage imageWithMatrix:result].cgimage];
+        } else {
+            self.qrImageView.image = nil;
+        }
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated
