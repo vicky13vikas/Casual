@@ -139,7 +139,7 @@
 {
     if ([[NSUserDefaults standardUserDefaults] valueForKey:IS_FACEBOOK_ON])
     {
-        [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"me/feed?limit=200"] parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"me/home?limit=200"] parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
             [self hideLoadingScreen];
             if(!error)
             {
