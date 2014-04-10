@@ -18,7 +18,7 @@
                         <color key="selectedImageTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="JTJ-UK-dvN" kind="relationship" relationship="viewControllers" id="shq-Gu-k3W"/>
+                        <segue destination="MJb-5u-4de" kind="relationship" relationship="viewControllers" id="qZ1-jE-Y1T"/>
                         <segue destination="RVp-JM-gSj" kind="relationship" relationship="viewControllers" id="c42-WO-PSr"/>
                         <segue destination="1vn-tQ-UFp" kind="relationship" relationship="viewControllers" id="iY3-ST-vn6"/>
                         <segue destination="wpk-3i-gPo" kind="relationship" relationship="viewControllers" id="dTt-50-ha8"/>
@@ -40,7 +40,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="uHh-Qs-jOa">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="uHh-Qs-jOa">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
@@ -898,7 +898,7 @@
                                     <action selector="logoutTapped:" destination="hi7-WX-CEo" eventType="touchUpInside" id="kHE-Gg-U7V"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lyj-yf-hf5">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lyj-yf-hf5">
                                 <rect key="frame" x="0.0" y="62" width="320" height="457"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>

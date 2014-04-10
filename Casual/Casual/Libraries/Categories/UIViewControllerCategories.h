@@ -26,4 +26,6 @@
 -(void)removeFacebook;
 -(void)removeTwitter;
 
+-(void) initBottombarUI;
+
 @end
