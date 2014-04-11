@@ -53,6 +53,8 @@
             cell.FBProfilePicView.hidden = YES;
             cell.profileImageView.imageURL = [NSURL URLWithString:[cellData objectForKey:@"imageURL_OR_ID"]];
             cell.messageLabel.text = [cellData objectForKey:@"status"];
+            cell.postImageView.hidden = YES;
+            cell.messageLabel.hidden = NO;
         }
         
         cell.lblDate.text = [self getParsedDateFromString:[cellData objectForKey:@"date"]];
@@ -86,6 +88,8 @@
             cell.FBProfilePicView.hidden = YES;
             cell.profileImageView.imageURL = [NSURL URLWithString:[cellData objectForKey:@"imageURL_OR_ID"]];
             cell.messageLabel.text = [cellData objectForKey:@"status"];
+            cell.postImageView.hidden = YES;
+            cell.messageLabel.hidden = NO;
         }
         
         cell.lblDate.text = [self getParsedDateFromString:[cellData objectForKey:@"date"]];

@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "SignUpViewController.h"
-#import "TestFlight.h"
 
 @implementation AppDelegate
 
@@ -23,7 +22,6 @@
 
     
     // Override point for customization after application launch.
-    [TestFlight takeOff:@"c9307895-8ab9-4fb0-8414-b43c2af349d2"];
     
     return YES;
 }

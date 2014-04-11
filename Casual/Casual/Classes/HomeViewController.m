@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnFacebook;
 @property (weak, nonatomic) IBOutlet UIButton *btnTwitter;
 @property (weak, nonatomic) IBOutlet AsyncImageView *userProfileImage;
+@property (weak, nonatomic) IBOutlet UIImageView *qrImageView;
 
 @end
 
@@ -67,13 +68,13 @@
   UITabBarItem *item1 = [tabBar.items objectAtIndex:1];
   UITabBarItem *item2 = [tabBar.items objectAtIndex:2];
   UITabBarItem *item3 = [tabBar.items objectAtIndex:3];
-  UITabBarItem *item4 = [tabBar.items objectAtIndex:4];
+//  UITabBarItem *item4 = [tabBar.items objectAtIndex:4];
   
   [item0 setFinishedSelectedImage:selectedImage0 withFinishedUnselectedImage:unselectedImage0];
   [item1 setFinishedSelectedImage:selectedImage1 withFinishedUnselectedImage:unselectedImage1];
   [item2 setFinishedSelectedImage:selectedImage2 withFinishedUnselectedImage:unselectedImage2];
   [item3 setFinishedSelectedImage:selectedImage3 withFinishedUnselectedImage:unselectedImage3];
-  [item4 setFinishedSelectedImage:selectedImage4 withFinishedUnselectedImage:unselectedImage4];
+//  [item4 setFinishedSelectedImage:selectedImage4 withFinishedUnselectedImage:unselectedImage4];
   
     
     item0.image = unselectedImage0;
@@ -88,14 +89,14 @@
     item3.image = unselectedImage3;
     item3.selectedImage = selectedImage3;
     
-    item4.image = unselectedImage4;
-     item4.selectedImage = selectedImage4;
+//    item4.image = unselectedImage4;
+//    item4.selectedImage = selectedImage4;
   
   item0.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
   item1.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
   item2.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
   item3.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
-  item4.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+//  item4.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
   
   if ([tabBar respondsToSelector:@selector(setBackgroundImage:)])
   {
@@ -137,6 +138,18 @@
     
     NSString *imageURL = [NSString stringWithFormat:@"%@%@",IMAGE_SERVER_URL, [currentUser objectForKey:@"image_name"]];
     _userProfileImage.imageURL = [NSURL URLWithString:imageURL];
+    
+    NSString *data = [currentUser objectForKey:@"unique_id"];
+    if (data && ![data isEqualToString:@""]) {
+        
+        ZXMultiFormatWriter *writer = [[ZXMultiFormatWriter alloc] init];
+        ZXBitMatrix *result = [writer encode:data format:kBarcodeFormatQRCode width:self.qrImageView.frame.size.width height:self.qrImageView.frame.size.width error:nil];
+        if (result) {
+            self.qrImageView.image = [UIImage imageWithCGImage:[ZXImage imageWithMatrix:result].cgimage];
+        } else {
+            self.qrImageView.image = nil;
+        }
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated

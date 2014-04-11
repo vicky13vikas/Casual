@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Voy-eV-7Ve">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Voy-eV-7Ve">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
@@ -18,11 +18,10 @@
                         <color key="selectedImageTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="JTJ-UK-dvN" kind="relationship" relationship="viewControllers" id="shq-Gu-k3W"/>
+                        <segue destination="MJb-5u-4de" kind="relationship" relationship="viewControllers" id="qZ1-jE-Y1T"/>
                         <segue destination="RVp-JM-gSj" kind="relationship" relationship="viewControllers" id="c42-WO-PSr"/>
                         <segue destination="1vn-tQ-UFp" kind="relationship" relationship="viewControllers" id="iY3-ST-vn6"/>
                         <segue destination="wpk-3i-gPo" kind="relationship" relationship="viewControllers" id="dTt-50-ha8"/>
-                        <segue destination="MJb-5u-4de" kind="relationship" relationship="viewControllers" id="UNc-ox-CCk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wgT-M9-O6V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -41,7 +40,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="uHh-Qs-jOa">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="uHh-Qs-jOa">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
@@ -76,7 +75,7 @@
                                 <rect key="frame" x="10" y="18" width="69" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <state key="normal" title="Logout" backgroundImage="backButton.png">
+                                <state key="normal" title="Back" backgroundImage="backButton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -129,7 +128,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Qj-3x-xqb">
-                                <rect key="frame" x="20" y="170" width="280" height="121"/>
+                                <rect key="frame" x="20" y="198" width="280" height="93"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -169,6 +168,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IzL-ee-EIt">
+                                <rect key="frame" x="180" y="66" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -188,6 +191,7 @@
                         <outlet property="btnTwitter" destination="xEN-yz-mv3" id="0HT-5i-XF7"/>
                         <outlet property="lblMutualScans" destination="Ecg-p7-2xS" id="7y1-4D-2Zx"/>
                         <outlet property="lblTotalScans" destination="FXC-wZ-XAj" id="HhG-ms-32p"/>
+                        <outlet property="qrImageView" destination="IzL-ee-EIt" id="iVb-RW-5Aa"/>
                         <outlet property="tvAddress" destination="2Qj-3x-xqb" id="qAk-l8-l0o"/>
                         <outlet property="userProfileImage" destination="EMQ-CE-rYx" id="Qzv-cR-jbZ"/>
                     </connections>
@@ -235,7 +239,7 @@
                                 <rect key="frame" x="10" y="18" width="66" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <state key="normal" title="Logout" backgroundImage="backButton.png">
+                                <state key="normal" title="Back" backgroundImage="backButton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -331,7 +335,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v58-dV-dTa">
-                                        <rect key="frame" x="0.0" y="387" width="320" height="50"/>
+                                        <rect key="frame" x="0.0" y="518" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BtnFacebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qle-um-1CI">
@@ -368,7 +372,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UFR-Ql-kmK">
-                                        <rect key="frame" x="10" y="100" width="301" height="290"/>
+                                        <rect key="frame" x="10" y="231" width="301" height="290"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yOH-qa-heu">
@@ -505,12 +509,16 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userPlaceHolder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="vwp-W3-Fjf" customClass="AsyncImageView">
-                                        <rect key="frame" x="120" y="12" width="80" height="80"/>
+                                        <rect key="frame" x="120" y="143" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="LaQ-up-vI4" appends="YES" id="2QR-sW-tOb"/>
                                         </connections>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Qq-ks-EGl">
+                                        <rect key="frame" x="95" y="5" width="130" height="130"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                             </scrollView>
@@ -530,6 +538,7 @@
                     <navigationItem key="navigationItem" id="HIW-t1-5jC"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="QRCodeImageView" destination="8Qq-ks-EGl" id="uot-LB-OEe"/>
                         <outlet property="btnFacebookSwitch" destination="94Q-iu-ZpD" id="Amk-sc-hhH"/>
                         <outlet property="btnTwitterSwitch" destination="BPf-Qt-l0X" id="bhf-7k-E1Z"/>
                         <outlet property="scrollView" destination="enf-xl-6gK" id="B0M-ft-P7o"/>
@@ -594,7 +603,7 @@
                                 <rect key="frame" x="10" y="18" width="66" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <state key="normal" title="Logout" backgroundImage="backButton.png">
+                                <state key="normal" title="Back" backgroundImage="backButton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -881,7 +890,7 @@
                                 <rect key="frame" x="10" y="18" width="66" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <state key="normal" title="Logout" backgroundImage="backButton.png">
+                                <state key="normal" title="Back" backgroundImage="backButton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1374,7 +1383,7 @@
                                 <rect key="frame" x="10" y="18" width="66" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <state key="normal" title="Logout" backgroundImage="backButton.png">
+                                <state key="normal" title="Back" backgroundImage="backButton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -2388,6 +2397,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="PdD-iF-bf3"/>
+        <segue reference="WkD-QI-loW"/>
     </inferredMetricsTieBreakers>
 </document>

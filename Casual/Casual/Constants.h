@@ -8,9 +8,10 @@
 
 
 //#define SERVER_URL @"http://198.1.74.28/~spaniac1/casual/"
-#define SERVER_URL @"http://casual.hostcone.com/casual/"
+//#define SERVER_URL @"http://casual.hostcone.com/casual/"
+#define SERVER_URL @"http://channels.cloudapp.net/casual/"
 
-#define IMAGE_SERVER_URL @"http://casual.hostcone.com/casual/img/"
+#define IMAGE_SERVER_URL @"http://channels.cloudapp.net/casual/img/"
 
 #define ALERT_TITLE @"Casual"
 #define ALERT_OK @"OK"

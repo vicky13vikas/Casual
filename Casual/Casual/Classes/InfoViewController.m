@@ -53,6 +53,8 @@
     }
     else
         isLoggedinUser = YES;
+    
+    [self initBottombarUI];
 }
 
 -(void)viewWillAppear:(BOOL)animated
