@@ -61,7 +61,7 @@
 
 - (IBAction)logoutTapped:(id)sender
 {
-    [self logout];
+    [self.tabBarController setSelectedIndex:0];
 }
 
 #pragma -mark UItableViewdatasource

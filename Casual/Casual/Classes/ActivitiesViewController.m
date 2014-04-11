@@ -90,7 +90,7 @@
 
 - (IBAction)logoutTapped:(id)sender
 {
-    [self logout];
+    [self.tabBarController setSelectedIndex:0];
 }
 
 - (IBAction)faceBookTapped:(id)sender
