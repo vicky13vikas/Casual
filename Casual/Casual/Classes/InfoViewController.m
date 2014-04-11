@@ -8,6 +8,7 @@
 
 #import "InfoViewController.h"
 #import "AsyncImageView.h"
+#import "PostViewController.h"
 
 @interface InfoViewController ()
 {
@@ -27,6 +28,9 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet AsyncImageView *userImageView;
 @property (weak, nonatomic) IBOutlet UIButton *btnLogout;
+
+@property (strong, nonatomic) IBOutlet UILabel *lblTotalScans;
+@property (strong, nonatomic) IBOutlet UILabel *lblMutualScans;
 
 @end
 
@@ -78,7 +82,7 @@
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    [self.scrollView setContentSize:CGSizeMake(_scrollView.frame.size.width, 568)];
+    [self.scrollView setContentSize:CGSizeMake(_scrollView.frame.size.width, 568+180)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -99,6 +103,29 @@
 {
     NSDictionary *currentUser = [[NSUserDefaults standardUserDefaults] valueForKey:LOGGEDIN_USER_DETAILS];
     
+    NSString *totalScans = [currentUser objectForKey:@"scan_count"];
+    NSString *mutualScans = [currentUser objectForKey:@"mutualScans"];
+    
+    int savedScanCount = [[[NSUserDefaults standardUserDefaults] valueForKey:LOCAL_SCANNED_COUNT] integerValue];
+    int totalNoOfScans = [totalScans integerValue] + savedScanCount;
+    
+    if(totalScans && ![totalScans isEqualToString:@""])
+    {
+        _lblTotalScans.text = [NSString stringWithFormat:@"%d",totalNoOfScans];
+    }
+    else
+    {
+        _lblTotalScans.text = @"0";
+    }
+    
+    if(mutualScans && ![mutualScans isEqualToString:@""])
+    {
+        _lblMutualScans.text = mutualScans;
+    }
+    else
+    {
+        _lblMutualScans.text = @"0";
+    }
 
     _tfNutshell.text = [currentUser objectForKey:@"bio"];
     _tfSchool.text = [currentUser objectForKey:@"school"];
@@ -205,6 +232,15 @@
     [userDetailsString appendFormat:@"\n\n Phone Number  :  %@", [currentUser objectForKey:@"phnumber"]];
     [userDetailsString appendFormat:@"\n\n Location  :  %@", [currentUser objectForKey:@"location"]];
 
+}
+
+#pragma -mark IBActions
+
+- (IBAction)btnFacebookTwitterTapped:(id)sender
+{
+    PostViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"PostViewController"];
+    vc.isFromhistory = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
