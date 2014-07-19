@@ -1209,7 +1209,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Manish Bhatia (W3ABFKTGD2)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Casual Solutions LLC (A3W539C4C3)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Volumes/Development/Development/FreelancerDropBox/Harshad/Github/Casual/Casual/Casual/FrameWorks,
@@ -1234,7 +1234,7 @@
 					"/Volumes/Development\\ 1/Development/FreelancerDropBox/Harshad/Github/Casual/Casual/TestFlightSDK3.0.0",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "546E51B3-67CD-4495-95F8-D60C0B92C8A0";
+				PROVISIONING_PROFILE = "04236044-4E25-4453-8F4F-60EF649C6CD4";
 				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1247,7 +1247,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Manish Bhatia (W3ABFKTGD2)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Casual Solutions LLC (A3W539C4C3)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Volumes/Development/Development/FreelancerDropBox/Harshad/Github/Casual/Casual/Casual/FrameWorks,
@@ -1272,7 +1272,7 @@
 					"/Volumes/Development\\ 1/Development/FreelancerDropBox/Harshad/Github/Casual/Casual/TestFlightSDK3.0.0",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "546E51B3-67CD-4495-95F8-D60C0B92C8A0";
+				PROVISIONING_PROFILE = "04236044-4E25-4453-8F4F-60EF649C6CD4";
 				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
