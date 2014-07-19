@@ -104,6 +104,33 @@
   return parameters;
 }
 
+-(NSDictionary*)checkResponseForNull:(NSDictionary*)response
+{
+    NSMutableArray *keys = [NSMutableArray arrayWithArray:[response allKeys]];
+    NSMutableArray *values = [NSMutableArray arrayWithArray:[response allValues]];
+    
+    for (int i = 0; i < keys.count ; i++)
+    {
+        id key = keys[i];
+        if ([key isKindOfClass:[NSNull class]])
+        {
+            [keys replaceObjectAtIndex:i withObject:@""];
+        }
+    }
+    for (int i = 0; i < values.count ; i++)
+    {
+        id value = values[i];
+        if ([value isKindOfClass:[NSNull class]])
+        {
+            [values replaceObjectAtIndex:i withObject:@""];
+        }
+    }
+    
+    NSDictionary *updatedDictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+    return updatedDictionary;
+}
+
+
 -(void)sendRLoginRequest
 {
   NSString *url = [NSString stringWithFormat:@"%@login.php",SERVER_URL];
@@ -128,7 +155,8 @@
     }
     else if ([[response objectForKey:@"status"] integerValue] == 1)
     {
-        [[NSUserDefaults standardUserDefaults] setObject:response forKey:LOGGEDIN_USER_DETAILS];
+        NSDictionary *updatedResponse = [self checkResponseForNull:response];
+        [[NSUserDefaults standardUserDefaults] setObject:updatedResponse forKey:LOGGEDIN_USER_DETAILS];
         if(_swtRememberMe.isOn)
         {
             [[NSUserDefaults standardUserDefaults] setObject:_tfUsername.text forKey:SAVED_USER_NAME];
