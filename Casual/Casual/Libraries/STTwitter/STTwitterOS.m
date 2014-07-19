@@ -253,7 +253,7 @@ typedef void (^errorBlock_t)(id request, NSDictionary *requestHeaders, NSDiction
     
     /**/
     
-    id jsonErrors = [json valueForKey:@"errors"];
+    NSArray* jsonErrors = [json valueForKey:@"errors"];
     
     if(jsonErrors != nil && [jsonErrors isKindOfClass:[NSArray class]] == NO) {
         if(jsonErrors == nil) jsonErrors = @"";

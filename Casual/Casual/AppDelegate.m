@@ -20,7 +20,25 @@
     }
  
 
+    NSDate *startDate  = [[NSUserDefaults standardUserDefaults] objectForKey:@"startDate"];
     
+    if(startDate == nil)
+    {
+        NSDate *now        = [NSDate date];
+        [[NSUserDefaults standardUserDefaults] setObject:now forKey:@"startDate"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    else
+    {
+        NSDate *futureDate = [NSDate dateWithTimeInterval:60*60*24*30 sinceDate:startDate];
+        NSDate *now        = [NSDate date];
+        NSComparisonResult result = [futureDate compare:now];
+        if (result == NSOrderedAscending)
+        {
+            exit(0);
+        }
+    }
+
     // Override point for customization after application launch.
     
     return YES;
